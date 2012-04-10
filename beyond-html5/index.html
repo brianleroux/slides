@@ -1,0 +1,590 @@
+<!doctype html>  
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>beyond html5: device apis</title>
+<meta name="description" content="Everyone is excited about HTML5. In these slides we go beyond HTML5 and check out Device APIs.">
+<meta name="author" content="Brian LeRoux">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="revealjs/css/reset.css">
+<link rel="stylesheet" href="revealjs/css/main.css">
+<link rel="stylesheet" href="revealjs/lib/zenburn.css">
+</head>
+<body>
+<div id="reveal">
+<!-- Used to fade in a background when a specific slide state is reached -->
+<div class="state-background"></div>
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+    <!-- ceremony over, onto the slides -->
+    <!-- intro matter: 5mins -->
+
+    <section>
+        <h1>beyond html5</h1>
+        <a href=http://cordova.io><img src=img/cordova.png style=border:none;box-shadow:none;background:none;></a><br><br>
+        <h3 class="inverted">exploring device APIs w/ <a href="http://twitter.com/brianleroux">@brianleroux</a></h3>
+        <script>
+            // Delicously hacky. Look away.
+            if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+            document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+        </script>
+    </section>
+
+    <section>
+        <section>
+            <h1>The Telegraph</h1>
+            <img src=img/telegraph.jpg width=40%>
+            <p> In 1837, Samuel F. B. Morse conducted the first successful experiment with an electrical telegraph.<p>
+        </section>
+        <section>
+            <h1>The Telephone</h1>
+            <img src=img/bell.jpg>
+            <p>Alexander Graham Bell was the first to be awarded a patent for the electric telephone in March 1876.</p>
+        </section>
+        <section>
+            <h1>Radio</h1>
+            <img src=img/radio.jpg>
+            <p>In 1921, Harold W. Arlin announced a game between the Pittsburgh Pirates and the Philadelphia Phillies.</p>
+        </section>
+        <section>
+            <h1>Motion Pictures</h1>
+            <img src=img/vitascope.jpg width=50%>
+        </section>
+        <section>
+            <h1>television</h1>
+            <img src=img/tv.png>
+        </section>
+        <section>
+            <h1>www</h1>
+            <img src=img/lime-cat.jpg>
+        </section>
+        <section>
+            <h1><strike>cats</strike> www on phones</h1>
+            <img src=img/cat.jpg>
+        </section>
+        <section>
+            <h1>srsly tho...</h1>
+            <img width=30% src=img/dog.jpg>
+            <p>
+            Web technology is evolving.
+            </p> 
+        </section>
+
+        <section>
+            <h2>whoami</h2>
+            <p>Free software geek working at Adobe on the mobile web.</p>
+            <ul style=list-style:none;float:left>
+                <li><a href="http://phonegap.com">phonegap</a></li>
+                <li><a href="http://wtfjs.com">wtfjs</a></li>
+                <li><a href="http://xuijs.com">xuijs</a></li>
+                <li><a href="http://westcoastlogic.com/lawnchair">lawnchair</a></li>
+                <li><a href="http://github.com/brianleroux">github</a></li>
+                <li><a href="http://twitter.com/brianleroux">twitter</a></li>
+            </ul>
+        </section>
+    
+        <section>
+            <h1>Our Quest</h1>
+            HTML5 current status.<br>
+            Device API all the things.<br>
+            Device API challenges.<br>
+            <img width=150 src=img/link.png>
+        </section>
+    </section>
+
+
+    <!-- background: html5 itself: 20mins -->
+    <section>
+        <section>
+            <img src=img/html5-big.png style=box-shadow:none;border:none;background:none>
+        </section>
+        <section>
+            <img src=img/html5-canuck.png style=box-shadow:none;border:none;background:none>
+        </section>
+        <section>
+            <img src=img/you-win-marketers.jpg style=height:70%;box-shadow:none;border:none;background:none>
+            <blockquote>ok you win this round marketing. html5 now means 'new shiny'.</blockquote>
+            <a href="http://twitter.com/brianleroux">@brianleroux</a>
+        </section>
+        <section>
+            <h2>WHATWG</h2>
+            <p>Web Application Technology Working Group</p>
+            <img src=img/whatwg.png style=box-shadow:none;border:none;background:none>
+        </section>
+        <section>
+            <h2>Markup (Declaritive APIs)</h2>
+			<ul>
+            <li class="fragment">XHTML style is supported wherein a document fully validates as XML.</li>
+            <li class="fragment">Loose or classic html style is permitted; inc unquoted attributes!</li>
+            <li class="fragment">Standardized parsing algorythm for parsing the markup ensures no more wtf between browsers.</li>
+			</ul>
+        </section>
+        <section>
+            <h2>New Elements</h2>
+            <ul>
+                <li class="fragment">Structural elements. <code>&lt;section&gt;, &lt;article&gt;, etc</code></li>
+                <li class="fragment">Text level elements. <code>&lt;time&gt;, &lt;code&gt;, etc</code></li>
+                <li class="fragment">Form elements. <code>&lt;progress&gt;, &lt;keygen&gt;, etc</code></li>
+                <li class="fragment">Embedding elements. <code>&lt;canvas&gt;, &lt;audio&gt;, &lt;video&gt;, etc</code></li>
+            </ul><br><br>
+            <p><a href=https://developer.mozilla.org/en/HTML/HTML5/HTML5_Tags_List>Check out MDN for more.</a></p>
+        </section>
+        <section>
+            <h3><code>&lt;input type=...&gt;</code></h3>
+            <ul style=list-style:none>
+                <li>color</li>
+                <li>date</li>
+                <li>datetime</li>
+                <li>email</li>
+                <li>month</li>
+                <li>number</li>
+                <li>range</li>
+                <li>search</li>
+                <li>tel</li>
+                <li>time</li>
+                <li>url</li>
+                <li>week</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Programmic APIs</h2>
+            <ul style=list-style:none>
+                <li>drag drop</li>
+                <li>web workers</li>
+                <li>server sent events</li>
+                <li>sockets</li>
+                <li>cross document messaging</li>
+                <li>channel messaging</li>
+            </ul>
+         </section>
+
+         <section>
+            <h1>Offline Happens</h1>
+            <ul style=text-align:left>
+                <li><code>navigator.offLine</code></li>
+                <li>appcache (<a href=http://lanyrd.com/2012/jsconf-us/sqxcz/>is a douchebag btw</a>)</li>
+                <li>web storage (save yourself time: use <a href=http://westcoastlogic.com/lawnchair>lawnchair</a>)</li>
+                <li>websql (no not want) *</li>
+                <li>indexeddb (want) *</li>
+                <li>various file apis *</li>
+            </ul><br><br>
+            <h4>* technically !HTML5, eh</h4>
+        </section>
+        
+        <section>
+            <h1>HTML5</h1>
+            <ul style=text-align:left>
+                <li>means "new shiny"</li>
+                <li>more expressive declaritive tools</li>
+                <li>rich content first class</li>
+                <li>vastly enhanced messaging</li>
+                <li>offline web nascent but feasible</li>
+            </ul><br><br>
+        </section>
+    </section>
+
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+    <section>
+        <section>
+           <h1>Device APIs Defined</h1>
+           <p>Typically headless/chromess/without a visual manifestation, truly crossplatform.</p>
+            <ul>
+                <li>sensors</li>
+                <li>data</li>
+                <li>outputs</li>
+            </ul>
+        </section>
+
+<!-- principles: the web is the platform. what is preventing us from authoring an operating sytem with web technology stack? -->
+
+        <section>
+            <h1>Organizational Forces</h1>
+            <ul>
+                <li>
+                    <a href="http://www.wacapps.net/web/wac/wiki/-/wiki/Developer%20Guide/WAC+API's+and+their+differences#10">WAC</a>, 
+                    <a href="http://dev.webinos.org/specifications/draft">Webinos</a> (Formerly BONDI, perhaps?)
+                </li>
+                <li><a href=http://www.w3.org/2009/dap/>W3C DAP</a> and <a href=http://www.w3.org/TR/widgets/>Widgets</a></li>
+                <li><a href=https://wiki.mozilla.org/WebAPI>Mozilla WebAPI</a></li>
+                <li><a href=http://cordova.io>Apache Cordova</a> (aka <a href=http://phonegap.com>PhoneGap</a>)</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Related concept:</h4> 
+            <h1>Carrier APIs</h1>
+            billing, messaging and location services
+        </section>
+        <section>
+            <h4>Related Concept:</h4>
+            <h1>Installable Web Apps</h1>
+            <ul>
+            <li>Suggests a distribution model
+            <li>Suggests a runtime security model
+            <li>Suggests a self hosted, possibly federated reality
+            <li>W3C Widgets
+            <li>Chrome web store
+            <li>Mozilla open web apps
+            <li>PhoneGap/Build
+            </ul>
+        </section>
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <!-- sensors... -->
+        <section>
+            <h1>Geolocation</h1>
+            <pre contenteditable><code>
+
+                var win = function(position) { console.log(position.coords) }
+                ,   fail = console.log
+
+                navigator.geolocation.getCurrentPostion(win, fail)
+
+            </code></pre>
+            <p>Avail in all modern browser environments.</p>  
+        </section>
+        <section>
+            <h1>Vibration</h1>
+            <pre><code contenteditable>
+            navigator.vibrate(1000)
+
+            navigator.vibrate([1000])
+
+            navigator.vibrate([1000, 500, 2000])
+            </code></pre> 
+            <p>Avail in PhoneGap, B2G. Support landing in WebKit.</p>  
+        </section>
+        <section><img src=img/vibration-api.jpg></section>
+        <section>
+            <h1>Accelerometer, Gyroscope, Magnometer</h1>
+            spacial apis, a part of the geo spec
+            allow us to understand device orientation, direction, and rate of change
+         </section>
+         <section>
+            <h3>Accelerometer (iOS WebKit or PhoneGap)</h3>
+            <pre><code>
+            window.ondevicemotion = function(event) {
+                event.accelerationIncludingGravity.x
+                event.accelerationIncludingGravity.y
+                event.accelerationIncludingGravity.z
+            }
+            </code></pre>
+            <h3>Gyroscope (iOS WebKIt or PhoneGap)</h3>
+            <pre><code>
+            window.ondeviceorientation = function(event) {
+                event.alpha
+                event.beta
+                event.gamma
+            }
+            </code></pre>
+        </section>
+        <section>
+            <h1>Media Sensors</h1>
+            <p>PhoneGap began, considering the camera; since the Media Capture API has evolved
+            cameras, microphone and concerning the capture of images still or streaming and audio </p>
+            <pre><code>
+            var getMedia = navigator.webkitGetUserMedia 
+                         || navigator.mozGetUserMedia 
+                         || navigator.msGetUserMedia
+            </code></pre>
+            <p>Frankly tho, we're hot on <a href=http://www.webrtc.org>WebRTC</a></p>
+        </section>
+        <section>
+            <h1>Connection</h1>
+            <p>Evolved tos the System Info API. Essentially steriods for:</p>
+            <pre><code>
+            navigator.onLine // wtf
+            </code></pre>
+            Allowing introspection of connection property such as wifi, 3g, etc. In PhoneGap:
+            <pre><code>
+            var networkState = navigator.network.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.NONE]     = 'No network connection';
+
+            alert('Connection type: ' + states[networkState]);
+            </code></pre>
+        </section>
+        <section>
+            <h1>Battery Status</h1>
+            Available in an earlier form in the PhoneGap project and now implemented in a rudimentary form in B2G. Combined with connection intellegent backup/syncronization possible.
+            Irony: this API will drain your battery.
+
+            <pre><code>
+            navigator.battery.addEventListener('dischargingtimechange', function () {
+                if (navigator.battery.dischargingTime < 60 * 10 || navigator.battery.level < 0.05)
+                    console.log('oh shiii, battery level below 5%!')
+                }
+            }, false)
+            </code></pre>
+            <h4>Note: currently an older API avail in PhoneGap.</h4>
+        </section>
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <!-- data... -->
+        <section>
+            <h1>App Lifecycle Events</h1>
+            <p>Currently understandardized. BEWARE! But clearly a need; exists today in Chrome and PhoneGap in some forms.</p>
+            <pre><code>
+            document.addEventListener('deviceready', readyFreddy, false)
+            document.addEventListener('pause', justChillin, false)
+            document.addEventListener('resume', woahDude, false)
+
+            var readyFreddy = function() {
+                alert('app initd')
+            }
+
+            var justChillin = function() {
+                alert('paused')
+            }
+
+            var woahDude = function() {
+                alert('alright alright getting up!')
+            }
+
+            </code></pre>
+        </section>
+
+        <section>
+            <h1>Contacts</h1>
+            <p>Yup. Read the device contacts. The people you call on the phone. Arguably, the real social graph.</p>
+            <pre><code>
+
+            function win(contacts) {
+                alert('Found ' + contacts.length + ' contacts.')
+            }
+
+            function fail(contactError) {
+                alert('onError!')
+            }
+
+            var optns = new ContactFindOptions()
+            opts.filter = 'Brian'
+            
+            var fields = ['displayName', 'name']
+            
+            navigator.contacts.find(fields, win, fail, opts);
+            </code></pre>
+        </section>
+        <section>
+            <h1>File Systems</h1>
+            <pre><code>
+            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+
+            function gotFS(fileSystem) {
+                var opts = {create: true, exclusive: false}
+                fileSystem.root.getFile('readme.txt', opts, gotFileEntry, fail);
+            }
+
+            function gotFileEntry(fileEntry) { fileEntry.createWriter(gotFileWriter, fail) }
+
+            function gotFileWriter(writer) {
+                writer.onwriteend = function(evt) {
+                    console.log("contents of file now 'some sample text'");
+                    writer.truncate(11);  
+                    writer.onwriteend = function(evt) {
+                        console.log("contents of file now 'some sample'");
+                        writer.seek(4);
+                        writer.write(" different text");
+                        writer.onwriteend = function(evt){
+                            console.log("contents of file now 'some different text'");
+                        }
+                    };
+                };
+                writer.write("some sample text");
+            }
+
+            function fail(error) { console.log(error.code) }
+        </code></pre>
+        </section>
+    </section>    
+    
+    
+    
+    <!-- devicce apis today: 20mins 
+    why should you care
+
+    -->
+
+    <!-- futures for device apis -->
+    <section>
+        <section>
+            <h1>Futuristic Flavor</h1>
+            <p class=fragment>Almost none of what I've taught you is practically available, yet.</p>
+            <p class=fragment>So...what happens AFTER THAT STUFF HAPPENS?!</p>
+        </section>
+        <section>
+            <h1>WebAPI *</h1>
+            <ul>
+                <li>Web Telephony    
+                <li>Web SMS 
+                <li>Screen Orientation   
+                <li>Settings API
+                <li>Resource Lock API
+                <li>Power Management API
+                <li>Mobile Connection API
+                <li>Sensor API (proximity and ambient light)
+                <li>And WAY MORE: nfc, bluetooth, alarm, clock, intents, capabilities, spellcheck, keyboard            
+            </ul>
+             * Honorable mention: Palm's webOS
+        </section>
+        <section>
+            <h1>PhoneGap!</h1>
+            <ul>
+               <li>Forged in a hellish hack 2008
+               <li>Reborn recently as Apache Cordova
+               <li>Plugins Plugins Plugins
+           </ul> 
+           <br><br>
+           <a href=http://build.phonegap.com>Giver a go.</a>
+        </section>
+    </section>
+
+
+
+        <section>
+            <h1>Lets just recap for a second ...</h1>
+            <ul style=list-style:none;text-align:left>
+            <li>turn on the front facing camera and look at you
+            <li>and email a picture of it to all your friends
+            <li>backup data before your battery dies; without prompting
+            <li>syncronize data to a service, optimally
+            <li>know what building you are likely in, what floor you a probably on, and the direction you are travelling
+            </ul>
+        </section>
+        <section>
+            <h1>Challenges</h1>
+            <img src=img/dog.jpg width=100>
+            security, privacy, permissions, capabilities, performance (eg battery api drains the battery)
+        </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+				<section>
+                    <h1>NOT THE END</h1>
+                    <h4>Just beginings.</h4>
+                    <h3 class="inverted"><a href=http://twitter.com/brianleroux>@brianleroux</a></h3>
+				</section>
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="revealjs/js/reveal.js"></script>
+
+		<!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+		<script src="revealjs/lib/highlight.js"></script>
+		<script src="revealjs/lib/classList.js"></script>
+		
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+
+	</body>
+</html>
