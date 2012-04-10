@@ -312,12 +312,24 @@
             <h1>Media Sensors</h1>
             <p>PhoneGap began, considering the camera; since the Media Capture API has evolved
             cameras, microphone and concerning the capture of images still or streaming and audio </p>
+        
+            <pre><code>
+            &lt;input type=file accept=image/* capture=camera&gt;
+            </code></pre>
+            Valid types inc camcorder, microphone, filesystem.
+        </section>    
+        <section>  
+            <h1>Media Capture Programmic API</h1>   
             <pre><code>
             var getMedia = navigator.webkitGetUserMedia 
                          || navigator.mozGetUserMedia 
                          || navigator.msGetUserMedia
             </code></pre>
+            <a href=https://gist.github.com/2004018>See more here..</a>
+        </section>    
+        <section>
             <p>Frankly tho, we're hot on <a href=http://www.webrtc.org>WebRTC</a></p>
+            <img src=img/webrtc.png>
         </section>
         <section>
             <h1>Connection</h1>
@@ -456,9 +468,8 @@
     <!-- futures for device apis -->
     <section>
         <section>
-            <h1>Futuristic Flavor</h1>
-            <p class=fragment>Almost none of what I've taught you is practically available, yet.</p>
-            <p class=fragment>So...what happens AFTER THAT STUFF HAPPENS?!</p>
+            <h1>Boot2Gecko</h1>
+            <img src=img/b2g.png style=background:none;border:none;box-shadow:none;>
         </section>
         <section>
             <h1>WebAPI *</h1>
@@ -476,11 +487,11 @@
              * Honorable mention: Palm's webOS
         </section>
         <section>
-            <h1>PhoneGap!</h1>
+            <h1>PhoneGap</h1>
+            <img src=img/phonegap-build.png style=width:300px;background:none;border:none;box-shadow:none;>
             <ul>
-               <li>Forged in a hellish hack 2008
-               <li>Reborn recently as Apache Cordova
-               <li>Plugins Plugins Plugins
+                <li>Reborn recently as <a href=http://cordova.io>Apache Cordova</a></li>
+                <li>Plugins Plugins Plugins</li>
            </ul> 
            <br><br>
            <a href=http://build.phonegap.com>Giver a go.</a>
@@ -501,8 +512,18 @@
         </section>
         <section>
             <h1>Challenges</h1>
-            <img src=img/dog.jpg width=100>
-            security, privacy, permissions, capabilities, performance (eg battery api drains the battery)
+            <style>
+                ul.checkmark li:before {
+                    content:"\2713\0020";
+                }
+            </style>
+            <ul class=checkmark style=list-style:none;float:right>
+                <li class=fragment>security
+                <li class=fragment>privacy
+                <li class=fragment>permissions
+                <li class=fragment>capabilities
+                <li class=fragment>performance (eg battery api drains the battery!!)
+             </ul>
         </section>
 
 
