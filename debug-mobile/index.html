@@ -1,0 +1,524 @@
+<!doctype html>  
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>debugging mobile</title>
+<meta name="description" content="Everyone is excited about HTML5. In these slides we go beyond HTML5 and check out Device APIs.">
+<meta name="author" content="Brian LeRoux">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="revealjs/css/reset.css">
+<link rel="stylesheet" href="revealjs/css/main.css">
+<link rel="stylesheet" href="revealjs/lib/zenburn.css">
+</head>
+<body>
+<div id="reveal">
+<!-- Used to fade in a background when a specific slide state is reached -->
+<div class="state-background"></div>
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+
+
+    <!-- ceremony over, onto the slides -->
+    <!-- intro matter: 5mins -->
+    <style>
+        .alert .state-background {
+           background:url(img/bloody.jpg);
+           -webkit-animation: pulsate 4s ease-out;
+           -webkit-animation-iteration-count: infinite; 
+           opacity: 0.0;
+        }
+        .rock .state-background {
+           background:url(img/bloody.jpg);
+           -webkit-animation: pulsate 1.4s ease-out;
+           -webkit-animation-iteration-count: infinite; 
+           opacity: 0.0;
+        }
+        .vanilla .state-background {
+           background:white;
+       }
+       .pain .state-background {
+           background:url(img/bloody.jpg);
+       }
+        @-webkit-keyframes pulsate {
+             0% {opacity: 0.0;}
+             50% {opacity: 1.0;}
+             100% {opacity: 0.0;}
+        }
+    </style>
+    <section data-state="alert">
+        <h1>mobile web programming is a bloody mess</h1>
+        <h3 class="inverted">debugging in the shit w/ <a href="http://twitter.com/brianleroux">@brianleroux</a></h3>
+        <script>
+            // Delicously hacky. Look away.
+            if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+            document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+        </script>
+    </section>
+    <section>
+        <section><h4>the darkness that came before</h4><img src=img/young-me.jpg width=400></section>
+        <section data-state="rock"><h2>mobile programming muther fucker have you heard of it?</h2><img src=img/me.jpg width=350></section>
+    </section>
+    <section><h1>PhoneGap</h1><img src=img/phonegap-build.png style=width:400px;border:none;background:none;box-shadow:none;></section>
+    <section>
+        <style type="text/css" media="screen">
+            th, td {font-size:.6em; text-align: left;padding:10px;}
+            th {background:black}
+        </style>
+        <h2>yay apps!</h2>
+        <table width=100% height=100%>
+          <tr>
+            <th>
+                Target OS
+            <th>
+                Development OS
+            <th>
+                Language
+          <tr>
+            <td>
+                Apple iOS 
+            <td>
+                Apple OS X
+            <td>
+                Objective C
+          <tr>
+            <td>
+                Google Android 
+            <td>
+                *
+            <td>
+                Java (Apache Harmony-ish Dalik Interpretor)
+          <tr>
+            <td>
+                RIM BlackBerry 
+            <td>
+                Windows, OS X
+            <td>
+                HTML, CSS and JS. Also: Java
+          <tr>
+            <td>
+                Windows Phone 
+            <td>
+                Windows
+            <td>
+                Any .NET citizen (Silverlight runtime)
+          <tr>
+            <td>
+                Samsung Bada
+            <td>
+                Windows
+            <td>
+                C++
+          <tr>
+            <td>
+                HP webOS 
+            <td>
+                *
+            <td>
+                HTML, CSS and JS (Also: NodeJS!)
+          <tr>
+            <td>
+                Symbian, MeeGo 
+            <td>
+                *
+            <td>
+                C++ (Qt)
+
+        </table>
+    </section>
+      
+    <section class=slide>
+        <h2>Native Mobile App Dev in Summary</h2>
+        <ul>
+        <li class=slide>
+            Proficient in 8 programming languages and sdks.
+        <li class=slide>
+            Possess 8 devices for testing (emulators not enough to ship).
+        <li class=slide>
+            Running 2 operating systems (virtualized or otherwise).
+        </ul>
+        <img class=fragment width=400 src=img/troll.jpg>
+    </section>
+    <section>
+        <h1>roll ur own html5 microlibrary inspired by jquery</h1>
+        <pre><code>
+        var $ = document.querySelectorAll
+        </code></pre>
+    </section>
+    <section>
+        <h1 style=font-size:300px;margin-top:150px;>
+            <a href=http://xuijs.com style=color:white;font-family:Georgia;text-transform:lowercase;>xuijs</a>
+        </h1>
+    </section>
+    <section>
+        <h2>Offline! Apps are great for that..</h2>
+        <img src=img/nope.jpg class=fragment>
+    </section>
+    <section>
+        <h2>somewhat fragmented</h2>
+        <ul>
+            <li class=fragment>localStorage
+            <li class=fragment>websql
+            <li class=fragment>window.name
+            <li class=fragment>indexeddb but a twinkle in ur eye
+            <li class=fragment>file apis still being spec'd
+            <li class=fragment>google gears sometimes shows up
+            <li class=fragment>ie has its own thing, OF FUCKING COURSE, called userData
+            <li class=fragment>older blackberries had a thing called 'persistent storage' on navigator.store
+            <li class=fragment><a href=http://lanyrd.com/2012/jsconf-us/sqxcz>appCache is a douchebag</a> and irrelevant to apps without a server anyhow
+        </ul>
+    </section>
+    <section data-state=vanilla>
+        <h1 style=color:#333;font-family:Georgia;text-transform:lowercase;><a style=color:black; href=http://westcoastlogic.com/lawnchair>Lawnchair</a></h1>
+        <img src=http://westcoastlogic.com/lawnchair/assets/img/tiny-lawnchair.gif style=border:none;background:none;box-shadow:none;>
+        <h3 style=color:#666;font-family:Georgia;text-transform:lowercase;>Simple JSON Storage</h3>
+    </section>
+    <section>
+        <h1>Apache Cordova</h1>
+        <a href=http://cordova.io><img src=img/cordova.png style=border:none;box-shadow:none;background:none;></a><br><br>
+        <h3><a href=http://cordova/io>cordova.io</a></h3>
+    </section>
+
+    <section>
+        <h2>ninja rockstar mobile programmer guru bro</h2>
+        <img src=img/iphone-bro.jpg>
+        <h3>only builds for iOS</h3>
+        <h1 class=fragment style=position:absolute;top:200px>UR DOING IT WRONG BRO!</h1>
+    </section>
+
+    <section>
+        <img src=img/rishi-phone.jpg>
+        <h3>omg a billion dollars for an app!</h3>
+    </section>
+    
+    <section>
+        <h1>Web != WebKit</h1>
+        <img src=img/webkit.png style=border:none;box-shadow:none;background:none;> 
+    </section>
+
+    <section data-state=vanilla>
+        <img src=img/mobile-safari.jpeg style=width:200px;border:none;box-shadow:none;background:none>
+        <img src=img/chrome.jpeg style=width:200px;border:none;box-shadow:none;background:none>
+        <img src=img/opera.png style=width:200px;border:none;box-shadow:none;background:none>
+        <img src=img/ie.jpeg style=width:200px;border:none;box-shadow:none;background:none>
+        <img src=img/fennec.jpg style=width:300px;border:none;box-shadow:none;background:none>
+        </section>
+    <section>
+        <h4>The first gate to mobile hell starts with one question.</h4>
+        <h1>Which WebKit is this mother fucking thing running?</h1>
+    </section>
+    <section>
+        <div style=float:left>
+        <img src=img/ppk.jpeg><br>
+        <a href=http://www.quirksmode.org/webkit_mobile.html>ppk &rarr;</a>
+        </div>
+        <ul style=list-style:none;margin-left:40px;float:left>
+        <li>Symbian 1  
+        <li>Symbian 2  
+        <li>Symbian 3  
+        <li>Symbian S40 
+        <li>iOS 2.2 
+        <li>iOS 3.1 
+        <li>iOS 4.2 
+        <li>iOS 5.1
+        <li>Android 1.0 
+        <li>Android 1.6 
+        <li>Android 2   
+        <li>Android 3   
+        <li>Android 4
+        </ul>
+        <ul style=list-style:none;margin-left:20px;float:right>
+        <li>Chrome for Android
+        <li>Dolfin  
+        <li>BlackBerry 6    
+        <li>BlackBerry 7
+        <li>BlackBerry X
+        <li>BlackBerry Playbook   
+        <li>Phantom Palm 2.0    
+        <li>Palm 2.1    
+        <li>Bolt 1.5    
+        <li>Ozone 0.9   
+        <li>Obigo 10    
+        <li>WeTab
+        </ul>
+    </section>
+    <section data-state=pain>
+    <img src=img/rage.jpg>
+    </section>
+
+    <section>
+        <h1>Devices, and their Capabilties</h1>
+        <ul>
+           <li>Android</li>
+           <li>iOS</li>
+           <li>BlackBerry</li>
+           <li>Widows Phone</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Android</h1>
+        <ul>
+        <li class=fragment>touch events are a lie
+        <li class=fragment>css performance is not
+        <li class=fragment>as in ios transforms can be hardware accelerated but don't count on it
+        <li class=fragment>no svg except on the bleeding edge
+        <li class=fragment>default browser is being dropped from dev but chrome is a download still: awesome
+        <li class=fragment>canvas dog slow
+    </section>
+
+    <section>
+        <h1>iOS</h1>
+        <ul>
+        <li class=fragment>localStorage 5.1
+        <li class=fragment>full support for css position:fixed 
+        <li class=fragment>position:fucked
+    </section>
+
+    <section>
+        <h1>BlackBerry 6+</h1>
+        <ul>
+        <li>easily the best default mobile browser
+        <li class=fragment>didn't see that coming did you?
+        <img src=img/rough-show.jpg>
+    </section>
+
+    <section>
+        <h1>Windows Phone</h1>
+        <ul>
+        <li>no touching
+        <li>no localStorage
+        <li>no websql 
+        <li>FAST svg and canvas &larr; wat!
+    </section>
+
+    <section>
+        <h1>consistently buggered up</h1>
+        <ul>
+        <li>scrolling is dodgy at best
+        <li>css shiny is fucking slow
+        <li><a href=http://bradfrostweb.com/blog/mobile/fixed-position/>fixed positioning not quite there yet</a>
+        <li>overflow has gone soft; <a href=http://filamentgroup.github.com/Overthrow>filament Overthrow</a> could do
+    </section>
+
+    <section>
+        <ul style=padding:20px;width:400px;height:300px;list-style:none;background:url(img/grave.jpg) no-repeat>
+        <li>webos
+        <li>symbian
+        <li>qt
+        <li>bada
+        </ul>
+    </section>
+
+
+    <!-- PART 2 -->
+
+
+
+
+    <section data-state=alert>
+        <h1>EMBRACE RAGE</h1>
+        <img src=img/angry.jpg width=400>
+        <h4>Spite Driven Development</h4>
+    </section>
+    
+    <section><h3>performance protips</h3><img width=500 src=img/easter-bunny.jpg></section>
+    
+    <section>
+        <h1>your finger does not click</h1>
+        <ul>
+        <li class=fragment>unles you are on a windows phone, I guess 
+        <li class=fragment>click events are delayed roughly 300ms
+        <li class=fragment>anchor tags also have an ugly -webkit-tap-highlight css property
+        </ul>
+        <pre><code>
+var hasTouch = !!('ontouchstart' in window);
+        </code></pre>
+        (Also checkout <a href=http://twitter.com/mwbrooks>mike brooks</a> <a href=http://mwbrooks.github.com/thumbs.js>thumbjs</a> and this <a href=https://github.com/bebraw/jswiki/wiki/Touch>big-ass-muther of a list</a> started by <a href=http://twitter.com/paul_irish>omg &lt;3 paul irish</a>.)
+    </section>
+    
+    <section>
+        <h1>ppl have solved the shit out of this</h1>
+        <ul>
+        <li><a href=http://blog.jqtouch.com/post/205113875/milliseconds-responsiveness-and-the-fast-tap>dave kaneda's jqTouch</a> 
+        <li><a href=http://code.google.com/mobile/articles/fast_buttons.html>google mobile web folk</a>
+        <li><a href=https://github.com/cheeaun/tappable>tappable</a>
+        <li><a href=https://github.com/alexgibson/tap.js/blob/master/tap.js>alex gibson's tapjs</a> &larr; 2kb
+    </section>
+    
+    <section>
+        <h1>css effects are slow</h1>
+        <img style=float:left;margin-right:50px; src=img/beer.jpg>
+        <ul style=float:left>
+        <li>box-shadow
+        <li>gradients
+        <li>border-radius
+        </ul>
+    </section>
+
+    <section>
+        <h1>nonblocking</h1>
+        <pre><code>
+        setTimeout(function(){
+            console.log('code here is queued and not blocking the ui')
+        },0)
+        </code></pre>
+        <pre><code>
+        var defer = function(fn) { setTimeout(fn,0) }
+
+        defer(function() {
+            console.log('do later')
+        })
+        </code></pre>
+        <p><a href=http://jsperf.com/smallest-timeout">Fun fact: most browsers default to 4ms even if you set it to 0. </a></p>
+    </section>
+
+    <section>
+        <h1>postMessage hack</h1>
+        <ul>
+            <li>discovered by <a href=http://twitter.com/cramforce>cramforce</a> in a quest for a process.nextTick ala NodeJS
+            <li>relatively new html5-ish api <a href=http://caniuse.com/#search=postMessage>ok, for modern mobiles</a>
+            <li>promising improvement over setTimeout stack hack
+            <li><a href=http://jsperf.com/postmessage>jsperf results here</a>
+        </ul>
+        <pre><code>
+
+        </code></pre>
+    </section>
+    
+    <section>
+        <h2>production code always has a build step</h2>
+        <ul>
+        <li>prepocess less/sass/stylus/coffeescript
+        <li>compile templates
+        <li>JSLint / JSHint
+        <li>concat
+        <li>minify
+        <li>compile final index.html file w/ one script inc at the BOTTOM
+        <li>run unit tests
+    </section>
+
+    <section>
+        <h1>actual debugging</h1>
+        <img src=img/draper.jpg>
+    </section>
+
+    <section>
+        <pre style=font-size:30px;><code>
+        alert('made it here')
+        </code></pre>
+        <img src=img/troll.jpg class=fragment>
+    </section>
+    
+    <section>
+        <pre style=font-size:30px;><code>
+        console.log('made it here')
+        </code></pre>
+        <img src=img/lulz.jpg class=fragment>
+    </section>
+
+
+    <section>
+        <h1>test</h1>
+            <ul>
+            <li class=fragment>usually easier to get going if you set it up front
+            <li class=fragment>make it one step to run
+            <li class=fragment>found a bug? write a test to prove it
+            <li class=fragment>makes contributing easier
+            <li class=fragment>helps battle test and polish your <em>public</em> API
+            <li class=fragment>provides evidence for blame
+            <li class=fragment>qunit and/or jasmine
+        </ul>
+     </section>
+
+     <section>
+        <h1>remote debugging</h1>
+        <ul>
+            <li>web inspector remote (weinre) [<a href=http://debug.phonegap.com>hosted version</a>
+            <li><a href=http://labs.adobe.com/technologies/shadow/>adobe shadow</a>
+            <li><a href=https://developers.google.com/chrome-developer-tools/docs/remote-debugging>chrome remote debugger</a>
+        </ul>
+        </section>
+
+        <section>
+        <h1>installing weinre</h1>
+        (requires node 0.6.8 and npm)
+        <pre>
+            npm install -g http://people.apache.org/~pmuellr/weinre/builds/2.0.0-pre-H0WVARLU-incubating/apache-cordova-weinre-2.0.0-pre-H0WVARLU-incubating-bin.tar.gz
+       
+        </pre>
+        </section>
+<!--
+- service proxing: nodejs (python, ruby, perl, all fine.) if you hate life java, .net the such
+- libs: jquery, zepto, xui, lawnchair, etc
+- RECCOMENATION: try raw code FIRST
+- RECCOMENATION: solve your problem not the lib problem
+
+# pt2: 20 mins
+## practical: pintfinder case study
+
+problem: I write software for the mobile web therefor I require the occasional sanity pint
+goal: find me the nearest possible sanity pint
+audience: mobile web 
+app store enhanced version: ios, android, blackberry, windows phone
+NON goals: webos, symbian, qt, bada
+NOTE: no tecnical reqs have been identified. don't be a dickhead. let your programmer decide his tools. you decide the objectives.
+Objectives: one click build, test, deploy
+
+1. setup our infra: one click test from nodejs with nodejitsu (cache manifest later)
+2. sanity test on each device
+3. service hook test
+4. splash screen
+5. geo call
+6. service hook wiring
+7. use adobe shadow to make pretty
+8. now setup phonegap deployment to build
+9. 
+
+
+-->
+
+
+
+
+
+
+
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+    <!-- closing ceremonies  -->				
+				<section>
+                    <h1>good luck with that</h1>
+                    <h4>ಠ_ಠ</h4>
+                    <h3 class="inverted"><a href=http://twitter.com/brianleroux>@brianleroux</a></h3>
+				</section>
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src=revealjs/js/reveal.js></script>
+		<script src=revealjs/lib/highlight.js></script>
+		<script src=revealjs/lib/classList.js></script>
+	    <script src=revealjs/init.js></script>	
+	</body>
+</html>
