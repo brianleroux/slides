@@ -44,6 +44,10 @@
              50% {opacity: 1.0;}
              100% {opacity: 0.0;}
         }
+        .wolf .state-background {
+            background:url(img/courage-wolf.jpg);
+            background-position:center;
+        }
     </style>
     <section data-state="alert">
         <h1>mobile web programming is a bloody mess</h1>
@@ -56,7 +60,8 @@
     </section>
     <section>
         <section><h4>the darkness that came before</h4><img src=img/young-me.jpg width=400></section>
-        <section data-state="rock"><h2>mobile programming muther fucker have you heard of it?</h2><img src=img/me.jpg width=350></section>
+        <section data-state="rock"><h2>mobile programming muther fucker</h2>
+            <img src=img/me.jpg width=350><h3>does this face look bothered?</h3>(H/T to <a href=http://programming-motherfucker.com>programming mother fucker</a>.)</section>
     </section>
     <section><h1>PhoneGap</h1><img src=img/phonegap-build.png style=width:400px;border:none;background:none;box-shadow:none;></section>
     <section>
@@ -125,6 +130,11 @@
 
         </table>
     </section>
+
+    <section data-state=wolf>
+        <h2>bite off more than you can chew</h2>
+        <h1 style=margin-top:350px;>then chew it</h1>
+    </section>
       
     <section class=slide>
         <h2>Native Mobile App Dev in Summary</h2>
@@ -138,6 +148,12 @@
         </ul>
         <img class=fragment width=400 src=img/troll.jpg>
     </section>
+
+    <section data-state=wolf>
+        <h2>remember the guy who gave up?</h2>
+        <h1 style=margin-top:350px;>neither does anyone else</h1>
+    </section>
+
     <section>
         <h1>roll ur own html5 microlibrary inspired by jquery</h1>
         <pre><code>
@@ -244,6 +260,10 @@
     <section data-state=pain>
     <img src=img/rage.jpg>
     </section>
+    <section data-state=wolf>
+        <h2>show no mercy</h2>
+        <h1 style=margin-top:350px;>for you shall recieve none</h1>
+    </section>
 
     <section>
         <h1>Devices, and their Capabilties</h1>
@@ -277,7 +297,7 @@
     <section>
         <h1>BlackBerry 6+</h1>
         <ul>
-        <li>easily the best default mobile browser
+        <li class=fragment>easily the best default mobile browser
         <li class=fragment>didn't see that coming did you?
         <img src=img/rough-show.jpg>
     </section>
@@ -285,19 +305,19 @@
     <section>
         <h1>Windows Phone</h1>
         <ul>
-        <li>no touching
-        <li>no localStorage
-        <li>no websql 
-        <li>FAST svg and canvas &larr; wat!
+        <li class=fragment>no touching
+        <li class=fragment>no localStorage
+        <li class=fragment>no websql 
+        <li class=fragment>FAST svg and canvas &larr; wat!
     </section>
 
     <section>
         <h1>consistently buggered up</h1>
         <ul>
-        <li>scrolling is dodgy at best
-        <li>css shiny is fucking slow
-        <li><a href=http://bradfrostweb.com/blog/mobile/fixed-position/>fixed positioning not quite there yet</a>
-        <li>overflow has gone soft; <a href=http://filamentgroup.github.com/Overthrow>filament Overthrow</a> could do
+        <li class=fragment>scrolling is dodgy at best
+        <li class=fragment>css shiny is fucking slow
+        <li class=fragment><a href=http://bradfrostweb.com/blog/mobile/fixed-position/>fixed positioning not quite there yet</a>
+        <li class=fragment>overflow has gone soft; <a href=http://filamentgroup.github.com/Overthrow>filament Overthrow</a> could do
     </section>
 
     <section>
@@ -440,6 +460,12 @@ var hasTouch = !!('ontouchstart' in window);
         </ul>
         </section>
 
+    <section data-state=wolf>
+        <h2>if you run out of bullets</h2>
+        <h1 style=margin-top:350px;>you still have a knife</h1>
+    </section>
+
+
         <section>
         <h1>installing weinre</h1>
         (requires node 0.6.8 and npm)
@@ -469,12 +495,30 @@ var hasTouch = !!('ontouchstart' in window);
     <!-- closing ceremonies  -->				
     <!-- closing ceremonies  -->				
     <!-- closing ceremonies  -->				
-				<section>
-                    <h1>good luck with that</h1>
-                    <h4>ಠ_ಠ</h4>
-                    <h3 class="inverted"><a href=http://twitter.com/brianleroux>@brianleroux</a></h3>
-				</section>
-			</div>
+            <section>
+            <h1>good luck with that</h1>
+            <h4>ಠ_ಠ</h4>
+            <h3 class="inverted"><a href=http://twitter.com/brianleroux>@brianleroux</a></h3>
+            </section>
+            
+            <section>
+            <h1>accept the challenge</h1>
+            <h4>mobile <em>is</em> a bloody mess</h4>
+            this is your opportunity to contribute to fixing it
+            <ul>
+                <li><a href=http://wiki.apache.org/cordova/>learn how to contribute to cordova</a>
+                <li><a href=http://movethewebforward.org/>check out move the web forward</a>
+                <li><a href=https://wiki.mozilla.org/B2G>help mozilla boot to gecko</a>
+
+            </section>
+            
+            <section data-state=wolf>
+            <h2>the only thing between you and your goals</h2>
+            <h1 style=margin-top:350px;>is you</h1>
+            </section>
+        
+        </div>
+
 
 			<!-- The navigational controls UI -->
 			<aside class="controls">
