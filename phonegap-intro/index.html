@@ -1,0 +1,580 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Adobe &amp; HTML</title>
+
+		<meta name="description" content="Introduction to PhoneGap">
+		<meta name="author" content="Brian LeRoux">
+
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu:500,300,700,400' rel='stylesheet' type='text/css'>
+ 		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/main.css">
+
+        <link rel="stylesheet" href="lib/zenburn.css">
+        <style type="text/css" media="screen">
+            .home-page .state-background {
+                background: url(img/courage-wolf.jpg) black center center no-repeat;
+                background-position: 0%, 0%;
+                -webkit-animation-name: pan-around;
+                -webkit-animation-duration: 180s;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-timing-function: linear;
+                opacity: 1;
+            }
+            
+        </style>
+	</head>
+	
+	<body>
+
+
+		<header>
+<!--			<img id="vignette" src="assets/vignette.png"> -->
+			<img id="adobelogo" src="assets/adobe-vector.svg" alt="adobe">
+		</header>
+
+
+		<div id="reveal">
+
+			<!-- Used to fade in a background when a specific slide state is reached -->
+			<div class="state-background"></div>
+			
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-state="home-page" class="home">
+						<h1>html, css, and js</h1>
+                        <h2 style=margin-top:300px>all the things</h2>
+						<script>
+							// Deliciously hacky. Look away.
+							if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+							document.write( '<p style="color: rgba(255,255,255,0.6); text-shadow: none; font-size:.5em; font-weight:bold; background: rgba(255, 255, 255, .2); box-shadow: 0px 8px 8px rgba(0,0,0,0.2), inset 2px 2px 3px rgba(0,0,0,0.05); border-radius: 8px; border: 1px solid rgba(255, 255, 255, .2); margin-left:-8px; margin-right:-8px;">'+'TAP TO NAVIGATE'+'</p>' );
+						</script>
+				</section>
+
+				<section>
+                    <h3><a href=http://goo.gl/Ol9Ao>http://goo.gl/Ol9Ao</a></h3>
+				</section>
+				
+				<section data-state="second-page" >
+						<h1 class="large"><a href=http://twitter.com/brianleroux>@brianleroux</a></h1>
+				</section>
+
+				<section class="adobe-list">
+					<img src=img/dave-mathews.jpg height=600 style="margin-top:-300px">
+					<ul style="margin-left:100px">
+                        <li class=fragment><a href=http:/brian.io>brian.io</a></li>
+						<li class=fragment><a href=http://twitter.com/brianleroux>@brianleroux</a></li>
+						<li class=fragment><a href=http://wtfjs.com>wtfjs</a></li>
+						<li class=fragment><a href=http://phonegap.com>phonegap</a></li>
+					</ul>
+				</section>
+
+                <section>
+                <style type="text/css" media="screen">
+                        th { background:#666; color:#fff; padding:10px; }
+                        th, td {font-size:.6em; text-align:left; padding:10px;}
+                    </style>
+                    <h2>The Problem</h2>
+                    <table width=100% height=100%>
+                      <tr>
+                        <th>
+                            Target OS
+                        <th>
+                            Development OS
+                        <th>
+                            Language
+                      <tr>
+                        <td>
+                            Apple iOS 
+                        <td>
+                            Apple OS X
+                        <td>
+                            Objective C
+                      <tr>
+                        <td>
+                            Google Android 
+                        <td>
+                            *
+                        <td>
+                            Java (Apache Harmony-ish Dalik Interpretor)
+                      <tr>
+                        <td>
+                            RIM BlackBerry 
+                        <td>
+                            Windows, OS X
+                        <td>
+                            HTML, CSS and JS. Also: Java
+                      <tr>
+                        <td>
+                            Windows Phone 
+                        <td>
+                            Windows
+                        <td>
+                            Any .NET citizen (Silverlight runtime)
+                      <tr>
+                        <td>
+                            Samsung Bada
+                        <td>
+                            Windows
+                        <td>
+                            C++
+                      <tr>
+                        <td>
+                            HP webOS 
+                        <td>
+                            *
+                        <td>
+                            HTML, CSS and JS (Also: NodeJS!)
+                      <tr>
+                        <td>
+                            Symbian, MeeGo 
+                        <td>
+                            *
+                        <td>
+                            C++ (Qt)
+
+                    </table>
+                    </section>
+
+                    <section>
+                        <h2>The Problem in Summary</h2>
+                        <li class=slide>
+                            Proficient in 8 programming languages and sdks.
+                        <li class=slide>
+                            Possess 8 devices for testing (emulators not enough to ship).
+                        <li class=slide>
+                            Running 2 operating systems (virtualized or otherwise).
+                    </section>
+
+                    <section>
+                        <h2>More Devices Every Year</h2>
+                        <ul class=slide>
+                            <li>
+                            Tablets on the rise; mostly iPads and Androids.
+                            <li>
+                            Feature phones replacing smartphones.
+                            <li>
+                            Smartphones accessing the web overtook desktop browsers accessing the web in 2010.
+                            <li>
+                            Responsive design in infancy.
+                         </ul>
+                    </section>
+
+                    <section>
+                    <h2>Developer Prediction Impossible</h2>
+                        <ul>
+                          <li>
+                          2008 BlackBerry still dominated global marketshare for app developers.
+                          </li>
+                          <li>
+                          2009 iOS rose to dominance.
+                          </li>
+                          <li>
+                          2010 Android began domination.
+                          </li>
+                          <li>
+                          2011 Android dominance continued ...but now fragmentation between versions high.
+                          </li>
+                          <li style=color:red>
+                          2012: ?!
+                          </li>
+                        </ul>
+                      </section>
+
+                    <section>
+                      <h2>The Rise of Web Operating Systems</h2>
+                        <ul>
+                          <li>
+                          Tizen collaboration lead by Samsung, a leading manufacturer.
+                          </li>
+                          <li>
+                          HP announces webOS being open sourced.
+                          </li>
+                          <li>
+                          Mozilla Boot2Gecko making incredible progress.
+                          </li>
+                          <li>
+                          WebinOS effort under way.
+                          </li>
+                        </ul>
+                    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<section data-state="tim-berners-lee">
+					<h3 class='fragment' style="position:absolute;bottom:0%; background: rgba(0, 0, 0, .4); box-shadow: 0px 8px 8px rgba(0,0,0,0.2), inset 2px 2px 3px rgba(0,0,0,0.05); border-radius: 8px; border: 1px solid rgba(255, 255, 255, .2); margin-left:-8px; margin-right:-8px; color: white; text-shadow: 0 0 5px #000; font-weight:bold">“The web as I envisaged it,<br>we have not seen yet.<br>The future is still<br>so much bigger than the past.”<br><span style="font-size:0.5em; font-weight:100">—Tim Berners-Lee</span></h3>
+				</section>
+
+				<section class="adobe-list">
+					<img src="assets/web.png" height=384 style="margin-top:-192px">
+					<ul class="flex-list">
+						<li class="spring"></li>
+						<li class='fragment'>Ubiquity</li>
+						<li class='fragment'>Easy to learn</li>
+						<li class='fragment'>Large community</li>
+						<li class='fragment'>Designer friendly</li>
+						<li class="spring"></li>
+					</ul>
+				</section>
+
+				<section data-state="starbust-page">
+					<h1 class="large">Champion<br>Contribute<br>Create</h1>
+				</section>
+
+				<section data-state="starbust-page">
+					<h1 class="large">Champion</h1>
+				</section>
+
+				<section class="adobe-list">
+					<h1><span class="adobe-logotype" style="font-family:'MyriadPro-Cond'">Adobe</span> <br><b class="amp">&amp;</b></h1>
+					<ul >
+						<li >typography</li>
+						<li >layout</li>
+						<li >illustration</li>
+						<li >graphics</li>
+						<li >digital imaging</li>
+						<li >rich internet apps</li>
+						<li >animation</li>
+						<li >video</li>
+					</ul>
+				</section>
+
+				<section class="regions">
+					<img src="assets/regions.png">
+					<h2 class="embossed">CSS Regions</h2>
+					<h3>magazine-line layout for the web</h3>
+				</section>
+
+				<section>
+					<img src="assets/exclusions.png">
+				</section>
+
+				<section>
+					<img src="assets/arches-landscape.png">
+				</section>
+
+				<section>
+					<img src="assets/arches-portrait.png">
+				</section>
+
+				<section>
+					<img src="assets/arches-landscape.png" height=400>
+					<img src="assets/arches-portrait.png" height=400>
+				</section>
+
+				<section class="regions">
+					<img src="assets/regions.png">
+					<h2 class="embossed">CSS Regions</h2>
+					<h3>magazine-line layout for the web</h3>
+				</section>
+
+				<section class="regions">
+					<img src="assets/flipbook.png">
+					<h2  class="embossed">CSS Shaders</h2>
+					<h3>cinematic visual effects for HTML</h3>
+				</section>
+
+				<section>
+					<img class="dropshadow" src="assets/shaders-article.jpg" style="margin-top:-100px">
+				</section>
+
+
+				<section>
+					<h1 class="large"><a href="http://dev.w3.org/csswg/css-variables/">CSS Variables</a><span style="display:block; font-size:0.5em; letter-spacing:0; font-weight:100">built-in LESS/SASS</span></h1>
+				</section>
+
+				<section>
+					<h1 class="large"><a href="http://glazkov.com/2011/01/14/what-the-heck-is-shadow-dom/">Shadow DOM</a><span style="display:block; font-size:0.5em; letter-spacing:0; font-weight:100;line-height:1em">software components<br>for web standards</span></h1>
+				</section>
+
+
+				<section data-state="starbust-page">
+					<h1 class="large">Contribute</h1>
+				</section>
+
+				<section>
+					<img src="assets/webkit.png" height=300>
+					<img src="assets/phonegap.png" height=300>
+					<img src="assets/jquery.png" height=100>
+				</section>
+
+				<section>
+					<img src="assets/webkit.png">
+					<h2 class="embossed">WebKit</h2>
+				</section>
+
+				<section>
+					<img src="assets/phonegap.png">
+					<h2 class="embossed">Apache Cordova</h2>
+				</section>
+
+				<section>
+					<img src="assets/jquery.png" style="margin-top:200px">
+<!-- 					<h2 class="embossed">jQuery Mobile</h2> -->
+				</section>
+
+				
+
+				<section data-state="starbust-page">
+					<h1 class="large">Create</h1>
+				</section>
+
+				<section>
+					<center>
+					<table >
+							<tr><td colspan=2 align=center><h1 class="embossed">Modern</h1></td></tr>
+							<tr >
+								<td><img class="photoframe" src="assets/modern-designer.jpg" height=150 style="-webkit-transform:rotate(-5deg); margin-bottom:24px"></td>
+								<td><img class="photoframe" src="assets/modern-developer.jpg" height=150 style="-webkit-transform:rotate(3deg); margin-bottom:24px"></td>
+								
+							</tr>
+							<tr style="font-size:24px; line-height:1em">
+								<td valign=top width=450><strong>“Modern” Web Designer</strong><br>
+								Fluent in current design tools, such as Photoshop and Illustrator. Capable of understanding and manipulating HTML and CSS.</td>
+								<td valign=top align=left width=450><strong>“Modern” Web Developer</strong><br>
+								Commonly writes with HTML, CSS and JavaScript to create front end web sites and applications. 
+								</td>
+							</tr>
+						
+					</table>
+					</center>
+					
+					
+				</section>
+
+				<section class="adobe-list">
+					<img src="assets/piechart1.png" align=left style="margin-top:-350px">
+					<ul style="font-size:32px; margin-left:150px">
+						<li><b>38%:</b> “It is increasingly important to learn and write JavaScript or equivalent code”</li>
+						<li><b>30%:</b> “I am waiting for tools from Adobe and others to simplify development for designers”</li>
+						<li><b>11%:</b> “I am sticking to being a designer and leave coding to the developers”</li>
+						<li><b>11%:</b> n/a</li>
+					</ul>
+				</section>
+
+
+				<section>
+					<img class="dropshadow" src="assets/quote-1.png">
+					<img class="dropshadow" src="assets/quote-2.png">
+				</section>
+
+				<section>
+					<img class="dropshadow" src="assets/dribble.jpg" height=512 style="-webkit-transform:rotate(1.2deg)">
+					<h2><a href="http://dribble.com">dribble.com</a></h2>
+				</section>
+
+				<section>
+					<img class="dropshadow" src="assets/nerdi.jpg" height=512 style="-webkit-transform:rotate(-.8deg)">
+					<h2><a href="http://nerdi.com">nerdi.com</a></h2>
+				</section>
+
+				<section>
+					<img class="dropshadow" src="assets/dabblet.jpg" height=512 style="-webkit-transform:rotate(.8deg)">
+					<h2><a href="http://dabblet.com">dabblet.com</a></h2>
+				</section>
+
+				<section id="tools-and-services">
+						<h1 >Tools & Services</h1>
+						<ul style="-webkit-column-count:2; width:100%">
+							<li><img src="assets/proto-icon.png" height=64 style="">Proto</li>
+							<li><img src="assets/ideas-icon.png" height=64 style="">Ideas</li>
+							<li><img src="assets/fireworks-icon.png" height=64 style="">Fireworks</li>
+							<li><img src="assets/browserlabs-icon.png" height=64 style="">Browserlabs</li>
+							<li><img src="assets/bc-icon.png" height=64 style="">Business Catalyst</li>
+							<li><img src="assets/typekit-icon.png" height=64 style=""></li>
+							<li><img src="assets/dreamweaver-icon.png" height=64 style="">Dreamweaver</li>
+							<li><img src="assets/shadow-icon.png" height=64 style="">Shadow</li>
+							<li><img src="assets/edge-icon.png" height=64 style="">Edge</li>
+							<li><img src="assets/phonegap.png" height=64 style=""></li>
+						</ul>
+				</section>
+
+				<section class="adobe-list">
+					<img src="assets/dreamweaver-icon.png" height=256>
+					<ul>
+						<li class='fragment'>Fluid grid layouts</li>
+						<li class='fragment'>CSS transitions</li>
+						<li class='fragment'>PhoneGap Build</li>
+						<li class='fragment'>Business Catalyst</li>
+						<li class='fragment'>jQuery Mobile swatches</li>
+						<li class='fragment'>Faster FTP</li>
+					</ul>
+				</section>
+
+				<section>
+					<img src="assets/edge-icon.png">
+				</section>
+
+				<section>
+					<img src="assets/edge-icon.png" height="384">
+					<h2 class="embossed"><b>Edge</b></h2>
+					<h3>motion and interaction design  for HTML</h3>
+				</section>
+
+				<section>
+					<img src="assets/edge-screenshot.png" style="margin-top:-50px">
+				</section>
+
+				<section>
+					<img src="assets/edge-icon.png" height="384">
+					<h2 class="embossed"><b>Edge</b></h2>
+					<h3>motion and interaction design  for HTML</h3>
+				</section>
+
+
+
+				<section>
+					<img src="assets/phonegap.png" style="margin-top:-50px">
+					<h3>HTML apps on your mobile device</h3>
+				</section>
+
+				<section>
+					<img src="assets/phonegap1.png" style="margin-top:-50px">
+				</section>
+
+				<section>
+					<img src="assets/phonegap-build1.png" style="margin-top:-50px">
+				</section>
+
+				<section>
+					<img src="assets/phonegap.png" style="margin-top:-50px">
+					<h3>HTML apps on your mobile device</h3>
+				</section>
+
+
+				<section class="adobe-list">
+					<img src="assets/shadow-icon.png" height=256>
+					<h2 style="margin-top:50%">Shadow</h2>
+					<ul class="flex-list">
+						<li class="spring"></li>
+						<li class="fragment">Design with web standards</li>
+						<li class="fragment">Test, preview, debug</li>
+						<li class="fragment">Multiple devices</li>
+						<li class="fragment">Easy setup</li>
+						<li class="spring"></li>
+					</ul>
+				</section>
+
+
+				<section>
+					<img src="assets/html.adobe.com.png" height=512 style="-webkit-transform:rotate(-1.2deg)">
+					<h2><a href="http://html.adobe.com" >html.adobe.com</a></h2>
+				</section>
+
+						<!-------------------------------------------------------------- -->
+
+
+
+				<section class="better-web">
+					<section data-state="betterweb-page">
+						<h2>A Better Web</h2>
+						<b class="amp">&amp;</b>
+						<h2>Awesome Tools</h2>					
+					</section>
+				</section>
+
+				<section data-state="no-logo">
+					<img src="assets/adobe-vector.svg" width="357" height="600" style="margin-top:-150px" >							
+				</section>
+
+				<section class="adobe-list">
+					<h3>Colophon</h3>
+					<ul >
+						<li><b>reveal.js</b> by <a href="http://hakim.se">Hakim El Hattab</a></li>
+						<li><b>Font</b> Ubuntu</li>
+					</ul>
+				</section>
+
+
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#" style="-webkit-transform:rotate(180deg);">&#x2794;</a>
+				<a class="right" href="#">&#x2794;</a>
+				<a class="up" href="#"></a>
+				<a class="down" href="#"></a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="js/reveal.js"></script>
+
+		<!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+		<script src="lib/highlight.js"></script>
+		<script src="lib/classList.js"></script>
+		
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: !(query.controls === 'false'),
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: false,
+
+				// UI style
+				theme: query.theme || 'adobe', // default/neon
+
+				// Transition style
+				transition: query.transition || 'linear' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+
+	</body>
+</html>
