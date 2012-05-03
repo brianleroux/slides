@@ -1,52 +1,43 @@
 <!doctype html>  
 <html lang="en">
-	
-	<head>
-		<meta charset="utf-8">
-		
-		<title>Adobe &amp; HTML</title>
-
-		<meta name="description" content="Introduction to PhoneGap">
-		<meta name="author" content="Brian LeRoux">
-
-		<link href='http://fonts.googleapis.com/css?family=Ubuntu:500,300,700,400' rel='stylesheet' type='text/css'>
- 		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/main.css">
-
-        <link rel="stylesheet" href="lib/zenburn.css">
-        <style type="text/css" media="screen">
-            .home-page .state-background {
-                background: url(img/courage-wolf.jpg) black center center no-repeat;
-                background-position: 0%, 0%;
-                -webkit-animation-name: pan-around;
-                -webkit-animation-duration: 180s;
-                -webkit-animation-iteration-count: infinite;
-                -webkit-animation-timing-function: linear;
-                opacity: 1;
-            }
-            
-        </style>
-	</head>
-	
-	<body>
-
+<head>
+<meta charset="utf-8">
+<title>Adobe &amp; HTML</title>
+<meta name="description" content="Introduction to PhoneGap">
+<meta name="author" content="Brian LeRoux">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:500,300,700,400' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="lib/zenburn.css">
+<style type="text/css" media="screen">
+    .home-page .state-background {
+        background: url(img/courage-wolf.jpg) black center center no-repeat;
+        background-position: 0%, 0%;
+        -webkit-animation-name: pan-around;
+        -webkit-animation-duration: 180s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        opacity: 1;
+    }
+</style>
+</head>
+<body>
 
 		<header>
-<!--			<img id="vignette" src="assets/vignette.png"> -->
 			<img id="adobelogo" src="assets/adobe-vector.svg" alt="adobe">
 		</header>
 
-
 		<div id="reveal">
-
-			<!-- Used to fade in a background when a specific slide state is reached -->
+            
+            <!-- Used to fade in a background when a specific slide state is reached -->
 			<div class="state-background"></div>
 			
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-state="home-page" class="home">
-						<h1>html, css, and js</h1>
-                        <h2 style=margin-top:300px>all the things</h2>
+				<section data-state="home-page">
+                    <h1>PhoneGap</h1>
+                    <img src=img/cordova_assets/Icon/cordova_256.png>
+                        <h2>mobile html, css, and js</h2>
 						<script>
 							// Deliciously hacky. Look away.
 							if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
@@ -73,9 +64,10 @@
 				</section>
 
                 <section>
-                <style type="text/css" media="screen">
+                    <style type="text/css" media="screen">
                         th { background:#666; color:#fff; padding:10px; }
-                        th, td {font-size:.6em; text-align:left; padding:10px;}
+                        th, td {font-size:.6em; text-align:left; padding:10px; }
+                        ul li { text-align:left; }
                     </style>
                     <h2>The Problem</h2>
                     <table width=100% height=100%>
@@ -141,17 +133,16 @@
 
                     <section>
                         <h2>The Problem in Summary</h2>
-                        <li class=slide>
-                            Proficient in 8 programming languages and sdks.
-                        <li class=slide>
-                            Possess 8 devices for testing (emulators not enough to ship).
-                        <li class=slide>
-                            Running 2 operating systems (virtualized or otherwise).
+                        <ul>
+                            <li>Proficient in 8 programming languages and sdks.
+                            <li> Have 8 devices to test (emulators not enough to ship).
+                            <li>Run 2 operating systems (virtualized or otherwise).
+                        </ul>
                     </section>
 
                     <section>
                         <h2>More Devices Every Year</h2>
-                        <ul class=slide>
+                        <ul>
                             <li>
                             Tablets on the rise; mostly iPads and Androids.
                             <li>
@@ -182,7 +173,7 @@
                           2012: ?!
                           </li>
                         </ul>
-                      </section>
+                    </section>
 
                     <section>
                       <h2>The Rise of Web Operating Systems</h2>
@@ -202,300 +193,435 @@
                         </ul>
                     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				<section data-state="tim-berners-lee">
-					<h3 class='fragment' style="position:absolute;bottom:0%; background: rgba(0, 0, 0, .4); box-shadow: 0px 8px 8px rgba(0,0,0,0.2), inset 2px 2px 3px rgba(0,0,0,0.05); border-radius: 8px; border: 1px solid rgba(255, 255, 255, .2); margin-left:-8px; margin-right:-8px; color: white; text-shadow: 0 0 5px #000; font-weight:bold">“The web as I envisaged it,<br>we have not seen yet.<br>The future is still<br>so much bigger than the past.”<br><span style="font-size:0.5em; font-weight:100">—Tim Berners-Lee</span></h3>
-				</section>
-
-				<section class="adobe-list">
-					<img src="assets/web.png" height=384 style="margin-top:-192px">
-					<ul class="flex-list">
-						<li class="spring"></li>
-						<li class='fragment'>Ubiquity</li>
-						<li class='fragment'>Easy to learn</li>
-						<li class='fragment'>Large community</li>
-						<li class='fragment'>Designer friendly</li>
-						<li class="spring"></li>
-					</ul>
-				</section>
-
-				<section data-state="starbust-page">
-					<h1 class="large">Champion<br>Contribute<br>Create</h1>
-				</section>
-
-				<section data-state="starbust-page">
-					<h1 class="large">Champion</h1>
-				</section>
-
-				<section class="adobe-list">
-					<h1><span class="adobe-logotype" style="font-family:'MyriadPro-Cond'">Adobe</span> <br><b class="amp">&amp;</b></h1>
-					<ul >
-						<li >typography</li>
-						<li >layout</li>
-						<li >illustration</li>
-						<li >graphics</li>
-						<li >digital imaging</li>
-						<li >rich internet apps</li>
-						<li >animation</li>
-						<li >video</li>
-					</ul>
-				</section>
-
-				<section class="regions">
-					<img src="assets/regions.png">
-					<h2 class="embossed">CSS Regions</h2>
-					<h3>magazine-line layout for the web</h3>
-				</section>
-
-				<section>
-					<img src="assets/exclusions.png">
-				</section>
-
-				<section>
-					<img src="assets/arches-landscape.png">
-				</section>
-
-				<section>
-					<img src="assets/arches-portrait.png">
-				</section>
-
-				<section>
-					<img src="assets/arches-landscape.png" height=400>
-					<img src="assets/arches-portrait.png" height=400>
-				</section>
-
-				<section class="regions">
-					<img src="assets/regions.png">
-					<h2 class="embossed">CSS Regions</h2>
-					<h3>magazine-line layout for the web</h3>
-				</section>
-
-				<section class="regions">
-					<img src="assets/flipbook.png">
-					<h2  class="embossed">CSS Shaders</h2>
-					<h3>cinematic visual effects for HTML</h3>
-				</section>
-
-				<section>
-					<img class="dropshadow" src="assets/shaders-article.jpg" style="margin-top:-100px">
-				</section>
-
-
-				<section>
-					<h1 class="large"><a href="http://dev.w3.org/csswg/css-variables/">CSS Variables</a><span style="display:block; font-size:0.5em; letter-spacing:0; font-weight:100">built-in LESS/SASS</span></h1>
-				</section>
-
-				<section>
-					<h1 class="large"><a href="http://glazkov.com/2011/01/14/what-the-heck-is-shadow-dom/">Shadow DOM</a><span style="display:block; font-size:0.5em; letter-spacing:0; font-weight:100;line-height:1em">software components<br>for web standards</span></h1>
-				</section>
-
-
-				<section data-state="starbust-page">
-					<h1 class="large">Contribute</h1>
-				</section>
-
-				<section>
-					<img src="assets/webkit.png" height=300>
-					<img src="assets/phonegap.png" height=300>
-					<img src="assets/jquery.png" height=100>
-				</section>
-
-				<section>
-					<img src="assets/webkit.png">
-					<h2 class="embossed">WebKit</h2>
-				</section>
-
-				<section>
-					<img src="assets/phonegap.png">
-					<h2 class="embossed">Apache Cordova</h2>
-				</section>
-
-				<section>
-					<img src="assets/jquery.png" style="margin-top:200px">
-<!-- 					<h2 class="embossed">jQuery Mobile</h2> -->
-				</section>
-
-				
-
-				<section data-state="starbust-page">
-					<h1 class="large">Create</h1>
-				</section>
-
-				<section>
-					<center>
-					<table >
-							<tr><td colspan=2 align=center><h1 class="embossed">Modern</h1></td></tr>
-							<tr >
-								<td><img class="photoframe" src="assets/modern-designer.jpg" height=150 style="-webkit-transform:rotate(-5deg); margin-bottom:24px"></td>
-								<td><img class="photoframe" src="assets/modern-developer.jpg" height=150 style="-webkit-transform:rotate(3deg); margin-bottom:24px"></td>
-								
-							</tr>
-							<tr style="font-size:24px; line-height:1em">
-								<td valign=top width=450><strong>“Modern” Web Designer</strong><br>
-								Fluent in current design tools, such as Photoshop and Illustrator. Capable of understanding and manipulating HTML and CSS.</td>
-								<td valign=top align=left width=450><strong>“Modern” Web Developer</strong><br>
-								Commonly writes with HTML, CSS and JavaScript to create front end web sites and applications. 
-								</td>
-							</tr>
-						
-					</table>
-					</center>
-					
-					
-				</section>
-
-				<section class="adobe-list">
-					<img src="assets/piechart1.png" align=left style="margin-top:-350px">
-					<ul style="font-size:32px; margin-left:150px">
-						<li><b>38%:</b> “It is increasingly important to learn and write JavaScript or equivalent code”</li>
-						<li><b>30%:</b> “I am waiting for tools from Adobe and others to simplify development for designers”</li>
-						<li><b>11%:</b> “I am sticking to being a designer and leave coding to the developers”</li>
-						<li><b>11%:</b> n/a</li>
-					</ul>
-				</section>
-
-
-				<section>
-					<img class="dropshadow" src="assets/quote-1.png">
-					<img class="dropshadow" src="assets/quote-2.png">
-				</section>
-
-				<section>
-					<img class="dropshadow" src="assets/dribble.jpg" height=512 style="-webkit-transform:rotate(1.2deg)">
-					<h2><a href="http://dribble.com">dribble.com</a></h2>
-				</section>
-
-				<section>
-					<img class="dropshadow" src="assets/nerdi.jpg" height=512 style="-webkit-transform:rotate(-.8deg)">
-					<h2><a href="http://nerdi.com">nerdi.com</a></h2>
-				</section>
-
-				<section>
-					<img class="dropshadow" src="assets/dabblet.jpg" height=512 style="-webkit-transform:rotate(.8deg)">
-					<h2><a href="http://dabblet.com">dabblet.com</a></h2>
-				</section>
-
-				<section id="tools-and-services">
-						<h1 >Tools & Services</h1>
-						<ul style="-webkit-column-count:2; width:100%">
-							<li><img src="assets/proto-icon.png" height=64 style="">Proto</li>
-							<li><img src="assets/ideas-icon.png" height=64 style="">Ideas</li>
-							<li><img src="assets/fireworks-icon.png" height=64 style="">Fireworks</li>
-							<li><img src="assets/browserlabs-icon.png" height=64 style="">Browserlabs</li>
-							<li><img src="assets/bc-icon.png" height=64 style="">Business Catalyst</li>
-							<li><img src="assets/typekit-icon.png" height=64 style=""></li>
-							<li><img src="assets/dreamweaver-icon.png" height=64 style="">Dreamweaver</li>
-							<li><img src="assets/shadow-icon.png" height=64 style="">Shadow</li>
-							<li><img src="assets/edge-icon.png" height=64 style="">Edge</li>
-							<li><img src="assets/phonegap.png" height=64 style=""></li>
-						</ul>
-				</section>
-
-				<section class="adobe-list">
-					<img src="assets/dreamweaver-icon.png" height=256>
-					<ul>
-						<li class='fragment'>Fluid grid layouts</li>
-						<li class='fragment'>CSS transitions</li>
-						<li class='fragment'>PhoneGap Build</li>
-						<li class='fragment'>Business Catalyst</li>
-						<li class='fragment'>jQuery Mobile swatches</li>
-						<li class='fragment'>Faster FTP</li>
-					</ul>
-				</section>
-
-				<section>
-					<img src="assets/edge-icon.png">
-				</section>
-
-				<section>
-					<img src="assets/edge-icon.png" height="384">
-					<h2 class="embossed"><b>Edge</b></h2>
-					<h3>motion and interaction design  for HTML</h3>
-				</section>
-
-				<section>
-					<img src="assets/edge-screenshot.png" style="margin-top:-50px">
-				</section>
-
-				<section>
-					<img src="assets/edge-icon.png" height="384">
-					<h2 class="embossed"><b>Edge</b></h2>
-					<h3>motion and interaction design  for HTML</h3>
-				</section>
-
-
-
-				<section>
-					<img src="assets/phonegap.png" style="margin-top:-50px">
-					<h3>HTML apps on your mobile device</h3>
-				</section>
-
-				<section>
-					<img src="assets/phonegap1.png" style="margin-top:-50px">
-				</section>
-
-				<section>
-					<img src="assets/phonegap-build1.png" style="margin-top:-50px">
-				</section>
-
-				<section>
-					<img src="assets/phonegap.png" style="margin-top:-50px">
-					<h3>HTML apps on your mobile device</h3>
-				</section>
-
-
-				<section class="adobe-list">
-					<img src="assets/shadow-icon.png" height=256>
-					<h2 style="margin-top:50%">Shadow</h2>
-					<ul class="flex-list">
-						<li class="spring"></li>
-						<li class="fragment">Design with web standards</li>
-						<li class="fragment">Test, preview, debug</li>
-						<li class="fragment">Multiple devices</li>
-						<li class="fragment">Easy setup</li>
-						<li class="spring"></li>
-					</ul>
-				</section>
-
-
-				<section>
-					<img src="assets/html.adobe.com.png" height=512 style="-webkit-transform:rotate(-1.2deg)">
-					<h2><a href="http://html.adobe.com" >html.adobe.com</a></h2>
-				</section>
+                    <section>
+                        <h1 style=color:red;font-size:1.6em;>
+                            many operating systems, many sdks, many devices, with more coming, no clear winners or consolidation
+                        </h1>
+                        <img src=img/omg-stfu.png>
+                    </section>
+
+                    <section><img width=650 src=img/tank.jpg></section>
+
+                    <section>
+                        <h2>Problems Web Technology Solved</h2>
+                        <ul>
+                          <li>
+                            Many Operating Sytems.
+                          </li>
+                          <li>
+                            Many devices <b>and screen sizes</b>.
+                          </li>
+                          <li>
+                            Many SDKs.
+                          </li>
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>Problems Remain</h2>
+                        <ul>
+                          <li>
+                          The web is sandboxed. This is a feature, not a bug.
+                          </li>
+                          <li>
+                          The currently web has a very poor offline story.
+                          </li>
+                          <li>
+                          The web cannot participate in app store distribution revenue (or discovery).
+                          </li>
+                          <li>
+                          The web cannot access Device APIs.
+                          </li>
+                          <li>
+                          The web has shitty tooling.
+                          </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Enter PhoneGap</h2>
+                        <ul>
+                            <li>
+                            Hybrid development: combining the strengths of the web with native envs.
+                            <li>
+                            First project to bridge a native browser instance to Device APIs.
+                            <li>
+                            All the benefits of the web without hiding the native platforms internals or tooling.
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>PhoneGap <span style=color:red>IS NOT</span></h2>
+                        <ul>
+                            <li>
+                            An IDE (we do not dictate tooling choices). That said, Dreamweaver has great PhoneGap support!
+                            <li>
+                            A language (the web is the platform).
+                            <li> 
+                            Proprietary. Everything we do with PhoneGap is open source and Apache licensed.
+                            <li>
+                            A runtime (shipping a runtime is prohibitive to downloading apps over a network).
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>PhoneGap <span style=color:green>IS</span></h2>
+                        <ul>
+                            <li>
+                            Free open source software (Apache V2 License).
+                            <li>
+                            Built with web standards, existing and emmerging.
+                            <li>
+                            Open across many platforms.
+                            <li>
+                            Active and diverse development community and committership.
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>PhoneGap is Powered by Apache Cordova</h2>
+                        <ul>
+                            <li>
+                            PhoneGap is a distribution of the open source Apache Cordova Project.
+                            <li>
+                            There is no difference between the two; we plan to integrate our cloud services for SDK fallback eventually.
+                            <li>
+                            PhoneGap always has been will always remain free open source software. 
+                            <li>
+                            Think: Cordova is to PhoneGap as WebKit is to Chrome. 
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Corporate Support</h2>
+                        <ul>
+                            <li>
+                            Adobe
+                            <li>
+                            IBM
+                            <li>
+                            Microsoft
+                            <li>
+                            RIM
+                            <li>
+                            Nokia
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>PhoneGap and Web Standards</h2>
+                        <ul>
+                            <li>
+                            We track various W3C groups.
+                            <li>
+                            We focus largely on W3C Device API working group.
+                            <li>
+                            Also track HTML5 webapps working group, W3C Widget Group, and others.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Philosophy</h2>
+                        <ul>
+                            <li>
+                            Simple is better; when in doubt: use brute force.
+                            <li>
+                            The web solved cross platform across devices.
+                            <li>
+                            Free open source software has proven to be the best model for platform development and ecosystem creation.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Philosophy: Simple is Better</h2>
+                        <ul style=font-size:.6em;>
+                            <li>
+                            A JavaScript based <em>foreign function interface</em> between a chromeless browser instance on the device and the native platform code.
+                            <li>
+                            Sometimes we call this “the hack” or the “the bridge”. On iOS we used the URL for the bridge!
+                            <li>
+                            It is a blunt method, requiring brute force indeed, we reimplement PhoneGap for every platform we support in the preffered dev env of that platform.
+                            <li>
+                            This technique has scaled to 8 platforms and up to 300 operations per second. PhoneGap is very much fast enough for nearly any native call negotiation use case.
+                            <li>
+                            Detractors say PhoneGap is ‘not native’. Those detractors support 2 platforms, poorly.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Philosophy: The Web Solved Cross Platform</h2>
+                        <ul>
+                            <li>
+                            Apple iOS
+                            <li>
+                            Google Android
+                            <li>
+                            RIM BlackBerry
+                            <li>
+                            Microsoft Windows Phone
+                            <li>
+                            Samsung Bada
+                            <li>
+                            Nokia Symbian
+                            <li>
+                            Nokia Qt
+                            <li>
+                            HP webOS
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Project Goals</h2>
+                        <ul style=list-style:none>
+                            <li><h4 style=color:#268bd2>the web is a first class development platform</h4>
+                            <li><span style=color:#666>&rarr; installable web apps; no sandbox; good tools</span>
+                            <li><h4 style=color:#268bd2>cease to exist</h4>
+                            <li><span style=color:#666>&rarr; reference impl for web standards; the W3C DAP was created because of PhoneGap</span>
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>PhoneGap is FREE *</h2>
+                        <ul>
+                            <li>
+                            to use
+                            <li>
+                            to modify
+                            <li>
+                            to distribute
+                            <li>
+                            to sell
+                        </ul>
+                        <h4>* as in speech, not beer!</h4>
+                    </section>
+      
+                    <section>
+                        <h2>Device APIs</h2>
+                        <ul>
+                            <li>
+                            Are truely cross platform abstraction targets.
+                            <li>
+                            Sensors.
+                            <li>
+                            Data.
+                            <li>
+                            Out.
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>Device Sensors</h2>
+                        <ul>
+                            <li>
+                            Camera
+                            <li>
+                            Accelerometer
+                            <li>
+                            Magnometer
+                            <li>
+                            GPS
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>Device Data</h2>
+                        <ul>
+                            <li>
+                            Filesystem
+                            <li>
+                            Media
+                            <li>
+                            Contacts
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap &amp; UNIX Philosophy</h2>
+                        <ul>
+                            <li>
+                            We advocate freedom of choice for devlopers.
+                            <li>
+                            We advocate small, single purpose, and loosely coupled tools. Pro devs compose their env to maximize their productivity for solving the problems they care about at hand.  We're here to help developers not lock them in.
+                            <li>
+                            We <b>do not</b> dictate tooling for gui development; we leave that job to the open web community and we equally support everyone (jquery, dojo, sencha, yui, etc).
+                            <li>
+                            We <b>do not</b> dictate IDE choices; everything can be done with YOUR favorite tool as long as it supports text.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Plugins: Unlimited Extensibility</h2>
+                        <ul>
+                            <li>
+                            Every PhoneGap API is a PhoneGap plugin.
+                            <li>
+                            3rd parties building plugins now too.
+                            <li>
+                            Facebook most notably. Salesforce too.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Problems and Weaknesses</h2>
+                        <ul>
+                            <li>
+                            The web vs native.
+                            <li>
+                            Device browser variance.
+                        </ul>
+                    </section>
+
+                    <section><h1 style=font-size:2em>PhoneGap Plugins invalidate the web vs native debate.</h1><h2>With PhoneGap the web is native!</h2></section>
+
+                    <section>
+                        <h2>PhoneGap Browser Parity</h2>
+                        <ul>
+                          <li>
+                          PhoneGap is based on the onboard platform SDK WebKit ...but these are different forks.
+                          <li>
+                          We can, and sometimes do, build our own WebKit; but executable size would be &gt;20mb vs &lt;25kb.
+                          <li>
+                          Android performance not quite to the same level as iOS.
+                          <li>
+                          Windows Phone is running IE9 (which actually does have great modern standards compliance and performance).
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Hosted Services</h2>
+                        <ul>
+                        <li>
+                        Targets for value add and revenue capability.
+                        <li>
+                        Better automatoin, insturmentation, tooling capabilities.
+                        <li>
+                        App distribution. 
+                        <li>
+                        <a href=http://build.phonegap.com>build.phonegap.com</a> and <a href=http://debug.phonegap.com>debug.phonegap.com</a>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Support Services</h2>
+                        <ul>
+                            <li>
+                            Security for enterprise customers.
+                            <li>
+                            Bug fixes and custom patches.
+                            <li>
+                            A phone number to call anytime.
+                            <li>
+                            Advisory hours and custom development problem solving.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>First Priority is Contribution</h2>
+                        <ul>
+                        <li>
+                        An open src project is only as healthy as its activity. 
+                        <li>
+                        First priority is recruitment of committers.
+                        <li>
+                        When we can’t recruit for committing to the open source project we want them to open source plugins.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Useful Links</h2>
+                        <ul> 
+                            <li>
+                            <a href=http://phonegap.com>phonegap.com</a>
+                            <li>
+                            <a href=http://phonegap.com/support>PhoneGap support</a>
+                            <li>
+                            <a href=http://wiki.phonegap.com>PhoneGap Wiki</a> <span style=color:#666>(Also a great mobile web resource.)</span>
+                            <li>
+                            <a href=http://docs.phonegap.com>Documentation</a>
+                        </ul>
+                    </section>
+
+                    <section id="tools-and-services">
+                            <h1 >Tools & Services</h1>
+                            <ul style="-webkit-column-count:2; width:100%">
+                                <li><img src="assets/proto-icon.png" height=64 style="">Proto</li>
+                                <li><img src="assets/ideas-icon.png" height=64 style="">Ideas</li>
+                                <li><img src="assets/fireworks-icon.png" height=64 style="">Fireworks</li>
+                                <li><img src="assets/browserlabs-icon.png" height=64 style="">Browserlabs</li>
+                                <li><img src="assets/bc-icon.png" height=64 style="">Business Catalyst</li>
+                                <li><img src="assets/typekit-icon.png" height=64 style=""></li>
+                                <li><img src="assets/dreamweaver-icon.png" height=64 style="">Dreamweaver</li>
+                                <li><img src="assets/shadow-icon.png" height=64 style="">Shadow</li>
+                                <li><img src="assets/edge-icon.png" height=64 style="">Edge</li>
+                                <li><img src="assets/phonegap.png" height=64 style=""></li>
+                            </ul>
+                    </section>
+
+                    <section class="adobe-list">
+                        <img src="assets/dreamweaver-icon.png" height=256>
+                        <ul>
+                            <li class='fragment'>Fluid grid layouts</li>
+                            <li class='fragment'>CSS transitions</li>
+                            <li class='fragment'>PhoneGap Build</li>
+                            <li class='fragment'>Business Catalyst</li>
+                            <li class='fragment'>jQuery Mobile swatches</li>
+                            <li class='fragment'>Faster FTP</li>
+                        </ul>
+                    </section>
+
+    				<section><img src="assets/edge-icon.png"></section>
+
+                    <section>
+                        <img src="assets/edge-icon.png" height="384">
+                        <h2 class="embossed"><b>Edge</b></h2>
+                        <h3>motion and interaction design  for HTML</h3>
+                    </section>
+
+                    <section>
+                        <img src="assets/edge-screenshot.png" style="margin-top:-50px">
+                    </section>
+
+                    <section>
+                        <img src="assets/edge-icon.png" height="384">
+                        <h2 class="embossed"><b>Edge</b></h2>
+                        <h3>motion and interaction design  for HTML</h3>
+                    </section>
+
+                    <section>
+                        <img src="assets/phonegap.png" style="margin-top:-50px">
+                        <h3>HTML apps on your mobile device</h3>
+                    </section>
+
+                    <section>
+                        <img src="assets/phonegap1.png" style="margin-top:-50px">
+                    </section>
+
+                    <section>
+                        <img src="assets/phonegap-build1.png" style="margin-top:-50px">
+                    </section>
+
+                    <section>
+                        <img src="assets/phonegap.png" style="margin-top:-50px">
+                        <h3>HTML apps on your mobile device</h3>
+                    </section>
+
+                    <section class="adobe-list">
+                        <img src="assets/shadow-icon.png" height=256>
+                        <h2 style="margin-top:50%">Shadow</h2>
+                        <ul class="flex-list">
+                            <li class="spring"></li>
+                            <li class="fragment">Design with web standards</li>
+                            <li class="fragment">Test, preview, debug</li>
+                            <li class="fragment">Multiple devices</li>
+                            <li class="fragment">Easy setup</li>
+                            <li class="spring"></li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <img src="assets/html.adobe.com.png" height=512 style="-webkit-transform:rotate(-1.2deg)">
+                        <h2><a href="http://html.adobe.com" >html.adobe.com</a></h2>
+                    </section>
 
 						<!-------------------------------------------------------------- -->
 
