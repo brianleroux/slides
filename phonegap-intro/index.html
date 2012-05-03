@@ -49,10 +49,6 @@
                     <h3><a href=http://goo.gl/Ol9Ao>http://goo.gl/Ol9Ao</a></h3>
 				</section>
 				
-				<section data-state="second-page" >
-						<h1 class="large"><a href=http://twitter.com/brianleroux>@brianleroux</a></h1>
-				</section>
-
 				<section class="adobe-list">
 					<img src=img/dave-mathews.jpg height=600 style="margin-top:-300px">
 					<ul style="margin-left:100px">
@@ -68,6 +64,14 @@
                         th { background:#666; color:#fff; padding:10px; }
                         th, td {font-size:.6em; text-align:left; padding:10px; }
                         ul li { text-align:left; }
+       .pain .state-background {
+           background:url(img/bloody.jpg);
+       }
+        @-webkit-keyframes pulsate {
+             0% {opacity: 0.0;}
+             50% {opacity: 1.0;}
+             100% {opacity: 0.0;}
+        }
                     </style>
                     <h2>The Problem</h2>
                     <table width=100% height=100%>
@@ -139,6 +143,9 @@
                             <li>Run 2 operating systems (virtualized or otherwise).
                         </ul>
                     </section>
+    <section data-state=pain>
+    <img src=img/rage.jpg>
+    </section>
 
                     <section>
                         <h2>More Devices Every Year</h2>
@@ -335,16 +342,14 @@
                     <section>
                         <h2>PhoneGap Philosophy: Simple is Better</h2>
                         <ul style=font-size:.6em;>
-                            <li>
+                            <li class=fragment>
                             A JavaScript based <em>foreign function interface</em> between a chromeless browser instance on the device and the native platform code.
-                            <li>
+                            <li class=fragment>
                             Sometimes we call this “the hack” or the “the bridge”. On iOS we used the URL for the bridge!
-                            <li>
+                            <li class=fragment>
                             It is a blunt method, requiring brute force indeed, we reimplement PhoneGap for every platform we support in the preffered dev env of that platform.
-                            <li>
+                            <li class=fragment>
                             This technique has scaled to 8 platforms and up to 300 operations per second. PhoneGap is very much fast enough for nearly any native call negotiation use case.
-                            <li>
-                            Detractors say PhoneGap is ‘not native’. Those detractors support 2 platforms, poorly.
                         </ul>
                     </section>
 
@@ -373,9 +378,9 @@
                     <section>
                         <h2>PhoneGap Project Goals</h2>
                         <ul style=list-style:none>
-                            <li><h4 style=color:#268bd2>the web is a first class development platform</h4>
+                            <li><h3 style=color:#268bd2;margin-top:60px;>the web is a first class development platform</h3>
                             <li><span style=color:#666>&rarr; installable web apps; no sandbox; good tools</span>
-                            <li><h4 style=color:#268bd2>cease to exist</h4>
+                            <li><h3 style=color:#268bd2;margin-top:60px;>cease to exist</h3>
                             <li><span style=color:#666>&rarr; reference impl for web standards; the W3C DAP was created because of PhoneGap</span>
                         </ul>
                     </section>
@@ -438,13 +443,13 @@
                     <section>
                         <h2>PhoneGap &amp; UNIX Philosophy</h2>
                         <ul>
-                            <li>
+                            <li class=fragment>
                             We advocate freedom of choice for devlopers.
-                            <li>
+                            <li class=fragment>
                             We advocate small, single purpose, and loosely coupled tools. Pro devs compose their env to maximize their productivity for solving the problems they care about at hand.  We're here to help developers not lock them in.
-                            <li>
+                            <li class=fragment>
                             We <b>do not</b> dictate tooling for gui development; we leave that job to the open web community and we equally support everyone (jquery, dojo, sencha, yui, etc).
-                            <li>
+                            <li class=fragment>
                             We <b>do not</b> dictate IDE choices; everything can be done with YOUR favorite tool as long as it supports text.
                         </ul>
                     </section>
@@ -464,14 +469,18 @@
                     <section>
                         <h2>PhoneGap Problems and Weaknesses</h2>
                         <ul>
-                            <li>
+                            <li class=fragment>
                             The web vs native.
-                            <li>
+                            <li class=fragment>
                             Device browser variance.
+                            <li class=fragment>
+                            Web dev is hard. 
                         </ul>
                     </section>
 
-                    <section><h1 style=font-size:2em>PhoneGap Plugins invalidate the web vs native debate.</h1><h2>With PhoneGap the web is native!</h2></section>
+                    <section><h4>PhoneGap Plugins invalidate the web vs native debate.</h4>
+                    <img src=img/party-animal.jpg width=300>
+                    <h2>With PhoneGap the web is native!</h2></section>
 
                     <section>
                         <h2>PhoneGap Browser Parity</h2>
@@ -485,6 +494,11 @@
                           <li>
                           Windows Phone is running IE9 (which actually does have great modern standards compliance and performance).
                         </ul>
+                    </section>
+
+                    <section>
+                    <h2>Web Dev is Hard?</h2>
+                    <img class=fragment src=img/fuuuu.png>
                     </section>
 
                     <section>
@@ -530,13 +544,13 @@
                     <section>
                         <h2>Release Philosophy</h2>
                         <ul>
-                        <li>
+                        <li class=fragment>
                         We ship on the classic MAJOR.MINOR.PATCH scheme.
-                        <li>
+                        <li class=fragment>
                         Generally agreed upon goal for each month. Ship an RC two weeks in. Hardening and MINOR end of the month.
-                        <li>
+                        <li class=fragment>
                         We prioritize shipping over a particular feature, issue, bug, or task.
-                        <li>
+                        <li class=fragment>
                         Aim to ship the next MAJOR in July. 2.x!!!!
                         </ul>
                     </section>
@@ -544,13 +558,13 @@
                     <section>
                         <h2>Things to Expect in 2.x</h2>
                         <ul>
-                        <li>
+                        <li class=fragment>
                         Plugins for all the things.
-                        <li>
+                        <li class=fragment>
                         Consistent automations and CLI tooling for common development tasks.
-                        <li>
+                        <li class=fragment>
                         Windows Phone
-                        <li>
+                        <li class=fragment>
                         CordovaView
                         </ul>
                     </section>
@@ -598,21 +612,8 @@
                     </section>
 
     				<section><img src="assets/edge-icon.png"></section>
-
-                    <section>
-                        <img src="assets/edge-icon.png" height="384">
-                        <h2 class="embossed"><b>Edge</b></h2>
-                        <h3>motion and interaction design  for HTML</h3>
-                    </section>
-
                     <section>
                         <img src="assets/edge-screenshot.png" style="margin-top:-50px">
-                    </section>
-
-                    <section>
-                        <img src="assets/edge-icon.png" height="384">
-                        <h2 class="embossed"><b>Edge</b></h2>
-                        <h3>motion and interaction design  for HTML</h3>
                     </section>
 
                     <section>
@@ -663,17 +664,6 @@
 					</section>
 				</section>
 
-				<section data-state="no-logo">
-					<img src="assets/adobe-vector.svg" width="357" height="600" style="margin-top:-150px" >							
-				</section>
-
-				<section class="adobe-list">
-					<h3>Colophon</h3>
-					<ul >
-						<li><b>reveal.js</b> by <a href="http://hakim.se">Hakim El Hattab</a></li>
-						<li><b>Font</b> Ubuntu</li>
-					</ul>
-				</section>
 
 
 			</div>
