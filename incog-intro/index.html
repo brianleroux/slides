@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>intro to incog</title>
+    <meta name="description" content="" />
+    <meta name="author" content="Bartek Szopka" />
+    <link href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'>
+    <link href="css/impress-demo.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body class="impress-not-supported">
+    
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+
+<div id="impress" data-transition-duration=777>
+    
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        <q>
+            <h1>Billion Dollar App Walkthrough</h1>
+            <a href=//brian.io/slides/incog-intro>brian.io/slides/incog-intro</a>
+        </q> 
+    </div>
+    
+    <div class="step slide" data-x="0" data-y="-1500">
+        <q>
+            <h2>whoami</h2>
+            <ul>
+                <li><a href=//brian.io>brian.io</a></li>
+                <li><a href=//cordova.io>apache cordova</a> / <a href=//phonegap.com>phonegap</a></li>
+            </ul>
+        </q>
+    </div>
+    
+    <div class="step slide" data-x="1000" data-y="-1500">
+        <q><a style="font-size:5em; color:red; text-decoration:none;margin:500px 0 0 100px;" href=http://wtfjs.com>wtfjs</a></q>    
+    </div>
+
+    <div class="step slide" data-x="2000" data-y="-1500">
+        <q>
+            phonegap lets build apps for ios, android, blackberry, windows phone, qt, webos, bada
+            using html css and javascript
+        </q> 
+    </div>
+
+    <div class="step slide" data-x="3000" data-y="-1500">
+        <q>
+            phonegap is free open source software<br>
+            the open source project is incubating at apache under the name cordova 
+        </q> 
+    </div>
+    
+    <div class="step slide" data-x="4000" data-y="-1500">
+        <q>
+            phonegap has two goals
+            <li>web as a first class platform
+            <li>cease to exist
+        </q> 
+    </div>
+
+    <div class="step slide" data-x="5000" data-y="-1500">
+        <q>
+            the web solved cross platform
+        </q> 
+    </div>
+    
+    <div class="step slide" data-x="6000" data-y="-1500">
+        <q>
+            but it is a very limited abstraction
+            <li>security sandbox<span style=font-size:.5em> &larr; a feature not bug</span>
+            <li>bad api symmetry 
+            <li>weird object model
+            <li>varied implementations
+        </q> 
+    </div>
+    
+    <div class="step slide" data-x="7000" data-y="-1500">
+        <q style=text-align:center>
+            <p>...and the tools are limited.</p><br><br>
+            <img src=img/stone_tool_web.gif>
+        </q> 
+    </div>
+
+    <div class="step slide" data-x="8000" data-y="-1500">
+            <h1>web as a first class platform?</h1>
+            <q>ability to work outside the sandbox and access low level device apis</q>
+        </q> 
+    </div>
+
+    <div class="step slide" data-x="9000" data-y="-1500">
+            <h1>cease to exist?</h1>
+            <q>phonegap is a polyfill, a functional prototype, and a sort of experimental roadmap for web browsers
+        </q> 
+    </div>
+
+    <div class="step slide" data-x="10000" data-y="-1500">
+        <h1>when to use phonegap?</h1>
+        <q>
+            <ul>
+                <li>require offline that isnt a douchebag
+                <li>desire app store distribution
+                <li>need access to device apis
+                <li>want to stay in the web stack
+            </ul>
+        </q> 
+    </div>
+
+    <div id="title" class="step" data-x="0" data-y="500" data-scale="6">
+        <span class="try">basically what I'm saying is</span>
+        <h1>build the mother fucking web app first</h1>
+        <span class="footnote"></span>
+    </div>
+    
+    
+    <div class="step slide" data-x="2000" data-y="3000" data-rotate="90">
+        <q style=text-align:center><img src=img/instagram.jpeg></q> 
+    </div>
+
+    <div class="step slide" data-x="2000" data-y="4000" data-rotate="90">
+        <q>
+            contrary to popular belief
+            <li>ios client only
+            <li>not a web app
+            <li>init no web api
+            <li>blocks search engines
+            <li>no urls
+        </q> 
+    </div>
+    
+    <div class="step slide" data-x="2000" data-y="5000" data-rotate="90">
+        <q>
+            in their opinion...
+            <li>web technology is not ready for good user experience
+            <li>wanted to deliberately create an exclusive environment
+            <li>web not ready for photosharing
+        </q> 
+    </div>
+    
+    <div id="big" class="step" data-x="7000" data-y="1000" data-rotate="400" data-scale="9">
+        <p>honestly <b>wtf!!!</b></p>
+    </div>
+    
+    <div id="tiny" class="step" data-x="3500" data-y="800" data-z="-3000" data-rotate="360" data-scale="1">
+        <p>challenge accepted</p>
+    </div>
+
+
+    <div class="step slide" data-x="1200" data-y="3000" data-rotate="90">
+        <q>
+            further thoughts
+            <li>there is no bigger app store than the internet
+            <li>photosharing remains unsolved: can't scale, no urls?!
+            <li>what I want own my data
+        </q>
+    </div>
+    
+    <div class="step slide" data-x="1200" data-y="4000" data-rotate="90">
+        <h1>a dangerous goal</h1>
+        anyone can upload an image from any device
+    </div>
+
+    <div class="step slide" data-x="1200" data-y="5000" data-rotate="90">
+        <q>
+            a word of caution
+            <li>this is a prototype not production code
+            <li>everything is open source
+            <li>the goal is to prove it can be done
+        </q> 
+    </div>
+    
+    <div class="step slide" data-x="1200" data-y="6000" data-rotate="90">
+        <q>
+            its anonamous: so, <b>watch out</b>, and <i>please do not upload fucked up shit</i>
+        </q> 
+    </div>
+
+    <style type="text/css" media="screen">
+        .iphone {
+            background:url(img/iphone.png) no-repeat;
+            width:400px;
+            height:760px;
+        }
+        .iphone iframe {
+            margin:81px 150px 0 0;
+            width:320px;
+            height:480px;
+        } 
+    </style>
+    <div class="step iphone" data-x="1200" data-y="7000">
+        <iframe src=http://incog.io></iframe>
+    </div>
+
+    <div class="step slide" data-x="400" data-y="3000" data-rotate="90">
+        <q>backend</q>
+    </div>
+
+    <div class="step slide" data-x="400" data-y="4000" data-rotate="90">
+        <q>
+            hipster approved
+            <li>nodejs app server
+            <li>s3 for the static imgs
+        </q>
+    </div>
+
+    <div class="step slide" data-x="400" data-y="5000" data-rotate="90">
+        <q>
+            <li>started w/ an express app 
+            <li>realized I was doing a bunch of boilerplate persistence junk and pulled it out to S4 lib
+        </q>
+    </div>
+
+    <div class="step slide" data-x="400" data-y="6000" data-rotate="90">
+        <q>
+            <a href=http://github.com/brianleroux/s4>super simple storage solution: s4</a>
+            <li>started w/ an express app 
+            <li>realized I was doing a bunch of boilerplate persistence junk and pulled it out to S4 lib
+            <li>kinda like the lawnchair api
+        </q>
+    </div>
+
+    <div class="step slide" data-x="400" data-y="7000" data-rotate="90">
+        <script src="https://gist.github.com/2781758.js?file=s4.js"></script>
+        <style type="text/css" media="screen">
+            .gist .gist-file .gist-data {
+                    font-size: 77%;
+            } 
+        </style>
+    </div>
+
+    <div class="step slide" data-x="400" data-y="8000" data-rotate="90">
+        <script src="https://gist.github.com/2781821.js?file=routes.js"></script>
+        <style type="text/css" media="screen">
+            .gist .gist-file .gist-data {
+                font-size: 60%;
+            } 
+            .gist .gist-file .gist-meta {
+                font-size:40%;
+            }
+        </style>
+    </div>
+    
+    <div class="step slide" data-x="-400" data-y="3000" data-rotate="90">
+        <q>frontend (yes, broke-ass stuff is here) </q>
+    </div>
+    
+    <div class="step slide" data-x="-400" data-y="4000" data-rotate="90">
+        choosing your weapons
+        <li>jquery
+        <li>sencha
+        <li>dojo
+        <li>yui
+        <li>mootools
+        <li>xuijs
+        <li>zepto
+        <li>lawnchair
+        <li>mustache
+        <li>emberjs
+    </div>
+    
+    <div class="step slide" data-x="-400" data-y="5000" data-rotate="90">
+        <img width=800 src=img/not-sure.jpg>
+    </div>
+
+    <div class="step slide" data-x="-400" data-y="6000" data-rotate="90">
+        if not by popularity then perhaps by function?
+        <li>dom manipulation
+        <li>eventing
+        <li>networking
+        <li>templating
+        <li>persistence
+        <li>unit testing
+    </div>
+    
+    <div class="step slide" data-x="-400" data-y="7000" data-rotate="90">
+        <img width=800 src=img/not-sure-2.jpg>
+    </div>
+
+    <div class="step slide" data-x="-400" data-y="8000" data-rotate="90" style="background:#fff url(img/zed.png) no-repeat">
+        <div style="width:400px;margin:50px 0 0 400px;">
+            <h1>programming mother fucker: do you speak it?</h1><br>
+            &rarr; poplarity is never a good reason to support something<br>
+            &rarr; hero worship even worse<br>
+            &rarr; be the programmer you were born to be and write some fucking code<br>
+        </div>
+    </div>
+
+    <div class="step slide" data-x="-400" data-y="9000" data-rotate="90">
+        my take
+        <li>layer in libs when you need them
+        <li>start w/ nothing
+        <li>...or next to it <a href=http://www.140byt.es>140byt.es</a>
+    </div>
+    
+    <div class="step slide" data-x="-400" data-y="10000" data-rotate="90">
+        awesome service that made life easier: <a href=http://boxresizer.com>boxresizer.com</a>
+    </div>
+    
+    <div class="step slide" data-x="-400" data-y="11000" data-rotate="90">
+        css fucks me up but twitter bootstrap saved me...sorta
+        <img width=800 src=img/sad.png
+    </div>
+    
+    <div class="step slide" data-x="-400" data-y="12000" data-rotate="90">
+        <a href=http://brian.io/slides/debug-mobile>debugging is bloody mess</a>
+    </div>
+
+    <div class="step slide" data-x="-400" data-y="13000" data-rotate="90">
+        eh, wait a sec. what about phonegap?
+    </div>
+    
+    <div class="step slide" data-x="-400" data-y="14000" data-rotate="90">
+        yagni?
+    </div>
+
+    <div class="step slide" data-x="-400" data-y="15000">
+        when to use phonegap?
+        <li>require offline that isnt a douchebag &larr; yes
+        <li>desire app store distribution &larr; meh
+        <li>need access to device apis &larr; yes
+        <li>want to stay in the web stack &larr; always
+    </div>
+
+    <div class="step slide" data-x="-400" data-y="16000">
+        <h1>lets do this thing</h1>
+        <li>inc the cordova js file
+        <li>add whitelist
+        <li>supporting files > Cordova.plist
+        <li>get rid of elastic banding
+    </div>
+
+    <div class="step slide" data-x="-400" data-y="17000">
+        <h1>issues remains</h1>
+        <li>need to figure out the fallback for ie
+        <li>image progress indication would be cool beans
+        <li>image effects not quite there
+        <li>probably time to refactor with backbone
+        <li>didn't write any client unit tests
+        <li>phonegap does not have a back button
+    </div>
+    
+    <div id="its-in-3d" class="step" data-x="6700" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="10">
+        thanks eh
+    </div>
+
+    <!--
+ @bartaz       
+        So to make a summary of all the possible attributes used to position presentation steps, we have:
+        
+        * `data-x`, `data-y`, `data-z` they define the position of **the center** of step element on
+            the canvas in pixels; their default value is 0;
+        * `data-rotate-x`, `data-rotate-y`, 'data-rotate-z`, `data-rotate` they define the rotation of
+            the element around given axis in degrees; their default value is 0; `data-rotate` and `data-rotate-z`
+            are exactly the same;
+        * `data-scale` defines the scale of step element; default value is 1
+        
+        These values are used by impress.js in CSS transformation functions, so for more information consult
+        CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
+        
+        -->
+
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+</body>
+</html>
+
+
