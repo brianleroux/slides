@@ -119,7 +119,7 @@
 
 - platforms I am interested in: ios, android, blackberry, windows phone 
 - browser insances I am interested in: stock browser, opera, firefox, chrome
-- lets treat hybrid environments like phonegap seperatly 
+- lets treat hybrid environments like phonegap seperately
 
 ---
 
