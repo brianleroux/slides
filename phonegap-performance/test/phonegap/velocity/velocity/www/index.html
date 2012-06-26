@@ -11,6 +11,7 @@
 <script type="text/javascript">
           
     document.addEventListener("deviceready", ready, false);    
+    
     var firstReturn = false,
     returns = 0,
     iterations = 2000,
@@ -23,15 +24,15 @@
         returns++;
         if (!firstReturn) {
             firstReturn = new Date
-            messages.push('earliest return was ' + (firstReturn - startTime) + 'ms after start time, ' + (firstReturn - runTime) + 'ms after run time')
+            messages.push('earliest return was ' + (firstReturn - startTime) + ' ms after start time , ' + (firstReturn - runTime) + ' ms after run time')
         }
         if (returns == iterations) {
-            endTime = new Date
-            var span = (endTime - firstReturn)
-            messages.push(iterations + ' returns completed over ' + span + 'ms, ' + (span/iterations) + ' per ms')
+            var span = new Date - firstReturn,
+            msg = iterations + ' returns in ' + span + 'ms, ' + (span/iterations) + ' per ms '
+            messages.push(msg)
             messages.forEach(function(msg) {
-                             document.write(msg + "<br>");
-                             });
+                document.write(msg + "<br>");
+            });
         }
         return;
     }
@@ -68,8 +69,8 @@
         
         // hz → the number of operations per second
         hz = 1 / period;
-        messages.push(iterations + ' runs in ' + totalTime + ' seconds')
-        messages.push(hz + 'hz')
+        messages.push(iterations + ' runs in ' + totalTime + ' seconds ')
+        messages.push(hz + ' hz ')
     }
           
 </script>
