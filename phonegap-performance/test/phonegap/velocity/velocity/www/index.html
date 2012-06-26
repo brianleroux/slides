@@ -10,22 +10,67 @@
 <script src="cordova-1.7.0.js"></script>
 <script type="text/javascript">
           
-document.addEventListener("deviceready", ready, false);
+    document.addEventListener("deviceready", ready, false);    
+    var firstReturn = false,
+    returns = 0,
+    iterations = 2000,
+    startTime,
+    endTime,
+    runTime,
+    messages = [];
     
-function ready() {
-    var startTime = new Date, totalTime;
-    
-    var win = function(echoed) {
-        totalTime = new Date - startTime;
-        alert('total millaseconds per operation ' + totalTime)
+    function logReturn() {
+        returns++;
+        if (!firstReturn) {
+            firstReturn = new Date
+            messages.push('earliest return was ' + (firstReturn - startTime) + 'ms after start time, ' + (firstReturn - runTime) + 'ms after run time')
+        }
+        if (returns == iterations) {
+            endTime = new Date
+            var span = (endTime - firstReturn)
+            messages.push(iterations + ' returns completed over ' + span + 'ms, ' + (span/iterations) + ' per ms')
+            messages.forEach(function(msg) {
+                             document.write(msg + "<br>");
+                             });
+        }
+        return;
     }
     
-    var fail = function(err) {
-        alert('you have failed ', err)
+    function ready() {
+        
+        messages.push('starting test');
+        var hz,
+        period,
+        counter = iterations;
+        
+        var win = function(echoed) {
+            logReturn();
+        }
+        
+        var fail = function(err) {
+            logReturn();
+        }
+        
+        startTime = new Date
+        
+        do {
+            cordova.exec(win, fail, 'VelocityBench', 'echo', ['hello world eh']);
+        } while (--counter);
+        
+        runTime = new Date;    
+        
+        // convert ms to seconds
+        var totalTime = (runTime - startTime) / 1000;
+        
+        // period → how long per operation
+        period = totalTime / iterations;
+        
+        
+        // hz → the number of operations per second
+        hz = 1 / period;
+        messages.push(iterations + ' runs in ' + totalTime + ' seconds')
+        messages.push(hz + 'hz')
     }
-
-    cordova.exec(win, fail, 'VelocityBench', 'echo', ['hello world eh']);
-}
           
 </script>
 </body>
