@@ -95,6 +95,12 @@ https://github.com/apache/incubator-cordova-ios/blob/master/CordovaLib/Classes/C
 
 ---
 
+# writing a benchmark
+
+http://calendar.perfplanet.com/2010/bulletproof-javascript-benchmarks/
+
+---
+
 # Futures: benchmarking init time
 
 ---

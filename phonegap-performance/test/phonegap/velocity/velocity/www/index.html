@@ -12,39 +12,19 @@
           
 document.addEventListener("deviceready", ready, false);
     
-window.start = new Date
-window.iterations = 10 
-window.total = 0
-    
 function ready() {
+    var startTime = new Date, totalTime;
     
     var win = function(echoed) {
-        console.log('ya boy ' + echoed)
+        totalTime = new Date - startTime;
+        alert('total millaseconds per operation ' + totalTime)
     }
     
     var fail = function(err) {
-        console.log('you have failed ', err)
+        alert('you have failed ', err)
     }
-    
-    var hz,
-    period,
-    startTime = new Date,
-    runs = 0;
-    do {
-        cordova.exec(win, fail, 'VelocityBench', 'echo', ['hello world eh']);
-        runs++;
-        totalTime = new Date - startTime;
-    } while (totalTime < 1000);
-    
-    // convert ms to seconds
-    totalTime /= 1000;
-    
-    // period → how long per operation
-    period = totalTime / runs;
-    
-    // hz → the number of operations per second
-    hz = 1 / period;
-    alert('hz ='+hz)
+
+    cordova.exec(win, fail, 'VelocityBench', 'echo', ['hello world eh']);
 }
           
 </script>
