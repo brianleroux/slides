@@ -40,7 +40,7 @@
 
 ---
 
-<blockquote>We need to stop building things for developer convenience and instead build them for user experience. We can create rich experiences that solve these problems. Limitations can fuel creativity. Don’t get tied to particular solutions, revisit things that we previously dismissed. South Street is an umbrella project form the Filament Group that addressed problems around qualified application of features & improving delivery mechanisms. - http://www.lukew.com/ff/entry.asp?1565</blockquote>
+<blockquote>We need to stop building things for developer convenience and instead build them for user experience. We can create rich experiences that solve these problems. Limitations can fuel creativity. Don’t get tied to particular solutions, revisit things that we previously dismissed.  - @scottjehl http://www.lukew.com/ff/entry.asp?1565</blockquote>
 
 ---
 
@@ -64,14 +64,14 @@
 
 # hello world, eh
 
-     framework                        |  html  |    css   |     js   |  payload
+     framework                       |  html  |    css   |     js   |  payload
     +--------------------------------+--------+----------+----------+----------+
+     zepto + underscore + backbone ... 0.60 KB    0.00 KB   52.92 KB   52.92 KB
      jquery .......................... 0.52 KB    0.00 KB   92.91 KB   93.43 KB     
+     twitter bootstrap ............... 2.23 KB   91.99 KB  115.01 KB  209.23 KB
      jquery-mobile ................... 0.79 KB   59.57 KB  182.01 KB  242.37 KB
      ember ........................... 1.69 KB    5.16 KB  247.54 KB  254.39 KB
-     twitter bootstrap ............... 2.23 KB   91.99 KB  115.01 KB  209.23 KB
      sencha .......................... 0.14 KB  198.73 KB  357.90 KB  556.77 KB
-     zepto + underscore + backbone ... 0.60 KB    0.00 KB   52.92 KB   52.92 KB
 
 ---
 
@@ -125,7 +125,7 @@
 
 # basically the two best appcach protips ever 
 
-- jake archibald is hilarious and accurate in his hate on appcache
-- lyza danger gardner saved my sanity with chrome://appcache-internals/
+- [jake archibald](http://twitter.com/jaffathecake) is hilarious and accurate in his hate on appcache
+- [lyza danger](http://twitter.com/lyzadanger) gardner saved my sanity with chrome://appcache-internals/
 
 ---
