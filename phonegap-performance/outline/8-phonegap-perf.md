@@ -2,6 +2,8 @@
 
 ## aka apache cordova
 
+<img width=500 src=img/manhattan.jpg>
+
 ---
 
 # web as a first class platform
