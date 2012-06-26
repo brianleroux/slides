@@ -34,6 +34,8 @@
         // implemented differently on each platform
     }
 
+---
+
 # iOS JS to Native Bridge
 
     gapBridge = document.createElement("iframe");
@@ -98,5 +100,9 @@ https://github.com/apache/incubator-cordova-ios/blob/master/CordovaLib/Classes/C
 ---
 
 # Futures: benchmarking FileReader
+
+---
+
+# thx eh
 
 ---
