@@ -1,0 +1,781 @@
+<!doctype html>  
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>phonegap performance</title>
+<meta name="description" content="vEveryone is excited about HTML5. In these slides we go beyond HTML5 and check out Device APIs.">
+<meta name="author" content="Brian LeRoux">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="revealjs/css/reset.css">
+<link rel="stylesheet" href="revealjs/css/main.css">
+<link rel="stylesheet" href="revealjs/lib/zenburn.css">
+<style>
+    .alert .state-background {
+       background:url(img/bloody.jpg);
+       -webkit-animation: pulsate 4s ease-out;
+       -webkit-animation-iteration-count: infinite; 
+       opacity: 0.0;
+    }
+    .rock .state-background {
+       background:url(img/bloody.jpg);
+       -webkit-animation: pulsate 1.4s ease-out;
+       -webkit-animation-iteration-count: infinite; 
+       opacity: 0.0;
+    }
+    .vanilla .state-background {
+       background:white;
+   }
+   .pain .state-background {
+       background:url(img/bloody.jpg);
+   }
+    @-webkit-keyframes pulsate {
+         0% {opacity: 0.0;}
+         50% {opacity: 1.0;}
+         100% {opacity: 0.0;}
+    }
+    .wolf .state-background {
+        background:url(img/courage-wolf.jpg);
+        background-position:center;
+    }
+</style>
+</head>
+<body>
+<div id="reveal">
+<!-- Used to fade in a background when a specific slide state is reached -->
+<div class="state-background"></div>
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section><h1>Lessons Learned About Performance From PhoneGap</h1>
+
+<h2><a href="http://twitter.com/brianleroux">@brianleroux</a>, Adobe Systems, Apache Cordova / PhoneGap, <a href="http://wtfjs.com">wtfjs</a></h2>
+
+</section><section>
+
+<h1>touchpoints</h1>
+
+<ul>
+<li>development philosophy and practice for mobile web devs</li>
+<li>user experience practices</li>
+<li>html practices</li>
+<li>css practices</li>
+<li>js practices</li>
+<li>all the frameworks</li>
+<li>phonegap performance (plugin ffi, payload, init)</li>
+</ul>
+
+</section><section>
+
+<h1>first rule of performance</h1>
+
+<h2>do everything <a href="http://twitter.com/souders">souders</a> reccomends!!!</h2>
+
+</section><section>
+
+<h1>second rule of performance</h1>
+
+<h2>be <a href="http://futurefriend.ly">future friendly</a></h2>
+
+</section><section>
+
+<h1>dev practices</h1>
+
+<p><img src="img/i-have-no-idea-what-im-doing-dog.jpg"></p>
+
+</section><section>
+
+<h1>time to market</h1>
+
+<ul>
+<li>revenue payload latency!</li>
+<li>reduce your problem surface area and thus maintainence and bug issues</li>
+<li>small teams rock: 2 devs and one interaction designer will kick ass every time</li>
+<li>focus and cadence always beat meetings and long release cycles</li>
+</ul>
+
+</section><section>
+
+<h1>user research and discovery</h1>
+
+<ul>
+<li>find one problem; solve it in a prototype</li>
+<li>test w/ real ppl on real devices</li>
+</ul>
+
+</section><section>
+
+<h1>debug/testable</h1>
+
+<ul>
+<li>black box abstractions are dangerous lockins</li>
+<li>test first not manditory but ability to run tests immediately is</li>
+<li>test every bug or I will kill you all</li>
+<li>have a test plan and publish it; you won't have all the devices</li>
+</ul>
+
+</section><section>
+
+<h1>bad requirements</h1>
+
+<ul>
+<li>user feedback is the best requirements you can get. a bad strategy certainly begets bad architecture.</li>
+<li>daily standups between members and teams crucial but make sure you stand up</li>
+<li>issue tracker, backlog, and sprint roadmap (for bugs anyhow) should be PUBLIC</li>
+</ul>
+
+</section><section>
+
+<h1>proxy</h1>
+
+<ul>
+<li>backends are kinda fucked up wastelands of XML bottlenecks</li>
+<li>create a restful JSON proxy to the data, even dummy data proxy</li>
+<li>cache agressively on the client (yay localStorage)</li>
+<li>have a first run experience that does not require the network</li>
+</ul>
+
+</section><section>
+
+<h1>ship daily</h1>
+
+<ul>
+<li>release on a cadence; weekly seems good</li>
+<li>have builds available every day, ideally every commit</li>
+<li>marketing has nothing to do with releasing or shipping: don't let the non programmers tell you otherwise</li>
+<li>mentally prepare for App Store curation</li>
+</ul>
+
+</section><section>
+
+<h1>revenue is hard?</h1>
+
+<ul>
+<li>$1 is not a business plan</li>
+<li>advertising not the only model. think: uber, cherry, etc</li>
+<li>open src is a competative advantage to your hosted service. think: wikipedia</li>
+</ul>
+
+</section><section>
+
+<h1>security</h1>
+
+<ul>
+<li>store nothing on the device</li>
+<li>do not trust 3rd party code</li>
+<li>do not be a dick (eg. save contacts and location and calendar events to your server)</li>
+</ul>
+
+</section><section>
+
+<h1>marketing</h1>
+
+<ul>
+<li>another advantage of open src</li>
+<li>app store discovery is bad: use your competators in your description (but do not bash em)</li>
+<li>newsletters, meetups, mailing lists, twitter and other channels are awesome but stay on topic.</li>
+</ul>
+
+</section><section>
+
+<h1>metrics</h1>
+
+<ul>
+<li>can slow your app down: sample</li>
+<li>use your current audience to guide your strategy not global marketshare projections of device sales</li>
+<li>a new metric: WTF/min (your job is to minimize this)</li>
+</ul>
+
+</section><section>
+
+<h1>optimize happiness</h1>
+
+<ul>
+<li>step away from the computer</li>
+<li>effective teams are rested teams</li>
+<li>long hours do not beget good code</li>
+<li>get some exercise</li>
+<li>try a banana instead of choclate</li>
+<li>drink a big glass of water before reaching for coffee</li>
+<li>yoga is pretty wonderful</li>
+<li>so is having a beer with your friends</li>
+</ul>
+
+</section><section>
+
+<h1>seek balance instead of purity</h1>
+
+<h2>purity is an illusion wrought of a mind embattled by constant changing reality</h2>
+
+</section><section>
+
+<h1>develop in the web browser</h1>
+
+<h3>test on real devices; emulation is currently kinda useless</h3>
+
+</section><section>
+
+<h1>remember</h1>
+
+<h2>no code is faster than any amount of code</h2>
+
+</section><section>
+
+<h1>UX Concerns</h1>
+
+<p><img src="img/surf-dog.jpg" /></p>
+
+</section><section>
+
+<h1>A great experience can be created with any technology</h1>
+
+<h2>and so can a bad one</h2>
+
+</section><section>
+
+<h1>The Uncanny Valley</h1>
+
+<ul>
+<li>emulating native controls bad</li>
+<li>observing native patterns is good</li>
+</ul>
+
+</section><section>
+
+<h1>there is no one true way</h1>
+
+<ul>
+<li>saying one approach is better is naive and ultimately harmful</li>
+<li>tradeoffs are observed with any technology choice</li>
+</ul>
+
+</section><section>
+
+<h1>Great UX is Details</h1>
+
+</section><section>
+
+<h1>Great UX is Goal Directed NOT Tech Directed</h1>
+
+</section><section>
+
+<h1>UX is ALWAYS iterative</h1>
+
+</section><section>
+
+<h1>Your Brand is not Apple Widgets</h1>
+
+</section><section>
+
+<h1>native gui is lowest common denomenator</h1>
+
+<ul>
+<li>one platform is not a platform: it is a proprietary runtime</li>
+<li>designing for native is the modern equiv of designing for outlook express</li>
+</ul>
+
+</section><section>
+
+<h1>perf today is not a indication of perf tmrw</h1>
+
+<h2>...just ask javascript</h2>
+
+</section><section>
+
+<blockquote>the web is a self healing system - james pearce, facebook</blockquote>
+
+</section><section>
+
+<h1>UX is too important to treat like an aesthetic</h1>
+
+<ul>
+<li>urls count</li>
+<li>accessability counts</li>
+<li>standards prevent lock-in</li>
+</ul>
+
+</section><section>
+
+<h1>proprietary lock-in is a performance antipattern</h1>
+
+<ul>
+<li>impedes competition</li>
+<li>impedes portabilty by nature</li>
+<li>blocks ability to move to better service providers</li>
+</ul>
+
+</section><section>
+
+<h1>HTML Business</h1>
+
+<ul>
+<li>the less the better</li>
+<li>empty body tag not the answer either</li>
+<li>but you have to show something</li>
+</ul>
+
+</section><section>
+
+<h1>DOM is Dangerous</h1>
+
+<ul>
+<li>reflows, and subsequent repaints, kill performance</li>
+<li>avoid deeply nested structures and selectors</li>
+<li>avoid innerHTML</li>
+</ul>
+
+</section><section>
+
+<h1>document fragments</h1>
+
+<p><a href='http://ejohn.org/blog/dom-documentfragments/'>http://ejohn.org/blog/dom-documentfragments/</a></p>
+
+</section><section>
+
+<h1>hipster js devs love buildstep</h1>
+
+<ul>
+<li>you probably never heard of it</li>
+<li>precompile your templates</li>
+<li>concat, minify, inline, lint...while ur at it</li>
+</ul>
+
+</section><section>
+
+<h1>DOM is your BFF</h1>
+
+<ul>
+<li>ubquity is nice</li>
+<li>accessibility is nice</li>
+<li>semantics are nice</li>
+<li>the DOM is future friendly</li>
+</ul>
+
+</section><section>
+
+<h1>CSS Business</h1>
+
+<ul>
+<li>always put in the head to avoid getting FOUC</li>
+<li>media queries will save us all! </li>
+<li>deeply nested selectors are slow dawg</li>
+<li>descriptive selectors not a big problem over gzip (ht <a href=http://twitter.com/scottjehl>@scottjehl</a>)</li>
+<li>more code, more latency duh</li>
+</ul>
+
+</section><section>
+
+<h1>looks kill</h1>
+
+<ul>
+<li>don't use opacity on things that don't need it</li>
+<li>gradients and drop shadows choke the shit out of android</li>
+<li>avoid using high-resolution background images if you need good scrolling</li>
+</ul>
+
+</section><section>
+
+<h1>Be Responsible and Responsive</h1>
+
+<ul>
+<li>adaptive layouts will scale to new devices and old</li>
+<li>serving content inappropriate for a device can be detrimetnal to performance</li>
+</ul>
+
+</section><section>
+
+<h1>hardware accel not ubqitous</h1>
+
+<ul>
+<li>Currently, only -webkit-transform and opacity offer hardware acceleration on iOS devices.</li>
+<li>-webkit-backface-visibility can help w/ flickers but slows things down</li>
+<li>-webkit-perspective slows things</li>
+<li>-webkit-transform-style: preserve-3d; will slow things</li>
+<li>canvas and svg accelerated on BB and Windows Phone...</li>
+</ul>
+
+</section><section>
+
+<h1>spriting all the images</h1>
+
+<ul>
+<li><a href='http://glue.readthedocs.org/en/latest/index.html#glue'>http://glue.readthedocs.org/en/latest/index.html#glue</a></li>
+<li>data uris can peform poorly too</li>
+<li>responsive images are new business but responseive polyfilling ninja @scottjehl has the answer here too</li>
+</ul>
+
+</section><section>
+
+<h1>your probably knew this but...</h1>
+
+<ul>
+<li>change classes not styles; save on reflow cost (e.g. do not set style attribute directly)</li>
+</ul>
+
+</section><section>
+
+<h1>send only the css you need to send</h1>
+
+<ul>
+<li><a href='https://github.com/filamentgroup/eCSSential'>https://github.com/filamentgroup/eCSSential</a></li>
+<li><a href='https://github.com/brianleroux/css-slap-chop'>https://github.com/brianleroux/css-slap-chop</a></li>
+</ul>
+
+</section><section>
+
+<h1>JS Business</h1>
+
+<ul>
+<li>scripts block renderin b/c it haults parsing b/c the scripts <em>might</em> do document.write</li>
+<li>html5 async: download, and exec once you're avail (out of order issues)</li>
+<li>html5 defer: exec after a parse; in order</li>
+<li>html5 is missing: dl and exec last, dl last and exec on demand</li>
+</ul>
+
+</section><section>
+
+<h1>defer loading of javascript</h1>
+
+<pre><code>function downloadJSAtOnload() {
+    var element = document.createElement("script");
+    element.src = "deferredfunctions.js";
+    document.body.appendChild(element);
+}
+</code></pre>
+
+</section><section>
+
+<h1>script loader?</h1>
+
+<ul>
+<li><a href='http://controljs.org'>http://controljs.org</a></li>
+</ul>
+
+</section><section>
+
+<h1>even closer to no code, lazy eval technique</h1>
+
+<ul>
+<li>pioneered / discoverd at google (they cray)</li>
+<li>embed your code inline but comment out the code</li>
+<li>if you need a block grab the innerHTML, remove the comment, eval</li>
+<li>downloads immediately but does not block, available async</li>
+</ul>
+
+</section><section>
+
+<h1>defer execution of js</h1>
+
+<pre><code>// do this later, and by later I mean right now
+function defer(fn) { 
+    setTimeout(fn, 0) 
+}
+</code></pre>
+
+</section><section>
+
+<h1>fast touch</h1>
+
+<ul>
+<li>click events are delayed 300ms, no kiddin</li>
+<li>millions of fixes for this: <a href='https://github.com/bebraw/jswiki/wiki/Touch'>https://github.com/bebraw/jswiki/wiki/Touch</a></li>
+</ul>
+
+</section><section>
+
+<h1>eval not actually slow; still dangerous</h1>
+
+<ul>
+<li>according to souders 3-10%</li>
+<li>nor evil. just dont' eval shit you don't own</li>
+</ul>
+
+</section><section>
+
+<h1>Frameworks</h1>
+
+<p><img src=img/oh-boy.png /></p>
+
+</section><section>
+
+<h1>gui frameworks</h1>
+
+<ul>
+<li>jquerymobile</li>
+<li>sencha</li>
+<li>twitter bootstrap</li>
+</ul>
+
+</section><section>
+
+<h1>microframeworks!</h1>
+
+<h2>Hold on the hate: we'll call them modules in 2 years time and you'll love em.</h2>
+
+</section><section>
+
+<h1>micro dom frameworks</h1>
+
+<ul>
+<li>xuijs</li>
+<li>zepto</li>
+</ul>
+
+</section><section>
+
+<h1>mvc business</h1>
+
+<ul>
+<li>backbone + underscore (requires a dom framework)</li>
+<li>emberjs</li>
+</ul>
+
+</section><section>
+
+<blockquote>75kb jquery + 15 kb jam required js libs to get off the ground. Need I go on? Performance is a nightmare. Ui parity is not hard. Spend a few hours and get a 300-400 line ui lib written yourself and you will do way better. - Fil Maj, Apache Cordova JS Lead at Adobe</blockquote>
+
+</section><section>
+
+<blockquote>I have had zero issues with jQM. + using jQM offers the best chance of UI reuse across platforms. My advice is to use jQM, if you are going to use a UI framework. - Jesse MacFadyen, Apache Cordova Windows Phone Lead at Adobe</blockquote>
+
+</section><section>
+
+<blockquote>We need to stop building things for developer convenience and instead build them for user experience. We can create rich experiences that solve these problems. Limitations can fuel creativity. Don’t get tied to particular solutions, revisit things that we previously dismissed. South Street is an umbrella project form the Filament Group that addressed problems around qualified application of features & improving delivery mechanisms. - <a href='http://www.lukew.com/ff/entry.asp?1565'>http://www.lukew.com/ff/entry.asp?1565</a></blockquote>
+
+</section><section>
+
+<blockquote>And my advice is to not complain about performance if you use a general purpose UI Framework. The main performance problem is in interaction delays (which is perceived performance. The same as how 150ms is snappy and 300ms is slow). - Mike Brooks, Apache Cordova Docs Lead at Adobe</blockquote>
+
+</section><section>
+
+<h1>Not So Simple!</h1>
+
+<p><img src=img/aint-mad.jpg /></p>
+
+</section><section>
+
+<h1>this is not a benchmark</h1>
+
+<ul>
+<li>avoiding synthetic benchmarks</li>
+<li>remember user perception is best measured with real live ppl</li>
+<li>startup performance is an interesting indicator but hardly an absolute</li>
+</ul>
+
+</section><section>
+
+<h1>hello world, eh</h1>
+
+<pre><code> framework                        |  html  |    css   |     js   |  payload
++--------------------------------+--------+----------+----------+----------+
+ jquery .......................... 0.52 KB    0.00 KB   92.91 KB   93.43 KB     
+ jquery-mobile ................... 0.79 KB   59.57 KB  182.01 KB  242.37 KB
+ ember ........................... 1.69 KB    5.16 KB  247.54 KB  254.39 KB
+ twitter bootstrap ............... 2.23 KB   91.99 KB  115.01 KB  209.23 KB
+ sencha .......................... 0.14 KB  198.73 KB  357.90 KB  556.77 KB
+ zepto + underscore + backbone ... 0.60 KB    0.00 KB   52.92 KB   52.92 KB
+</code></pre>
+
+</section><section>
+
+<h1>avg network latency</h1>
+
+<pre><code>Edge .... 64 kb/s
+3G ...... 384 kb/s
+HSDPA ... 7.2 mb/s
+</code></pre>
+
+</section><section>
+
+<h1>WARNING: bad science ahead</h1>
+
+<p>...ignoring parallel downloading and caching</p>
+
+<pre><code> framework                          edge      3G   
++---------------------------------+-------+--------+
+ jquery ..........................  1.4 s   0.24 s   
+ jquery-mobile ...................  3.7 s   0.63 s
+ ember ...........................  3.9 s   0.66 s
+ twitter bootstrap ...............  3.2 s   0.54 s
+ sencha ..........................  8.6 s   1.45 s
+ zepto + underscore + backbone ...  0.8 s   0.13 s
+</code></pre>
+
+</section><section>
+
+<h1>sencha app build production</h1>
+
+<ul>
+<li>resolves dependencies and  only including exactly what is used for optimal file size / performance</li>
+<li>appcache douchebagger removed</li>
+<li>minify js and css</li>
+<li>js and css stored inside localStorage on first load, and patches them via delta updates between releases</li>
+</ul>
+
+</section><section>
+
+<h1>conclusions</h1>
+
+<ol>
+<li>sencha while heaviest has the most mature tooling; really thinks through perf practices (has to...)</li>
+<li>zepto + underscore + backbone trinity easily the smallest; but does nothing for your UI</li>
+<li>jQuery dependant frameworks somewhere in-between</li>
+</ol>
+
+</section><section>
+
+<h1>the setup</h1>
+
+<ul>
+<li>platforms I am interested in: ios, android, blackberry, windows phone </li>
+<li>browser insances I am interested in: stock browser, opera, firefox, chrome</li>
+<li>lets treat hybrid environments like phonegap seperatly </li>
+</ul>
+
+</section><section>
+
+<h1>basically the two best appcach protips ever</h1>
+
+<ul>
+<li>jake archibald is hilarious and accurate in his hate on appcache</li>
+<li>lyza danger gardner saved my sanity with chrome://appcache-internals/</li>
+</ul>
+
+</section><section>
+
+<h1>web as a first class platform</h1>
+
+<h2>ability to work outside the sandbox, access low level device apis</h2>
+
+</section><section>
+
+<h1>cease to exist</h1>
+
+<h2>reference implementation for browsers of the future</h2>
+
+</section><section>
+
+<h1>when to use phonegap/apache cordova?</h1>
+
+<ol>
+<li>sane offline experience</li>
+<li>require access to device apis not available in the vanilla browser</li>
+<li>you want to participate in app store curation, discovery, and revenue</li>
+</ol>
+
+</section><section>
+
+<h1>how does phonegap/apache cordova work?</h1>
+
+<ul>
+<li>everything lives on the device; we instantiate a chromeless browser and load your assets</li>
+<li>foreign function interface is initiated to bridge native calls to js anv vice versa</li>
+<li>js code (cordova.exec) and native code</li>
+<li>so whats the cost?</li>
+</ul>
+
+</section><section>
+
+<h1>cordova.exec is the magic src</h1>
+
+<pre><code>// method sig the same on all platforms
+cordova.exec = exec(win, fail, nativeNamespace, nativeMethod, argsArray) {
+    // implemented differently on each platform
+}
+</code></pre>
+
+<h1>iOS JS to Native Bridge</h1>
+
+<pre><code>gapBridge = document.createElement("iframe");
+gapBridge.setAttribute("style", "display:none;");
+gapBridge.setAttribute("height","0px");
+gapBridge.setAttribute("width","0px");
+gapBridge.setAttribute("frameborder","0");
+document.documentElement.appendChild(gapBridge);
+</code></pre>
+
+</section><section>
+
+<h2>yes, an iframe!?</h2>
+
+<h1>works everywhere and doesn't cause DOM jankyness</h1>
+
+</section><section>
+
+<h1>iOS Native to JS Bridge</h1>
+
+<pre><code>// Execute any commands queued with cordova.exec() on the JS side.
+if ([[url scheme] isEqualToString:@"gap"]) {
+    [self flushCommandQueue];
+    return NO;
+}
+</code></pre>
+
+</section><section>
+
+<h1>brute force</h1>
+
+<pre><code>//  Repeatedly fetches and executes the command queue until it is empty.
+- (void) flushCommandQueue
+{
+    [self.webView stringByEvaluatingJavaScriptFromString:
+     @"cordova.commandQueueFlushing = true"];
+
+    // Keep executing the command queue until no commands get executed.
+    // This ensures that commands that are queued while executing other
+    // commands are executed as well.
+    int numExecutedCommands = 0;
+    do {
+        numExecutedCommands = [self executeQueuedCommands];
+    } while (numExecutedCommands != 0);
+
+    [self.webView stringByEvaluatingJavaScriptFromString:
+     @"cordova.commandQueueFlushing = false"];
+}
+</code></pre>
+
+<p><a href='https://github.com/apache/incubator-cordova-ios/blob/master/CordovaLib/Classes/CDVViewController.m#L497'>https://github.com/apache/incubator-cordova-ios/blob/master/CordovaLib/Classes/CDVViewController.m#L497</a></p>
+
+</section><section>
+
+<h1>interlude: debate is retarded</h1>
+
+<ul>
+<li>web is native</li>
+<li>web browsers are written in C</li>
+<li>so is most of your operating system</li>
+</ul>
+
+</section><section>
+
+<h1>Futures: benchmarking init time</h1>
+
+</section><section>
+
+<h1>Futures: benchmarking FileReader</h1>
+
+</section><section></section>
+    <section data-state=wolf>
+    <h2>the only thing between you and your goals</h2>
+    <h1 style=margin-top:350px;>is you</h1>
+    </section>
+</div>
+
+<!-- The navigational controls UI -->
+<aside class="controls">
+    <a class="left" href="#">&#x25C4;</a>
+    <a class="right" href="#">&#x25BA;</a>
+    <a class="up" href="#">&#x25B2;</a>
+    <a class="down" href="#">&#x25BC;</a>
+</aside>
+
+<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+<div class="progress"><span></span></div>
+
+<!-- fin -->
+</div>
+    
+<script src=revealjs/js/reveal.js></script>
+<script src=revealjs/lib/highlight.js></script>
+<script src=revealjs/lib/classList.js></script>
+<script src=revealjs/init.js></script>	
+</body>
+</html>

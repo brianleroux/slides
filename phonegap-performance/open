@@ -1,0 +1,2 @@
+#!/bin/sh
+coffee build.coffee && open index.html
