@@ -1,0 +1,616 @@
+<!doctype html>  
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>building phonegap</title>
+<meta name="description" content="lessons learned building phonegap at nitobi then adobe">
+<meta name="author" content="Brian LeRoux">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<style>
+    .nitobi .state-background {
+       background:url(img/nitobi-2.jpeg) no-repeat;
+       background-position:center; 
+    }
+    .alert .state-background {
+       background:url(img/bloody.jpg);
+       -webkit-animation: pulsate 4s ease-out;
+       -webkit-animation-iteration-count: infinite; 
+       opacity: 0.0;
+    }
+    .rock .state-background {
+       background:url(img/bloody.jpg);
+       -webkit-animation: pulsate 1.4s ease-out;
+       -webkit-animation-iteration-count: infinite; 
+       opacity: 0.0;
+    }
+    .vanilla .state-background {
+       background:white;
+    }
+    .pain .state-background {
+       background:url(img/bloody.jpg);
+    }
+    @-webkit-keyframes pulsate {
+         0% {opacity: 0.0;}
+         50% {opacity: 1.0;}
+         100% {opacity: 0.0;}
+    }
+    .wolf .state-background {
+        background:url(img/courage-wolf.jpg);
+        background-position:center;
+    }
+    .attrib {
+        margin-top:500px;
+        font-size:11px;
+        background:#333;
+        border-radius:20px;
+        color:#ccc;
+    }
+</style>
+
+</head>
+<body>
+<div class="reveal">
+<!-- Used to fade in a background when a specific slide state is reached -->
+<div class="state-background"></div>
+<!-- Any section element inside of this container is displayed as a slide -->
+<div class="slides">
+<section><h1>Building PhoneGap at Nitobi then Adobe</h1>
+
+<h2>Free Software in Small and Large Corporations</h2>
+
+<h2><a href="http://twitter.com/brianleroux">@brianleroux</a>, Adobe Systems, Apache Cordova / PhoneGap, <a href="http://wtfjs.com">wtfjs</a></h2>
+
+</section><section>
+
+<h1>nitobi circa 2007</h1>
+
+<p><img src=img/brian-and-dave.jpeg width=300></p>
+
+<p><aside class=notes><br />    - had been around a few years<br />    - 7 full time employees<br />    - created, and sold, javascript gui components<br />    - open source...once you paid<br />    - side consulting<br /></aside></p>
+
+</section><section>
+
+<p><section data-state=nitobi><br />    <p class=attrib>Credit <a href='http://www.flickr.com/photos/rldock/141584195/'>http://www.flickr.com/photos/rldock/141584195/</a></p><br /></section></p>
+
+</section><section>
+
+<blockquote>We take our work seriously, but not ourselves. - @andrecharland</blockquote>
+
+<p><img src=img/andre-leading.jpeg></p>
+
+</section><section>
+
+<p><img width=900 style="border:none" src="img/Web Services, XML, Application Development, Web Software - eBusiness Applications Software Development based in Vancouver Canada.png"></p>
+
+</section><section>
+
+<blockquote class="twitter-tweet" data-in-reply-to="223658911767592960"><p>@<a href="https://twitter.com/brianleroux">brianleroux</a> @<a href="https://twitter.com/alexeirwhite">alexeirwhite</a> @<a href="https://twitter.com/davejohnson">davejohnson</a> love the 3d tilt and mirror effect on those product images. We sold javascript files. Awesome.</p>&mdash; Jake Devine (@jakedevine) <a href="https://twitter.com/jakedevine/status/224320694937321472" data-datetime="2012-07-15T01:53:16+00:00">July 15, 2012</a></blockquote>
+
+<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</section><section>
+
+<p><img src=img/hackathons.png></p>
+
+<p><aside class=notes><br />    - blogging, attending community events, early embracing of twitter<br />    - lots of beer<br />    - fascination with improving<br />    - sorta outcasts b/c we liked js<br /></aside></p>
+
+</section><section>
+
+<h1>open sourcery</h1>
+
+<p><img width=700 src=img/me-chris-2007-note.png></p>
+
+<p><aside class=notes><br />    - early forays into open source were just us using the software and less about contributing<br />    - github changed everything<br />    - we tended to favor MIT License<br /></aside></p>
+
+</section><section>
+
+<h1>consulting</h1>
+
+<p>what clients think</p>
+
+<p><img width=400 src=img/consulting.jpeg></p>
+
+<p class=attrib><a href='http://www.flickr.com/photos/inlinguamanchester/5036313154/'>http://www.flickr.com/photos/inlinguamanchester/5036313154/</a></p>
+
+</section><section>
+
+<h1>consulting</h1>
+
+<p>what devs think</p>
+
+<p><img src=img/consulting-2.jpeg><p class=attrib><br /><a href='http://www.flickr.com/photos/poughkeepsiedayschool/4965200182/'>http://www.flickr.com/photos/poughkeepsiedayschool/4965200182/</a></p></p>
+
+</section><section>
+
+<h1>what actually happens (mostly)</h1>
+
+<p><img width=400 src=img/hindenberg.jpeg><p class=attrib><br /><a href='http://www.flickr.com/photos/recuerdosdepandora/6436382607/'>http://www.flickr.com/photos/recuerdosdepandora/6436382607/</a></p></p>
+
+</section><section>
+
+<p>Maintaining expectations <em>is</em> crucial. </p>
+
+<p><img src=img/alpaca-out-of-fucking-nowhere.jpeg></p>
+
+<p><aside class=notes><br />    - frequent contact via phone, email, and in person common<br />    - mitgate with continuous integration, allow clients to particpate in daily builds (w/ boundies on bug tracking)<br /></aside></p>
+
+</section><section>
+
+<p><section data-state=vanilla></p>
+
+<p style=background:#333;border-radius:10px;margin-top:20px;padding:10px;>Some of the tools we used to bootstrap.</p>
+
+<p><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none; src=img/gmail.jpeg><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none;  src=img/github.jpeg><br /><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none; src=img/highrise.jpeg><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none; src=img/basecamp.jpeg><br /><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none; src=img/harvest.jpeg><img width=100 src=img/hellofax.jpeg><br /></section></p>
+
+</section><section>
+
+<p><img style=border:none;background:none;margin:5px;-webkit-box-shadow:none; width=400  src=img/front-end-conftocat.png></p>
+
+<p>Around this time we start talking about "the github model".</p>
+
+<p><aside class=notes><br />    - Open source all IP possible to facilitate adoption, community, and thus ecosystem, growth.<br />    - Make an easy to use hosted service for the completely free IP and charge for it.<br />    - Couple with additional revenue streams from enterprise installations, partnering, support, consulting, and training.<br /></aside></p>
+
+</section><section>
+
+<h1>github model === paas?</h1>
+
+<ul>
+<li>Open source all IP possible to facilitate adoption, community, and thus ecosystem, growth.</li>
+<li>Make an easy to use hosted service for the completely free IP and charge for it.</li>
+<li>Couple with additional revenue streams from enterprise installations, partnering, support, consulting, and training.</li>
+</ul>
+
+</section><section>
+
+<h2>2007 we knew three things about the future</h2>
+
+<p><img src=img/doc.jpeg></p>
+
+</section><section>
+
+<h2>Open collaborative models are more effective at distruption than propreitary competative models.</h2>
+
+<p><img src=img/work-together-win.jpeg></p>
+
+</section><section>
+
+<h2>Mobile was going to be big and nobody has a clue how to do it.</h2>
+
+<p><img src=img/i-have-no-idea-what-im-doing-dog.jpg></p>
+
+</section><section>
+
+<h2>Web development, and specifically JavaScript development, on the rise.</h2>
+
+<p><img src=img/js.jpeg></p>
+
+<p><aside class=notes><br />    - the new browser war: v8, spidermonkey, nitro, rhino<br />    - nodejs emerges<br /></aside></p>
+
+</section><section>
+
+<h2>2007 Apple Releases iPhone</h2>
+
+<p><img src=img/steve-jobs.jpeg></p>
+
+<p>Jobs says the web is the platform to build apps.</p>
+
+</section><section>
+
+<h2>Dev Community Response</h2>
+
+<p><img src=img/web-apps.jpeg></p>
+
+<p>Devs <em>wanted</em> to lock into a proprietary platform!?</p>
+
+</section><section>
+
+<h3>2008 Apple Obliges and Releases iPhone SDK</h3>
+
+<p><img src=img/Steve-Jobs-with-App-Store-logo.jpeg></p>
+
+<p>Complete with curated distribution channel! </p>
+
+</section><section>
+
+<p><img width=600 src=img/rob-and-brock.jpeg></p>
+
+<p><a href=http://twitter.com/rob_ellis>Rob</a> and <a href=http://twitter.com/sintaxi>Brock</a> created the first PhoneGap port (iPhone).</p>
+
+<p><aside class=notes><br />    - MIT licensed right away<br />    - on github right away<br /></aside></p>
+
+</section><section>
+
+<p><img width=700 src=img/first-phonegap-presentation.jpeg></p>
+
+<p>Wherein <a href=http://twitter.com/andrecharland>@andrecharland</a> gives the first ever presentation about PhoneGap.</p>
+
+</section><section>
+
+<p><img width=300 src=img/joe-bowser.jpeg><br /><a href=http://twitter.com/infil00p>@infil00p</a> (Joe Bowser) created the PhoneGap/Android port. (Note his awesome Nitobi shirt.)</p>
+
+</section><section>
+
+<p><img width=300 src=img/ergonomics.jpeg><br />Short time later <a href=http://twitter.com/davejohnson>@davejohnson</a> wrote the first PhoneGap/BlackBerry port.</p>
+
+</section><section>
+
+<p><img src=img/jsconf.jpg></p>
+
+<p>The project goals and philosophy articulated at the first JSConf in 2009. </p>
+
+<p><aside class=notes><br />    - at this point we had some outside contrib<br />    - most of the infra we needed was setup<br /></aside></p>
+
+</section><section>
+
+<h2>PhoneGap Project Goals</h2>
+
+<ol>
+<li>Cease to exist. </li>
+<li>The web is a first class development platform.</li>
+</ol>
+
+<p><aside class=notes><br />    - The goals of the project begin to crystalize.<br />    - It is no coincidence this is when outside contribution and adoption began in earnest.<br /></aside></p>
+
+</section><section>
+
+<h2>The morter for community bricks.</h2>
+
+<p><img src=img/bacon.jpeg></p>
+
+<p><aside class=notes><br />    1. Audicious Mission<br />    2. Principles > Practice<br />    3. Beliefs and Development Philosphy <br /></aside></p>
+
+</section><section>
+
+<p><section data-state=vanilla></p>
+
+<h1>Outsource Infra</h1>
+
+<p><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none;  src=img/github.jpeg><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none;  src=img/lighthouse.jpeg><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none;  src=img/pbwiki.jpeg><br /><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none;  src=img/jekyll.jpeg><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none;  src=img/wordpress.jpeg><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none;  src=img/groups.jpeg><br /><img width=100 style=border:none;background:none;margin:5px;-webkit-box-shadow:none;  src=img/freenode.jpeg></p>
+
+<p><aside class=notes><br />    - github for revision control<br />    - github issues, lighthouse, back to github issues<br />    - pbwiki for our wiki<br />    - jekyll for the website, then wordpress, now back on jekyll as of this week<br />    - two google groups: one for devs working on PhoneGap and one for devs using PhoneGap<br />    - #phonegap on freenode of course<br /></aside><br /></section></p>
+
+</section><section>
+
+<h1>2009 Web 2.0 Expo LaunchPad</h1>
+
+<p><img src=img/launchpadshot.png></p>
+
+</section><section>
+
+<h1>IBM begins contributing</h1>
+
+<p><img src=img/ok-with-this.png></p>
+
+<p><aside class=notes><br />    - amazing technical chops: tests, docs<br />    - great cadence<br />    - totally into collaboration transparently<br /></aside></p>
+
+</section><section>
+
+<h2>Our First CLA Debacle</h2>
+
+<p><img width=300 src=img/epic-fail.jpeg></p>
+
+<p><aside class=notes><br />    - we accidently used an old sun cla; that was dumb<br />    - community WAS FUCKING PISSED<br />    - irony: only 10 ppl contributing at the time<br />    - had a public phone call and yelled at eachother<br /></aside></p>
+
+</section><section>
+
+<h3>PhoneGap 0.8.0+, approved by Apple for AppStore</h3>
+
+<p><img width=650 style=background:none;border:none;-webkit-box-shadow:none src=img/reject.png></p>
+
+<p><aside class=notes><br />    - a tonne of ppl where submitting apps named PhoneGap to apple<br />    - they began rejecting us<br />    - we only used public apis; they thought we were compiling our own browser<br />    - after a few weeks of back and forth they gave our src the thumbs up<br /></aside></p>
+
+</section><section>
+
+<h1>Cadence</h1>
+
+<p><img src=img/metronome.jpeg></p>
+
+<p><a href=http://phonegap.com/2012/04/12/rolling-releases-how-apache-cordova-becomes-phonegap-and-why/>Get on the release train.</a></p>
+
+<p><aside class=notes><br />    - we follow the class MAJOR.MINOR.PATCH system<br />    - we aim to ship a MINOR every month<br />    - we ship a PATCH if we fuck up the MINOR<br />    - we ship a MAJOR every July<br />    - we deprecate violently, but retrain support for 6 months, semversioning makes no sense<br /></aside></p>
+
+</section><section>
+
+<h1>Release Train Benefits</h1>
+
+<ul>
+<li>Dates no longer slip; we move bugs to the next release.</li>
+<li>Bug response time blazing fast.</li>
+<li>Predictability for the community.</li>
+<li>Momentum for the developers.</li>
+</ul>
+
+</section><section>
+
+<h1>What about Marketing?</h1>
+
+<p><img src=img/wtfguy.jpeg></p>
+
+<p><aside class=notes><br />    - By this point I was personally averaging 2 presentations a month. Never turned one down unless I was prebooked.<br />    - The larger community was blogging, tweeting, and responding for us.<br />    - The message of our goals was a powerful unifying force.<br />    - newsletter, featured apps and case studies are key materials<br />    - press releases are a waste of money/time<br />    - indy confs are the way to create buzz<br /></aside></p>
+
+</section><section>
+
+<h1>Services</h1>
+
+<p><img src=img/bull-china-shop.jpeg></p>
+
+<p><aside class=notes><br />    - how do you make money? we write code for ppl.<br />    - build phonegap apps<br />    - native apps<br />    - javascript apps<br />    - rails, wordpress, django, and even drupal bs. we had no shame.<br />    - $200/hr base rate<br /></aside></p>
+
+</section><section>
+
+<h1>Support</h1>
+
+<p><img style=background:none;border:none;-webkit-box-shadow:none src=img/internet-bro-fist.png></p>
+
+<p><aside class=notes><br />    - same as dev except structured and limited<br />    - basically worked out the same price<br />    - more contractually binding<br />    - should have done this right away<br /></aside></p>
+
+</section><section>
+
+<h1>Training</h1>
+
+<p><img src=img/mind-meld.jpeg></p>
+
+<p><aside class=notes><br />    - tough going but was our secret weapon for marketing<br />    - tell the SARS story<br />    - not as bad once we got the hang of it<br />    - interestingly, really showed the value of phonegap/build<br /></aside></p>
+
+</section><section>
+
+<h1>2010 PhoneGap/Build is created</h1>
+
+<p><img src=img/struik.jpeg></p>
+
+<p><aside class=notes><br />    - it was the IP we could sell<br />    - it was a potential revenue stream<br />    - it solved a massive PITA<br /></aside></p>
+
+</section><section>
+
+<p><img width=600 src=img/mullet.jpeg></p>
+
+<p>Around this time, <a href=http://twitter.com/andrecharland>@andrecharland</a> replaces 'Github Model' with 'Mullet Model', <a href=http://twitter.com/yoheis>yoheis</a> created this img to help explain.</p>
+
+</section><section>
+
+<h1>July 2011: we ship 1.0</h1>
+
+<p><img src=img/pg.jpeg></p>
+
+</section><section>
+
+<h1>2011 Adobe Acquires Nitobi</h1>
+
+<p><img src=img/adobe.jpeg></p>
+
+<p><aside class=notes><br />    - Contributed the PhoneGap src to Apache for incubation as Apache Callback.<br />    - Shortly after renamed to Apache Cordova.<br />    - We had at this point hired our first person for marketing related duties, 24 person team, 3 where not writing code.<br /></aside></p>
+
+</section><section>
+
+<h1>Lots of Open Src</h1>
+
+<ul>
+<li>Tamarin </li>
+<li>Apache Jackrabbit</li>
+<li>Apache Cordova</li>
+<li>WebKit</li>
+</ul>
+
+</section><section>
+
+<h1>Web Standards</h1>
+
+<p><img src=img/tell-me.jpeg></p>
+
+<p><aside class=notes><br />    - mostly in the csswg right now<br />    - our focus on DAP and SysApps<br /></aside></p>
+
+</section><section>
+
+<h3>Official Corporate Policy</h3>
+
+<p>You need to let your manager know you'll be open sourcing this project to ensure that there are no other efforts that you may not know about that could be related to your project.</p>
+
+<p><img src=img/corp1.jpeg></p>
+
+</section><section>
+
+<h4>Official Corp Policy</h4>
+
+<p>You need VP approval to open source the tool. In seeking approval, you need to make it clear why you believe it is important to open source this tool and also lay out what that means.</p>
+
+<p><img src=img/corp2.jpeg></p>
+
+</section><section>
+
+<h3>Official Corp Policy</h3>
+
+<p>You need to clear it with Legal.</p>
+
+<p><img src=img/corp3.jpeg></p>
+
+</section><section>
+
+<h3>Official Corp Policy</h3>
+
+<p>Choose a license style based on what you want end users to be able to do (BSD, MIT, GPL, etc.) – legal can help you finalize/customize the license once you've decided.</p>
+
+<p><img src=img/corp4.jpeg></p>
+
+</section><section>
+
+<h3>Official Corp Policy</h3>
+
+<p>Clear with branding whatever name you wish to call the tool.</p>
+
+<p><img src=img/corp5.jpeg></p>
+
+</section><section>
+
+<h3>Official Corp Policy</h3>
+
+<p>You need the patent team's approval to open source this tool.</p>
+
+<p><img src=img/corp6.jpeg></p>
+
+</section><section>
+
+<p><img src=img/asf.jpeg></p>
+
+</section><section>
+
+<h3><a href=http://wiki.phonegap.com/w/page/46311152/apache-callback-proposal>Callback Proposal</a></h3>
+
+</section><section>
+
+<h1>Incubation: The Theory</h1>
+
+<p><img src=img/incubate.jpeg></p>
+
+</section><section>
+
+<p><img src=img/rooster.jpeg></p>
+
+<h2>PhoneGap was in its 4th year!</h2>
+
+</section><section>
+
+<p><img width=300 src=img/square-off.jpeg></p>
+
+<h2>What happens when two old roosters meet?</h2>
+
+</section><section>
+
+<h2>Areas of possible Concern</h2>
+
+<ul>
+<li>Everything happens via email in the Apache Way.</li>
+<li>Trends towards a vote based process.</li>
+<li>The forge is tightly coupled to the legal entity.</li>
+<li>Thus committed to certain infra choices (like SVN).</li>
+</ul>
+
+</section><section>
+
+<h2>The Great Git Contraversy of 2011-2012</h2>
+
+<p><img src=img/omg.jpeg></p>
+
+<p><aside class=notes><br />    - Lasted about a month, basically we were told: NO, NON NEGOTIABLE.<br />    - Our Mentors and CouchDB guys worked with us to help convince Apache we could use Git in a way reponsible to the Apache License. <br /><br />    - Came to a head with <a href=http://www.intertwingly.net/blog/2011/11/24/Experience-with-Git>this sensationalist post by Mikeal Rogers</a>.<br /></aside></p>
+
+</section><section>
+
+<h2>Apache Releases</h2>
+
+<h3>HUGELY useful to us. <a href=http://incubator.apache.org/projects/callback.html> Essentially a large checklist.</a></h3>
+
+</section><section>
+
+<h1>The Future</h1>
+
+<ul>
+<li>Collaborative models are the future.</li>
+<li>Mobile IS big and getting bigger.</li>
+<li>No problem too small to tackle with a large enough community.</li>
+</ul>
+
+</section><section>
+
+<h1>Community is your top priority</h1>
+
+<ul>
+<li>Ppl rally behind big audicious goals.</li>
+<li>Cadence demonstrates activity and life.</li>
+<li>There are a million ways to help! (Filing a bug is contrib.)</li>
+</ul>
+
+</section><section>
+
+<h1>thank you</h1>
+
+</section><section></section>
+    <section data-state=wolf>
+    <h2>bite off more than you can chew</h2>
+    <h1 style=margin-top:350px;>then chew it</h1>
+    </section>
+</div>
+
+<!-- The navigational controls UI -->
+<aside class="controls">
+    <a class="left" href="#">&#x25C4;</a>
+    <a class="right" href="#">&#x25BA;</a>
+    <a class="up" href="#">&#x25B2;</a>
+    <a class="down" href="#">&#x25BC;</a>
+</aside>
+
+<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+<div class="progress"><span></span></div>
+
+<!-- fin -->
+</div>
+    
+<!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+<script src="lib/js/head.min.js"></script>
+
+<script>
+
+// Load the main reveal.js script
+head.js( 'js/reveal.js', function() {
+    
+    // Parse the query string into a key/value object
+    var query = {};
+
+    location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+    query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+    } );
+
+    // Fires when a slide with data-state=customevent is activated
+    Reveal.addEventListener( 'customevent', function() {
+    alert( '"customevent" has fired' );
+    } );
+
+    // Fires each time a new slide is activated
+    Reveal.addEventListener( 'slidechanged', function( event ) {
+    // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+    } );
+
+    Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // If true; each slide will be pushed to the browser history
+        history: true,
+
+        // Loops the presentation, defaults to false
+        loop: false,
+
+        // Flags if mouse wheel navigation should be enabled
+        mouseWheel: true,
+
+        // Apply a 3D roll to links on hover
+        rollingLinks: true,
+
+        // UI style
+        theme: query.theme || 'default', // default/neon
+
+        // Transition style
+        transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+    });
+} );
+
+// Load third party scripts
+head.js( 'lib/js/classList.js' );
+head.js( 'lib/js/highlight.js', function() {
+    // Fire off syntax highlighting for potential code samples in the slides
+    hljs.initHighlightingOnLoad();
+} );
+
+// If we're runnning the notes server we need to include some additional JS
+// TODO Is there a better way to determine if we're running the notes server?
+if( window.location.host === 'localhost:1947' ) {
+    head.js( 'socket.io/socket.io.js', 'plugin/speakernotes/client.js' );
+}
+
+</script>
+</body>
+</html>

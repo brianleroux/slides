@@ -1,0 +1,25 @@
+#!/usr/bin/env coffee
+fs      = require 'fs'
+ghm     = require 'ghm'
+final   = ''
+outline = fs.readdirSync "#{ __dirname }/outline"
+github  = fs.readFileSync "#{ __dirname }/tmpl/github.html"
+top     = fs.readFileSync "#{ __dirname }/tmpl/top.html"
+bottom  = fs.readFileSync "#{ __dirname }/tmpl/bottom.html"
+
+# concat the outline
+outline.forEach (section) -> final += fs.readFileSync "#{ __dirname }/outline/#{ section }"
+
+# convert from md to html
+html = ghm.parse final
+
+# split up into sections
+slides = html.split('<hr />').map((slide) -> "<section>#{ slide }</section>").join('')
+
+# write one for github pages
+fs.writeFileSync "#{ __dirname }/index.html", "#{ github }#{ slides }#{ bottom }"
+
+# write the one for presenting w/ presentor notes locally
+fs.writeFileSync "#{ __dirname }/revealjs/index.html", "#{ top }#{ slides }#{ bottom }"
+
+require('ncp').ncp "#{ __dirname }/img", "#{ __dirname }/revealjs/img", ->

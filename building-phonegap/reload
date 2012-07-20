@@ -1,0 +1,9 @@
+#!/bin/sh
+
+./build
+
+cd revealjs
+
+node plugin/speakernotes
+
+open http://localhost:1947
