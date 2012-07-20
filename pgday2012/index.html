@@ -1,0 +1,264 @@
+<!doctype html>  
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PhoneGap 2.0</title>
+<meta name="description" content="PhoneGap 2.0: How we got here, and where we're going">
+<meta name="author" content="Brian LeRoux">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="revealjs/css/reset.css">
+<link rel="stylesheet" href="revealjs/css/main.css">
+<link rel="stylesheet" href="revealjs/lib/zenburn.css">
+</head>
+<body>
+	<div id="reveal" class="linear">
+<!-- Used to fade in a background when a specific slide state is reached -->
+		<div class="state-background"></div>
+<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+    <!-- ceremony over, onto the slides -->
+    <!-- intro matter: 5mins -->
+    		<section>
+        		<h1>PhoneGap 2.x</h1>
+        		<h3>How we got here and what to look forward to</h3> 
+				<p><img src=img/pg-tv.png></p>
+				<h4><a href="http://twitter.com/brianleroux">@brianleroux</a></h4>
+        <script>
+            // Delicously hacky. Look away.
+            if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+            document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+        </script>
+    		</section>
+	
+			<section>
+        		<h2>Adoption</h2>
+				<h3>PhoneGap Downloads</h3> 
+				<div id="downloads"></div>
+				<h3>Total: 1,015,539</h3>
+			</section>
+
+			<section>
+				<h2>Mindshare</h2>
+				<h3>PhoneGap.com Unique Visitors</h3> 
+				<div id="traffic"></div>
+				<h3>Total: 8,546,040</h3>
+			</section>
+
+			<section>
+				<h2>Global Movement</h2>
+				<h3>PhoneGap.com Unique Visitors by Continent</h3>
+                <p><img src=img/visits-continent.png></p>
+                <p>July 29, 2011 to July 20, 2012</p> 
+			</section>
+
+			<section>
+				<h2>Emerging Markets</h2>
+				<h3>PhoneGap.com Unique Visitors by Country</h3> 
+				<p><img src=img/visits-country.png></p>
+				<p><b>Top 10 Countries</b> 
+					<br/>July 29, 2011 to July 20, 2012</p>
+			</section>
+
+    		<section>
+				<h2>Cadence</h2>
+				<h3>Cordova Project Momentum</h3>
+                <p><img src=img/issues-year.png></p> 
+                <p>Agile Release Train</p>
+			</section>
+			
+    		<section>
+				<h2>PhoneGap is a distribution of Cordova</h2>
+                <img src=img/build.png width=400>
+                <h3>Will always be Apache licensed; soon will have optional hooks to PhoneGap/Build.</h3>
+			</section>
+            
+    		<section>
+				<h2>Apache Cordova is a Community Effort</h2>
+                <img src=img/cordova.png>
+                <h3>Join us at <a href=http://cordova.io>cordova.io</a> to implement the future.</h3>
+			</section>
+
+            <section>
+        		<h2>Horizon Platforms</h2> 
+                <img src=img/wat2.jpeg>
+                <h3>Tizen</h3>
+                <h3>Firefox OS (formerly B2G)</h3>
+    		</section>
+            
+			<section>
+                <h2>API Audit</h2>
+                <img src=img/wat.png>
+                <h3>Existing core APIs will be revisited.</h3>
+    		</section>
+
+			<section>
+                <h2>Deprecation Policy</h2>
+                <img src=img/omg-stfu.png>
+                <h3>Rough consensus on 6 months.</h3>
+    		</section>
+
+			<section>
+                <h1>Developer Ergonomics</h1><br><br>
+                <h3 style=background:black;color:green;font-family:Courier;padding:20px;border-radius:20px;margin-top:20px;>npm install -g cordova</h3>
+    		</section>
+            
+			<section>
+                <h2>Plugin Discovery</h2>
+                <img src=img/aliens.jpeg>
+                <h3>Core, Community, Vendor</h3>
+    		</section>
+
+            <section>
+                <h1>Project Goals Refresher</h1><br><br>
+                <h2>1. Web is a first class development platform.</h2>
+                <h2>2. Cease to exist.</h2>
+    		</section>
+
+			<section>
+                <h1>SysApps</h1><br><br>
+                <h2>Installable web apps.</h2><br><br>
+                <h3>New effort from Mozilla, Google, Samsung, and Adobe. <a href=http://www.w3.org/2012/05/sysapps-wg-charter.html>Read the charter</a>.</h3>
+    		</section>
+
+            <section>
+                <h2>Thank You</h2>
+                <p><img src=img/contributor-logos.png></p>
+            </section>
+        
+            <section>
+                <p><img src=img/name.png width=250></p>
+            </section>
+            <!-- fin -->
+        </div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src=revealjs/js/reveal.js></script>
+		<script src=revealjs/lib/highlight.js></script>
+		<script src=revealjs/lib/classList.js></script>
+	    <script src=revealjs/init.js></script>	
+		
+		
+        <script src=raphalytics/libs/raphael-min.js></script>
+        <script src=raphalytics/libs/popup.js></script>
+        <script src=raphalytics/libs/raphalytics.js></script>
+        <script src=graphael/g.raphael.js></script>
+        <script src=graphael/g.bar.js></script>
+        <script>
+		//Downloads Line Graph
+            window.addEventListener('load', function () {
+				// begin
+                var r = Raphael('downloads')
+				// setup
+                var labels 	   = ['1.0'
+                				 ,'1.1'
+                				 ,'1.2'
+                				 ,'1.3'
+                				 ,'1.4'
+                				 ,'1.5'
+                				 ,'1.6 + 1.6.1'
+                				 ,'1.7'
+                				 ,'1.8 + 1.8.1'
+                				 ,'1.9'
+                				 ]
+                var labelsLong =['Jul 29 to Sep 29'
+                                 ,'Sep 30 to Nov 6'
+                                 ,'Nov 7 to Dec 18'
+                                 ,'Dec 19 to Jan 30'
+                                 ,'Jan 31 to Mar 5'
+                                 ,'Mar 6 to Apr 10'
+                                 ,'Apr 11 to May 1'
+                                 ,'May 2 to Jun 5'
+                                 ,'Jun 6 to Jun 29'
+                                 ,'Jun 30 to Jul 19'
+                                 ]
+                var data 	   = [104709
+                				 ,67011
+                				 ,92005
+                				 ,97356
+                				 ,99044
+                				 ,107299
+                				 ,67161
+                				 ,122065
+                				 ,108614
+                				 ,83114
+                				 ]
+				var style      = {'width':850,'height':320,'gridtype':'y_grid','fill':true,'color':'#f3758a'}
+				// init
+                r.raphalytics( data, labels, [], style)
+				// end
+			}, false)
+
+
+			//Traffic Line Graph
+            window.addEventListener('load', function () {
+				// begin
+                var r = Raphael('traffic')
+				// setup
+                var labels 	   = ['Jul 11'
+                				 ,'Aug'
+                				 ,'Sep'
+                				 ,'Oct'
+                				 ,'Nov'
+                				 ,'Dec'
+                				 ,'Jan 12'
+                				 ,'Feb'
+                				 ,'Mar'
+                				 ,'Apr'
+                				 ,'May'
+                				 ,'Jun'
+                				 ,'Jul'
+                				 ]
+                var labelsLong = ['381235'
+                                 ,'525476'
+                                 ,'468253'
+                                 ,'589089'
+                                 ,'582794'
+                                 ,'551095'
+                                 ,'650541'
+                                 ,'685022'
+                                 ,'778778'
+                                 ,'759964'
+                                 ,'847046'
+                                 ,'840101'
+                                 ,'536874'
+                                 ]
+                var data 	   = ['381235'
+                                 ,'525476'
+                                 ,'468253'
+                                 ,'589089'
+                                 ,'582794'
+                                 ,'551095'
+                                 ,'650541'
+                                 ,'685022'
+                                 ,'778778'
+                                 ,'759964'
+                                 ,'847046'
+                                 ,'840101'
+                                 ,'536874'
+                				 ]
+				var style      = {'width':850,'height':320,'gridtype':'y_grid','fill':true,'color':'#f3758a'}
+				// init
+                r.raphalytics( data, labels, [], style)
+				// end
+			}, false)
+
+        </script>
+
+
+		
+		
+		
+	</body>
+</html>
