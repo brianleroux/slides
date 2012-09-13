@@ -1,0 +1,390 @@
+<!doctype html>  
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>PhoneGap Day EU 2012</title>
+
+<meta name=description content="2-3 cordova/phonegap roadmap">
+<meta name=author content=brianleroux>
+<meta name=apple-mobile-web-app-capable content="yes" />
+<meta name=apple-mobile-web-app-status-bar-style content="black-translucent" />
+
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/theme/default.css">
+<link rel="stylesheet" href="css/presentation.css">
+<script type="text/javascript" src="js/prefixfree.js" defer></script>
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+<script>
+// If the query includes 'print-pdf' we'll use the PDF print sheet
+document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+</script>
+
+<!-- Typekit -->
+<script type="text/javascript" src="//use.typekit.net/nxa0zzm.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<style type="text/css" media="screen">
+body {
+font-family: "source-sans-pro",sans-serif;
+font-style: normal;
+font-weight: 200; 
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    color:#fff;
+}
+
+
+</style>
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="reveal">
+<div class="state-background"></div>
+<div class="slides">
+
+
+    <section>
+        <h1>PhoneGap Day EU 2012<span class=subtitle>PhoneGap Platform Roadmap</span></h1>
+        <img class=plain src=assets/images/Build-Bot2.png style=margin:0;height:250px>
+        <p>Sept 14<sup>th</sup> 2012 - Amsterdam</p>
+        <p><a href=mailto:brianl@adobe.com>brianl@adobe.com</a></p>
+    </section>
+        
+    <section>
+        <h2>What is PhoneGap?</h2>
+        <!-- <img src=assets/images/cordova_ios_144.png>-->
+        <ul>
+        <li class="fragment slide-in left">Native mobile apps with HTML, CSS, and JavaScript.</li>
+        <li class="fragment slide-in left">Standards based and future friendly.</li>
+        <li class="fragment slide-in left">Free Open Source Software.</li>
+        <li class="fragment slide-in left">Powerful extensibility layer.</li>
+        <li class="fragment slide-in left">Amazing community of software developers.</li>
+        </ul>
+    </section>
+                		
+    <section>
+        <h1>PhoneGap Platform</h1>
+        <h2 style=color:#999>Mobile Dev Ecosystem</h2>
+        <!-- <img src=assets/images/cordova_ios_144.png>-->
+        <ul>
+            <li class="fragment slide-in left">Apache Cordova open source project.</li>
+            <li class="fragment slide-in left">Adobe PhoneGap is a distribution.</li>
+            <li class="fragment slide-in left">Adobe PhoneGap/Build cloud compiler.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h1>Apache Cordova</h1>
+        <img class=plain src=assets/images/cordova_256.png>
+        <p>The PhoneGap Source <a href=http://cordova.io>cordova.io</a></p>
+    </section>
+    
+    <section>
+        <img class=plain src=assets/images/splash.png>
+        <p>Mobile operating system compatability, and extensibility layer.</p>
+    </section>
+    
+    <section>
+        <h1>Core Platform Support</h1>
+        <ul>
+            <li>Apple iOS</li>
+            <li>Google Android</li>
+            <li>RIM BlackBerry</li>
+            <li>Microsoft Windows Phone</li>
+            <li>Samsung Bada</li>
+            <li>HP webOS</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h1>Horizon Platforms</h1>
+        <ul>
+            <li>Tizen</li>
+            <li>Firefox OS</li>
+            <li>Microsoft Windows 7</li>
+            <li>Microsoft Windows 8</li>
+            <li>Microsoft Windows Phone 8</li>
+            <li>Nokia Qt</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Developer Ergonomics</h1>
+        <blockquote class="fragment zoom rotate">The Herman Miller chair of mobile development.</blockquote>
+    </section>
+    
+    <section>
+        <h1>Developer Ergonomics</h1>
+        <ul>
+            <li class="fragment slide-in left">Command Line Interface (CLI) Tooling</li>
+            <li class="fragment slide-in left">Debug w/ weinre</li>
+            <li class="fragment slide-in left">Emulate w/ Ripple</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Extend and Compose</h1>
+        <ul>
+            <li class="fragment slide-in left">Plugin API is public, and documented.</li>
+            <li class="fragment slide-in left">Plugin packaging.</li>
+            <li class="fragment slide-in left">Plugin automated installation.</li>
+            <li class="fragment slide-in left">Plugin discovery via npmjs registry.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Web Standards</h1>
+        <ul>
+            <li class="fragment slide-in left">CSSWG</li>
+            <li class="fragment slide-in left">DAP</li>
+            <li class="fragment slide-in left">Widgets</li>
+            <li class="fragment slide-in left">Sys Apps</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Agile Release Train</h1>
+        <img class=plain src=assets/images/Package.png>
+        <img class=plain src=assets/images/Package-Open.png>
+    </section>
+
+    <section>
+        <p>Tenative Release Schedule</p>
+        <table class="agenda-table" width=100%>
+            <tbody>
+            <tr>
+                <td>September</td>
+                <td>2.1</td>
+                <td>Apache board report</td>
+            </tr>
+            <tr>
+                <td>October</td>
+                <td>2.2</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>November</td>
+                <td>2.3</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>December</td>
+                <td>☃</td>
+                <td>Apache board report</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>2.4</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>2.5</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>March</td>
+                <td>2.6</td>
+                <td>Apache board report</td>
+            </tr>
+            <tr>
+                <td>April</td>
+                <td>2.7</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>May</td>
+                <td>2.8</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>June</td>
+                <td>2.9</td>
+                <td>Apache board report</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>3.0</td>
+                <td>&nbsp;</td>
+            </tr>
+            </tbody>
+         </table>
+    </section>
+
+    <section>
+        <h1>Autumn</h1>
+        <ul>
+            <li class="fragment slide-in left">Hardening 2.0 release. (Some bugs discovered after Mtn Lion released, for example.)</li>
+            <li class="fragment slide-in left">Firefox OS prototype.</li>
+            <li class="fragment slide-in left">Enhancements to the Cordova/Android bridge technology and performance w/ Google help.</li>
+            <li class="fragment slide-in left">Possible inclusion of Ripple as a sub-project.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h1>Autumn, cont.</h1>
+        <ul>
+            <li class="fragment slide-in left">Complete config.xml parity across platforms.</li>
+            <li class="fragment slide-in left">InAppBrowser to the core platforms w/ declarative and programatic API.</li>
+            <li class="fragment slide-in left">The “master script” CLI tooling actively prototyped.</li>
+            <li class="fragment slide-in left">Working w/ NodeJS community for plugin discovery via npmjs registry.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Winter</h1>
+        <ul>
+            <li class="fragment slide-in left">Expected readiness of plugin workflow tooling. </li>
+            <li class="fragment slide-in left">Hosted Ripple w/ device proxy capability.</li>
+            <li class="fragment slide-in left">Time to unfuck HTML5 Audio.</li>
+            <li class="fragment slide-in left">Core API auditing/updating/migration to plugin registry (apache cordova src dist will ship with no plugins, just a bridge).</li>
+            <li class="fragment slide-in left">Goal of graduating from incubation to become an Apache TLP (Top Level Project).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Spring</h1>
+        <ul>
+            <li class="fragment slide-in left"> Continue API audit migration.</li>
+            <li class="fragment slide-in left">Start Sys-Apps API creation.</li>
+            <li class="fragment slide-in left">Notification Center plugin.  (Drive Urban Airship service partnership.)</li>
+            <li class="fragment slide-in left">Native pickers for file, contacts, etc.</li>
+        </ul>
+    </section>
+
+    <section>
+        <p>And thank you contributers!!!
+        <img class=plain src=assets/images/contributor-logos.png>
+        </p>
+    </section>
+             
+    <section>
+        <p>Project Goals Refresher</p>
+        <ol>
+            <li>Web is a first class development platform.</li>
+            <li>Cease to exist.</li>
+        </ol>
+    </section>
+
+    <section>
+        <p>Join us! There are many ways to contibute.
+            <div style="-webkit-transform:rotateZ(360deg)">
+            <ul class="fragment zoom rotate">
+                <li>Build an app for fun. Its free, and easy. </li>
+                <li>Teach your kids about the web and basic HTML. </li>
+                <li>Learn how to contribute to Open Source! </li>
+            </ul>
+            </div>
+        </p>
+    </section>    
+
+
+                    
+                    
+</div>
+<!-- The navigational controls UI -->
+<aside class="controls">
+<a class="left" href="#">&#x25C4;</a>
+<a class="right" href="#">&#x25BA;</a>
+<a class="up" href="#">&#x25B2;</a>
+<a class="down" href="#">&#x25BC;</a>
+</aside>
+
+<!-- Presentation progress bar -->
+<div class="progress"><span></span></div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+		<script>
+			
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+				]
+			});
+			
+		</script>
+        <script>/*
+            Reveal.addEventListener('slidechanged', function (event) {
+                var titleElement = event.currentSlide.querySelector('h1');
+                
+                if (titleElement === undefined || titleElement === null) {
+                    titleElement = event.currentSlide.querySelector('h2');
+                }
+                var title = "Undefined Title";
+                
+                if (titleElement !== null && titleElement !== undefined) {
+                    title = titleElement.innerHTML;
+                }
+                
+                var host = "http://ec2-184-72-173-33.compute-1.amazonaws.com:5984/keynote";
+                var slide = {
+                    liked: 0,
+                    title: title
+                };
+
+                $.ajax({
+                  url: host,
+                  type: 'POST',
+                  contentType: 'application/json',
+                  data: JSON.stringify(slide),
+                  dataType: 'json',
+                  success: function(result) {
+                      // create new slide
+                      console.log('Slide added!', result);
+                      var slideId = result.id;
+                      // get current slide document
+                      $.ajax({
+                        url: host + '/current',
+                        dataType: 'json',
+                        success: function(current) {
+                            // update current slide document
+                            current.slide_id = slideId;
+                            $.ajax({
+                              url: host + '/current',
+                              type: 'PUT',
+                              contentType: 'application/json',
+                              data: JSON.stringify(current),
+                              success: function(result) {
+                                  console.log('Current slide updated to '+slideId);
+                                  console.log(JSON.stringify(result));
+                              },
+                              error: function(e) {
+                                  alert('error ' + JSON.stringify(e));
+                              }
+                            });
+                        },
+                        error: function() { 
+                            alert('error');
+                        }
+                      });
+                  },
+                  error: function(e) {
+                      alert('error ' + JSON.stringify(e));
+                  }
+            });
+        });*/
+        </script>
+	</body>
+</html>
