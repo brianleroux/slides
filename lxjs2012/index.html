@@ -1,0 +1,369 @@
+<!doctype html>  
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>LXJS MobileJS Track 2012</title>
+<meta name=description content="wherein I rock lisbon">
+<meta name=author content=brianleroux>
+<meta name=apple-mobile-web-app-capable content=yes>
+<meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+<link rel=stylesheet href=css/main.css>
+<link rel=stylesheet href=css/theme/default.css>
+<link rel=stylesheet href=css/presentation.css>
+<script src=js/prefixfree.js defer></script>
+<link rel=stylesheet href=lib/css/zenburn.css>
+<script src=js/jquery.min.js></script>
+<script src=js/print.js></script>
+<script src=//use.typekit.net/nxa0zzm.js></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<style>
+   .pain .state-background {
+       background:url(img/bloody.jpg);
+    }
+
+    @-webkit-keyframes pulsate {
+         0% {opacity: 0.0;}
+         50% {opacity: 1.0;}
+         100% {opacity: 0.0;}
+    }
+
+    body {
+        font-family: "source-sans-pro",sans-serif;
+        font-style: normal;
+        font-weight: 200; 
+    }
+
+    .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+        color:#fff;
+    }
+
+    .reveal img.chart, .reveal div.card  {
+        background:#fff;
+        padding:20px;
+        border-radius:20px;
+    } 
+
+    .reveal div.card p {
+        color:#333;
+    }
+</style>
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="reveal">
+<div class="state-background"></div>
+<div class="slides">
+
+
+
+
+
+
+    <section>
+        <h1>Mobile JS</h1>
+        <img class=chart width=300 src=img/Bob-Omb.gif>
+        <p>LXJS, Sept 28<sup>th</sup> 2012, Lisboa</p>
+        <p><a href=mailto:brianl@adobe.com>brianl@adobe.com</a></p>
+    </section>
+
+    <section>
+        <h1>Mobile: still not first...?</h1>
+        <img class=chart src=img/chart-browser-breakdown.png>
+        <p><i>Realistic data</i> from <a href=http://www.akamai.com/html/io/io_dataset.html#stat=browser&top=5&type=line&start=20120825&end=20120924&net=both>Akamai IO</a></p>
+    </section>
+
+    <section>
+        <img class=plain src=img/ie-troll.png>
+    </section>
+
+    <section>
+        <img class=chart src=img/head-in-sand.jpg> 
+        <p>Lets look at ONLY mobile browsers.</p>
+    </section>
+
+    <section>
+        <img class="chart" src=img/chart-mobile-browsers-any-network.png>
+        <p>Mobile Safari on <b>non-cellular</b> networks.</p>
+    </section>
+
+    <section>
+        <img class="chart" src=img/chart-mobile-browsers-cel-network.png>
+        <p>On a <b>cellular network</b> Android leads and Apple close second.</p>
+    </section>
+
+    <section>
+        <img class=chart src=img/believe-nothing.png>
+    </section>   
+  
+    <section>
+        <h1>Stuff you expect me to talk about</h1>
+        <ul>
+            <li>JS frameworks for mobile.</li>
+            <li>How to offline.</li>
+            <li>Networking (HTTP) in a mobile world.</li>
+            <li>Touch and guestures.</li>
+            <li>Canvas and SVG.</li>
+            <li>Handset vs tablet vs desktop.</li>
+            <li>CSS for mobile layouts.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <ul>
+            <li class=fragment>JS frameworks: try them all, and maybe use none.</li>
+            <li class=fragment>App Cache (CACHE MANIFEST) kinda complex. Web Cache (localStorage) awesome.</li>
+            <li class=fragment>Networking (HTTP/XHR) a bit of a mess. Use cache headers.</li>
+            <li class=fragment>Touch a total mess.</li>
+            <li class=fragment>Canvas and SVG are awesome but not perforamant. Except when they are.</li>
+            <li class=fragment>Handset vs tablet vs desktop. Responsive design has issues. </li>
+            <li class=fragment>Flexbox! Its awesome.</li>
+        </ul>
+    </section>
+
+    <section>Now, lets get real.</section>
+
+    <section>
+        <img class=chart src=img/irrate.gif width=500>
+        <p>Lets talk <b>web vs native</b>.</p>
+    </section> 
+    
+    <section>
+        <p>Web technology <b>can</b> deliver a great <b>user experience</b>.<p>
+        <img class=chart src=img/go-back.jpg>
+        <p>To say otherwise is a disservice to an important discipline, and tech. </p>
+    </section>
+
+    <section>
+        Operating Systems are implemented, generally speaking, in C.
+    </section>
+
+    <section>
+        Web browsers are a user space program built on top of Operating Systems in, generally speaking, C code as well. (C++ moreso but stay with me here.)
+    </section>
+
+    <section>
+        There is no fundamental capability that is not available to the Operating System that cannot be exposed to a web browser.
+    
+        Fact: if the web does not do something it is not because it cannot; its because we haven't gotten around to it
+    </section>
+
+    <section>
+        <img width=700 src=img/community-group.jpg class=chart><br><br>
+        <p><a href=http://www.mikealrogers.com/posts/legacy.html>Mikeal has some good thoughts on standardization.</a></p>
+    </section>
+
+    <section>
+        <h1>Standards</h1>
+        <ul>
+            <li class=fragment>Device APIs Working Group (aka dap)</li>
+            <li class=fragment>System Applications (aka sys-apps)</li>
+        </ul>
+    </section>  
+
+    <section>
+        <h2>Device APIs</h2>
+        Media Capture
+        getUserMedia
+        WebRTC
+    </section>
+
+    <section>
+        <h2>PhoneGap</h2>
+        <img class=plain src=assets/images/cordova_256.png>
+        <p>AKA <a href=http://cordova.io>Apache Cordova</a>.</p>
+    </section>
+
+    <section>
+    how does it work?? you will be shocked to learn its "native" code under the hood
+    </section>
+
+    <section>
+    ios implementation walk through
+    </section>
+
+    <section>
+    android implementation walk through
+    </section>
+
+    <section>
+    blackberry implementation walk through
+    </section>
+
+    <section>
+    windows implementation walk through
+    </section>
+
+    <section>
+        <h1>Notice the theme?</h1>
+        <p>All asynch reading/writing of values.</p>
+    </section>
+
+    <section>
+        <h1>HAY GUISE THAT SOUNDS LIKE...</h1>
+        <img src=img/wat2.jpeg class=chart>
+        <p class=fragment>omfg NodeJS wtf!1!</p>
+    </section>
+
+    <section>
+        <h1>NodeJS needs to consider mobile *</h1>
+        <ul>
+            <li class=fragment>iOS proof of concept by the amazing TooTallNate  https://github.com/TooTallNate/node-iOS</li>
+            <li class=fragment>Android proof of concept by PaddyByers https://github.com/paddybyers/anode </li>
+            <li class=fragment>Windows 8 and BlackBerry 10 it will be feasible, <b>in theory</b>.</li>
+        </ul>
+        <p>* Because its perfect for it.</p>
+    </section>
+
+    <section>
+        <blockquote>The two best words in a developers toolbox: "in theory". </blockquote>
+        <p>- <a href=http://twitter.com/macdonst>Simon MacDonald</a></p>
+    </section>
+
+    <section>
+        <h2>Rise of Web Operating Systems</h2>
+        <ul>
+            <li class=fragment><a href=https://www.tizen.org>Tizen</a> collaboration lead by Samsung and Intel.</li>
+            <li class=fragment>HP <a href=http://github.com/webos>webOS</a> going open source.</li>
+            <li class=fragment>Chrome OS is happening. (And kinda rad actually.)</li>
+            <li class=fragment><a href=http://windows.com>Windows 8</a> is all about the web. (?!)</li>
+            <li class=fragment>Mozilla <a href=https://wiki.mozilla.org/B2G>Boot2Gecko</a> AKA Firefox OS. <b>&larr;Fuck ya.</b></li>
+        </ul>
+    </section>
+    
+    <section>
+        <h1>Conclusions are inconclusive</h1>
+        <ul>
+            <li class=fragment>Mobile situation is still very messy! But mostly polyfilled and solved.
+            <li class=fragment>Device APIs are the future of the web.
+            <li class=fragment>Node should start considering mobile a first class deployment platform.
+            <li class=fragment>Web operating systems that consider mobile first are trending; can they be the future?
+        </ul>
+    </section>
+                		
+    <section>
+        <h3>Thanks eh!</h3>
+        <img src=img/kitten_wave.gif class=chart><br>
+        <a href=http://brian.io/slides/lxjs2012>brian.io/slides/lxjs2012</a><br>
+        <a href=http://twitter.com/brianleroux>@brianleroux</a>
+     </section>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+                    
+                    
+</div>
+<!-- The navigational controls UI -->
+<aside class="controls">
+<a class="left" href="#">&#x25C4;</a>
+<a class="right" href="#">&#x25BA;</a>
+<a class="up" href="#">&#x25B2;</a>
+<a class="down" href="#">&#x25BC;</a>
+</aside>
+
+<!-- Presentation progress bar -->
+<div class="progress"><span></span></div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+		<script>
+			
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+				]
+			});
+			
+		</script>
+        <script>/*
+            Reveal.addEventListener('slidechanged', function (event) {
+                var titleElement = event.currentSlide.querySelector('h1');
+                
+                if (titleElement === undefined || titleElement === null) {
+                    titleElement = event.currentSlide.querySelector('h2');
+                }
+                var title = "Undefined Title";
+                
+                if (titleElement !== null && titleElement !== undefined) {
+                    title = titleElement.innerHTML;
+                }
+                
+                var host = "http://ec2-184-72-173-33.compute-1.amazonaws.com:5984/keynote";
+                var slide = {
+                    liked: 0,
+                    title: title
+                };
+
+                $.ajax({
+                  url: host,
+                  type: 'POST',
+                  contentType: 'application/json',
+                  data: JSON.stringify(slide),
+                  dataType: 'json',
+                  success: function(result) {
+                      // create new slide
+                      console.log('Slide added!', result);
+                      var slideId = result.id;
+                      // get current slide document
+                      $.ajax({
+                        url: host + '/current',
+                        dataType: 'json',
+                        success: function(current) {
+                            // update current slide document
+                            current.slide_id = slideId;
+                            $.ajax({
+                              url: host + '/current',
+                              type: 'PUT',
+                              contentType: 'application/json',
+                              data: JSON.stringify(current),
+                              success: function(result) {
+                                  console.log('Current slide updated to '+slideId);
+                                  console.log(JSON.stringify(result));
+                              },
+                              error: function(e) {
+                                  alert('error ' + JSON.stringify(e));
+                              }
+                            });
+                        },
+                        error: function() { 
+                            alert('error');
+                        }
+                      });
+                  },
+                  error: function(e) {
+                      alert('error ' + JSON.stringify(e));
+                  }
+            });
+        });*/
+        </script>
+	</body>
+</html>
