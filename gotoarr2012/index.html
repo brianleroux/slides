@@ -1,0 +1,934 @@
+<!doctype html>  
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>GOTO Aarhus 2012</title>
+
+<meta name=description content="2-3 cordova/phonegap roadmap">
+<meta name=author content=brianleroux>
+<meta name=apple-mobile-web-app-capable content="yes" />
+<meta name=apple-mobile-web-app-status-bar-style content="black-translucent" />
+
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/theme/default.css">
+<link rel="stylesheet" href="css/presentation.css">
+<script type="text/javascript" src="js/prefixfree.js" defer></script>
+<link rel="stylesheet" href="lib/css/zenburn.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+<script>
+// If the query includes 'print-pdf' we'll use the PDF print sheet
+document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+</script>
+
+<!-- Typekit -->
+<script type="text/javascript" src="//use.typekit.net/nxa0zzm.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<style type="text/css" media="screen">
+body {
+font-family: "source-sans-pro",sans-serif;
+font-style: normal;
+font-weight: 200; 
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+    color:#fff;
+}
+
+
+</style>
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="reveal">
+<div class="state-background"></div>
+<div class="slides">
+
+
+    <section>
+        <h1>GOTO<span class=subtitle>PhoneGap Platform</span></h1>
+        <img class=plain src=assets/images/Build-Bot2.png style=margin:0;height:250px>
+        <p>Oct 2<sup>nd</sup> 2012 - Aarhus</p>
+        <p><a href=mailto:brianl@adobe.com>brianl@adobe.com</a></p>
+    </section>
+
+    <section class="adobe-list">
+        <img src=img/dave-mathews.jpg>
+        <ul style="margin-left:100px">
+            <li class=fragment><a href=http:/brian.io>brian.io</a></li>
+            <li class=fragment><a href=http://twitter.com/brianleroux>@brianleroux</a></li>
+            <li class=fragment><a href=http://wtfjs.com>wtfjs</a></li>
+            <li class=fragment><a href=http://phonegap.com>phonegap</a></li>
+        </ul>
+    </section>
+        
+    <section>
+        <h2>What is PhoneGap?</h2>
+        <!-- <img src=assets/images/cordova_ios_144.png>-->
+        <ul>
+        <li class="fragment slide-in left">Native mobile apps with HTML, CSS, and JavaScript.</li>
+        <li class="fragment slide-in left">Standards based and future friendly.</li>
+        <li class="fragment slide-in left">Free Open Source Software.</li>
+        <li class="fragment slide-in left">Powerful extensibility layer.</li>
+        <li class="fragment slide-in left">Amazing community of software developers.</li>
+        </ul>
+    </section>
+                		
+    <section>
+        <h1>PhoneGap Platform</h1>
+        <h2 style=color:#999>Mobile Dev Ecosystem</h2>
+        <!-- <img src=assets/images/cordova_ios_144.png>-->
+        <ul>
+            <li class="fragment slide-in left">Apache Cordova open source project.</li>
+            <li class="fragment slide-in left">Adobe PhoneGap is a distribution.</li>
+            <li class="fragment slide-in left">Adobe PhoneGap/Build cloud compiler.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h1>Apache Cordova</h1>
+        <img class=plain src=assets/images/cordova_256.png>
+        <p>The PhoneGap Source <a href=http://cordova.io>cordova.io</a></p>
+    </section>
+    
+    <section>
+        <img class=plain src=assets/images/splash.png>
+        <p>Mobile operating system compatability, and extensibility layer.</p>
+    </section>
+    
+    <section>
+       <style type="text/css" media="screen">
+       .pain .state-background {
+           background:url(img/bloody.jpg);
+       }
+        @-webkit-keyframes pulsate {
+             0% {opacity: 0.0;}
+             50% {opacity: 1.0;}
+             100% {opacity: 0.0;}
+        }
+                    </style>
+                    <h2>The Problem</h2>
+                    <table class="agenda-table" width=100%>
+                        <tbody>
+                      <tr>
+                        <td>
+                            Apple iOS 
+                        <td>
+                            Apple OS X
+                        <td>
+                            Objective C
+                      <tr>
+                        <td>
+                            Google Android 
+                        <td>
+                            *
+                        <td>
+                            Java (Apache Harmony-ish Dalik Interpretor)
+                      <tr>
+                        <td>
+                            RIM BlackBerry 
+                        <td>
+                            Windows, OS X
+                        <td>
+                            HTML, CSS and JS. Also: Java
+                      <tr>
+                        <td>
+                            Windows Phone 
+                        <td>
+                            Windows
+                        <td>
+                            Any .NET citizen (Silverlight runtime)
+                      <tr>
+                        <td>
+                            Samsung Bada
+                        <td>
+                            Windows
+                        <td>
+                            C++
+                      <tr>
+                        <td>
+                            HP webOS 
+                        <td>
+                            *
+                        <td>
+                            HTML, CSS and JS (Also: NodeJS!)
+                      <tr>
+                        <td>
+                            Symbian, MeeGo 
+                        <td>
+                            *
+                        <td>
+                            C++ (Qt)
+                        </tbody>
+                    </table>
+                    </section>
+
+                    <section>
+                        <h2>The Problem in Summary</h2>
+                        <ul>
+                            <li>Proficient in 8 programming languages and sdks.
+                            <li> Have 8 devices to test (emulators not enough to ship).
+                            <li>Run 2 operating systems (virtualized or otherwise).
+                        </ul>
+                    </section>
+    <section data-state=pain>
+    <img src=img/rage.jpg>
+    </section>
+
+                    <section>
+                        <h2>More Devices Every Year</h2>
+                        <ul>
+                            <li>
+                            Tablets on the rise; mostly iPads and Androids.
+                            <li>
+                            Feature phones replacing smartphones.
+                            <li>
+                            Smartphones accessing the web overtook desktop browsers accessing the web in 2010.
+                            <li>
+                            Responsive design in infancy.
+                         </ul>
+                    </section>
+
+                    <section>
+                    <h2>Developer Prediction Impossible</h2>
+                        <ul>
+                          <li>
+                          2008 BlackBerry still dominated global marketshare for app developers.
+                          </li>
+                          <li>
+                          2009 iOS rose to dominance.
+                          </li>
+                          <li>
+                          2010 Android began domination.
+                          </li>
+                          <li>
+                          2011 Android dominance continued ...but now fragmentation between versions high.
+                          </li>
+                          <li style=color:red>
+                          2012: ?!
+                          </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                      <h2>The Rise of Web Operating Systems</h2>
+                        <ul>
+                          <li class=fragment>
+                          <a href=https://www.tizen.org>Tizen</a> collaboration lead by Samsung, a leading manufacturer.
+                          </li>
+                          <li class=fragment>
+                          HP announces <a href=http://github.com/webos>webOS</a> being open sourced. <a href=http://enyojs.com>Check out Enyo now.</a>
+                          </li>
+                          <li class=fragment>
+                          Mozilla <a href=https://wiki.mozilla.org/B2G>Boot2Gecko</a> making incredible progress. <a href=https://github.com/andreasgal/gaia>Src is super interesting.</a>
+                          </li>
+                          <li class=fragment>
+                          <a href=http://webinos.org>WebinOS</a> effort under way.
+                          </li>
+                        </ul>
+                    </section>
+    <section>
+        <h1>Core Platform Support</h1>
+        <ul>
+            <li>Apple iOS</li>
+            <li>Google Android</li>
+            <li>RIM BlackBerry</li>
+            <li>Microsoft Windows Phone</li>
+            <li>Samsung Bada</li>
+            <li>HP webOS</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h1>Horizon Platforms</h1>
+        <ul>
+            <li>Tizen</li>
+            <li>Firefox OS</li>
+            <li>Microsoft Windows 7</li>
+            <li>Microsoft Windows 8</li>
+            <li>Microsoft Windows Phone 8</li>
+            <li>Nokia Qt</li>
+        </ul>
+    </section>
+
+
+
+				
+
+
+                    <section>
+                        <h1 style=color:red;font-size:1.6em;>
+                            many operating systems, many sdks, many devices, with more coming, no clear winners or consolidation
+                        </h1>
+                        <img src=img/omg-stfu.png>
+                    </section>
+
+                    <section><img width=650 src=img/tank.jpg></section>
+
+                    <section>
+                        <h2>Problems Web Technology Solved</h2>
+                        <ul>
+                          <li>
+                            Many Operating Sytems.
+                          </li>
+                          <li>
+                            Many devices <b>and screen sizes</b>.
+                          </li>
+                          <li>
+                            Many SDKs.
+                          </li>
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>Problems Remain</h2>
+                        <ul>
+                          <li>
+                          The web is sandboxed. This is a feature, not a bug.
+                          </li>
+                          <li>
+                          The currently web has a very poor offline story.
+                          </li>
+                          <li>
+                          The web cannot participate in app store distribution revenue (or discovery).
+                          </li>
+                          <li>
+                          The web cannot access Device APIs.
+                          </li>
+                          <li>
+                          The web has shitty tooling.
+                          </li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Enter PhoneGap</h2>
+                        <ul>
+                            <li>
+                            Hybrid development: combining the strengths of the web with native envs.
+                            <li>
+                            First project to bridge a native browser instance to Device APIs.
+                            <li>
+                            All the benefits of the web without hiding the native platforms internals or tooling.
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>PhoneGap <span style=color:red>IS NOT</span></h2>
+                        <ul>
+                            <li>
+                            An IDE (we do not dictate tooling choices). That said, Dreamweaver has great PhoneGap support!
+                            <li>
+                            A language (the web is the platform).
+                            <li> 
+                            Proprietary. Everything we do with PhoneGap is open source and Apache licensed.
+                            <li>
+                            A runtime (shipping a runtime is prohibitive to downloading apps over a network).
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>PhoneGap <span style=color:green>IS</span></h2>
+                        <ul>
+                            <li>
+                            Free open source software (Apache V2 License).
+                            <li>
+                            Built with web standards, existing and emmerging.
+                            <li>
+                            Open across many platforms.
+                            <li>
+                            Active and diverse development community and committership.
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>PhoneGap is Powered by Apache Cordova</h2>
+                        <ul>
+                            <li class=fragment>
+                            PhoneGap is a distribution of the open source Apache Cordova Project.
+                            <li class=fragment>
+                            There is no difference between the two; we plan to integrate our cloud services for SDK fallback eventually.
+                            <li class=fragment>
+                            PhoneGap always has been will always remain free open source software. 
+                            <li class=fragment>
+                            Think: Cordova is to PhoneGap as WebKit is to Chrome. 
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Corporate Support</h2>
+                        <ul>
+                            <li>
+                            Adobe
+                            <li>
+                            IBM
+                            <li>
+                            Microsoft
+                            <li>
+                            RIM
+                            <li>
+                            Nokia
+                            <li>
+                            Google 
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>PhoneGap and Web Standards</h2>
+                        <ul>
+                            <li>
+                            We track various W3C groups.
+                            <li>
+                            We focus largely on W3C Device API working group.
+                            <li>
+                            Also track HTML5 webapps working group, W3C Widget Group, and others.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Philosophy</h2>
+                        <ul>
+                            <li>
+                            Simple is better; when in doubt: use brute force.
+                            <li>
+                            The web solved cross platform across devices.
+                            <li>
+                            Free open source software has proven to be the best model for platform development and ecosystem creation.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Philosophy: Simple is Better</h2>
+                        <ul style=font-size:.6em;>
+                            <li class=fragment>
+                            A JavaScript based <em>foreign function interface</em> between a chromeless browser instance on the device and the native platform code.
+                            <li class=fragment>
+                            Sometimes we call this “the hack” or the “the bridge”. On iOS we used the URL for the bridge!
+                            <li class=fragment>
+                            It is a blunt method, requiring brute force indeed, we reimplement PhoneGap for every platform we support in the preffered dev env of that platform.
+                            <li class=fragment>
+                            This technique has scaled to 8 platforms and up to 300 operations per second. PhoneGap is very much fast enough for nearly any native call negotiation use case.
+                        </ul>
+                    </section>
+
+
+                    <section>
+                        <h2>PhoneGap Project Goals</h2>
+                        <ul style=list-style:none>
+                            <li><h3 style=color:#268bd2;margin-top:60px;>the web is a first class development platform</h3>
+                            <li><span>&rarr; installable web apps; no sandbox; good tools</span>
+                            <li><h3 style=color:#268bd2;margin-top:60px;>cease to exist</h3>
+                            <li><span>&rarr; reference impl for web standards; the W3C DAP was created because of PhoneGap</span>
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>PhoneGap is FREE *</h2>
+                        <ul>
+                            <li>
+                            to use
+                            <li>
+                            to modify
+                            <li>
+                            to distribute
+                            <li>
+                            to sell
+                        </ul>
+                        <h4>* as in speech, not beer!</h4>
+                    </section>
+      
+                    <section>
+                        <h2>Device APIs</h2>
+                        <ul>
+                            <li>
+                            Are truely cross platform abstraction targets.
+                            <li>
+                            Sensors.
+                            <li>
+                            Data.
+                            <li>
+                            Out.
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>Device Sensors</h2>
+                        <ul>
+                            <li>
+                            Camera
+                            <li>
+                            Accelerometer
+                            <li>
+                            Magnometer
+                            <li>
+                            GPS
+                        </ul>
+                    </section>
+      
+                    <section>
+                        <h2>Device Data</h2>
+                        <ul>
+                            <li>
+                            Filesystem
+                            <li>
+                            Media
+                            <li>
+                            Contacts
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap &amp; UNIX Philosophy</h2>
+                        <ul>
+                            <li class=fragment>
+                            We advocate freedom of choice for devlopers.
+                            <li class=fragment>
+                            We advocate small, single purpose, and loosely coupled tools. Pro devs compose their env to maximize their productivity for solving the problems they care about at hand.  We're here to help developers not lock them in.
+                            <li class=fragment>
+                            We <b>do not</b> dictate tooling for gui development; we leave that job to the open web community and we equally support everyone (jquery, dojo, sencha, yui, etc).
+                            <li class=fragment>
+                            We <b>do not</b> dictate IDE choices; everything can be done with YOUR favorite tool as long as it supports text.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Plugins: Unlimited Extensibility</h2>
+                        <ul>
+                            <li>
+                            Every PhoneGap API is a PhoneGap plugin.
+                            <li>
+                            3rd parties building plugins now too.
+                            <li>
+                            Facebook most notably. Salesforce too.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>PhoneGap Problems and Weaknesses</h2>
+                        <ul>
+                            <li class=fragment>
+                            The web vs native.
+                            <li class=fragment>
+                            Device browser variance.
+                            <li class=fragment>
+                            Web dev is hard. 
+                        </ul>
+                    </section>
+
+                    <section><h4>PhoneGap Plugins invalidate the web vs native debate.</h4>
+                    <img src=img/party-animal.jpg width=300>
+                    <h2>With PhoneGap the web is native!</h2></section>
+
+                    <section>
+                        <h2>PhoneGap Browser Parity</h2>
+                        <ul>
+                          <li>
+                          PhoneGap is based on the onboard platform SDK WebKit ...but these are different forks.
+                          <li>
+                          We can, and sometimes do, build our own WebKit; but executable size would be &gt;20mb vs &lt;25kb.
+                          <li>
+                          Android performance not quite to the same level as iOS.
+                          <li>
+                          Windows Phone is running IE9 (which actually does have great modern standards compliance and performance).
+                        </ul>
+                    </section>
+
+                    <section>
+                    <h2>Web Dev is Hard?</h2>
+                    <img class=fragment src=img/fuuuu.png>
+                    </section>
+
+                    <section>
+                        <h2>Hosted Services</h2>
+                        <ul>
+                        <li>
+                        Targets for value add and revenue capability.
+                        <li>
+                        Better automatoin, insturmentation, tooling capabilities.
+                        <li>
+                        App distribution. 
+                        <li>
+                        <a href=http://build.phonegap.com>build.phonegap.com</a> and <a href=http://debug.phonegap.com>debug.phonegap.com</a>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Support Services</h2>
+                        <ul>
+                            <li>
+                            Security for enterprise customers.
+                            <li>
+                            Bug fixes and custom patches.
+                            <li>
+                            A phone number to call anytime.
+                            <li>
+                            Advisory hours and custom development problem solving.
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>First Priority is Contribution</h2>
+                        <ul>
+                        <li>
+                        An open src project is only as healthy as its activity. 
+                        <li>
+                        First priority is recruitment of committers.
+                        <li>
+                        When we can’t recruit for committing to the open source project we want them to open source plugins.
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <h2>Release Philosophy</h2>
+                        <ul>
+                        <li class=fragment>
+                        We ship on the classic MAJOR.MINOR.PATCH scheme.
+                        <li class=fragment>
+                        Generally agreed upon goal for each month. Ship an RC two weeks in. Hardening and MINOR end of the month.
+                        <li class=fragment>
+                        We prioritize shipping over a particular feature, issue, bug, or task.
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <h2>We just shipped  2.0!</h2>
+                        <ul>
+                        <li class=fragment>
+                        Plugins for all the things.
+                        <li class=fragment>
+                        Consistent automations and CLI tooling for common development tasks.
+                        <li class=fragment>
+                        Windows Phone
+                        <li class=fragment>
+                        CordovaView
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Useful Links</h2>
+                        <ul> 
+                            <li>
+                            <a href=http://phonegap.com>phonegap.com</a>
+                            <li>
+                            <a href=http://phonegap.com/support>PhoneGap support</a>
+                            <li>
+                            <a href=http://wiki.phonegap.com>PhoneGap Wiki</a> <span style=color:#666>(Also a great mobile web resource.)</span>
+                            <li>
+                            <a href=http://docs.phonegap.com>Documentation</a>
+                            <li>
+                            <a href=http://cordova.io>apache cordova</a>
+                        </ul>
+                    </section>
+
+
+
+
+    <section>
+        <h1>2012-2013 Roadmap</h1>
+        <blockquote class="fragment zoom rotate">Life is a journey, not a destination. - Ralph Waldo Emerson</blockquote>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section>
+        <h1>Developer Ergonomics</h1>
+        <blockquote class="fragment zoom rotate">The Herman Miller chair of mobile development.</blockquote>
+    </section>
+    
+    <section>
+        <h1>Developer Ergonomics</h1>
+        <ul>
+            <li class="fragment slide-in left">Command Line Interface (CLI) Tooling</li>
+            <li class="fragment slide-in left">Debug w/ weinre</li>
+            <li class="fragment slide-in left">Emulate w/ Ripple</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Extend and Compose</h1>
+        <ul>
+            <li class="fragment slide-in left">Plugin API is public, and documented.</li>
+            <li class="fragment slide-in left">Plugin packaging.</li>
+            <li class="fragment slide-in left">Plugin automated installation.</li>
+            <li class="fragment slide-in left">Plugin discovery via npmjs registry.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Web Standards</h1>
+        <ul>
+            <li class="fragment slide-in left">CSSWG</li>
+            <li class="fragment slide-in left">DAP</li>
+            <li class="fragment slide-in left">Widgets</li>
+            <li class="fragment slide-in left">Sys Apps</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Agile Release Train</h1>
+        <img class=plain src=assets/images/Package-Open.png>
+    </section>
+
+    <section>
+        <p>Tenative Release Schedule</p>
+        <table class="agenda-table" width=100%>
+            <tbody>
+            <tr>
+                <td>September</td>
+                <td>2.1</td>
+                <td>Apache board report</td>
+            </tr>
+            <tr>
+                <td>October</td>
+                <td>2.2</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>November</td>
+                <td>2.3</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>December</td>
+                <td>☃</td>
+                <td>Apache board report</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>2.4</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>2.5</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>March</td>
+                <td>2.6</td>
+                <td>Apache board report</td>
+            </tr>
+            <tr>
+                <td>April</td>
+                <td>2.7</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>May</td>
+                <td>2.8</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>June</td>
+                <td>2.9</td>
+                <td>Apache board report</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>3.0</td>
+                <td>&nbsp;</td>
+            </tr>
+            </tbody>
+         </table>
+    </section>
+
+    <section>
+        <h1>Autumn</h1>
+        <ul>
+            <li class="fragment slide-in left">Hardening 2.0 release. (Some bugs discovered after Mtn Lion released, for example.)</li>
+            <li class="fragment slide-in left">Firefox OS prototype.</li>
+            <li class="fragment slide-in left">Enhancements to the Cordova/Android bridge technology and performance w/ Google help.</li>
+            <li class="fragment slide-in left">Possible inclusion of Ripple as a sub-project.</li>
+        </ul>
+    </section>
+    
+    <section>
+        <h1>Autumn, cont.</h1>
+        <ul>
+            <li class="fragment slide-in left">Complete config.xml parity across platforms.</li>
+            <li class="fragment slide-in left">InAppBrowser to the core platforms w/ declarative and programatic API.</li>
+            <li class="fragment slide-in left">The “master script” CLI tooling actively prototyped.</li>
+            <li class="fragment slide-in left">Working w/ NodeJS community for plugin discovery via npmjs registry.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Winter</h1>
+        <ul>
+            <li class="fragment slide-in left">Expected readiness of plugin workflow tooling. </li>
+            <li class="fragment slide-in left">Hosted Ripple w/ device proxy capability.</li>
+            <li class="fragment slide-in left">Time to unfuck HTML5 Audio.</li>
+            <li class="fragment slide-in left">Core API auditing/updating/migration to plugin registry (apache cordova src dist will ship with no plugins, just a bridge).</li>
+            <li class="fragment slide-in left">Goal of graduating from incubation to become an Apache TLP (Top Level Project).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Spring</h1>
+        <ul>
+            <li class="fragment slide-in left"> Continue API audit migration.</li>
+            <li class="fragment slide-in left">Start Sys-Apps API creation.</li>
+            <li class="fragment slide-in left">Notification Center plugin.  (Drive Urban Airship service partnership.)</li>
+            <li class="fragment slide-in left">Native pickers for file, contacts, etc.</li>
+        </ul>
+    </section>
+
+    <section>
+        <p>And thank you contributers!!!
+        <img class=plain src=assets/images/contributor-logos.png>
+        </p>
+    </section>
+             
+    <section>
+        <p>Project Goals Refresher</p>
+        <ol>
+            <li>Web is a first class development platform.</li>
+            <li>Cease to exist.</li>
+        </ol>
+    </section>
+
+    <section>
+        <div class="fragment zoom rotate">
+            Join us! There are many ways to contibute.
+            <img class=plain src=assets/images/test-subj.png>
+            <a href=http://cordova.io>cordova.io</a>
+        </div>
+    </section>    
+
+
+                    
+                    
+</div>
+<!-- The navigational controls UI -->
+<aside class="controls">
+<a class="left" href="#">&#x25C4;</a>
+<a class="right" href="#">&#x25BA;</a>
+<a class="up" href="#">&#x25B2;</a>
+<a class="down" href="#">&#x25BC;</a>
+</aside>
+
+<!-- Presentation progress bar -->
+<div class="progress"><span></span></div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+
+		<script>
+			
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+				]
+			});
+			
+		</script>
+        <script>/*
+            Reveal.addEventListener('slidechanged', function (event) {
+                var titleElement = event.currentSlide.querySelector('h1');
+                
+                if (titleElement === undefined || titleElement === null) {
+                    titleElement = event.currentSlide.querySelector('h2');
+                }
+                var title = "Undefined Title";
+                
+                if (titleElement !== null && titleElement !== undefined) {
+                    title = titleElement.innerHTML;
+                }
+                
+                var host = "http://ec2-184-72-173-33.compute-1.amazonaws.com:5984/keynote";
+                var slide = {
+                    liked: 0,
+                    title: title
+                };
+
+                $.ajax({
+                  url: host,
+                  type: 'POST',
+                  contentType: 'application/json',
+                  data: JSON.stringify(slide),
+                  dataType: 'json',
+                  success: function(result) {
+                      // create new slide
+                      console.log('Slide added!', result);
+                      var slideId = result.id;
+                      // get current slide document
+                      $.ajax({
+                        url: host + '/current',
+                        dataType: 'json',
+                        success: function(current) {
+                            // update current slide document
+                            current.slide_id = slideId;
+                            $.ajax({
+                              url: host + '/current',
+                              type: 'PUT',
+                              contentType: 'application/json',
+                              data: JSON.stringify(current),
+                              success: function(result) {
+                                  console.log('Current slide updated to '+slideId);
+                                  console.log(JSON.stringify(result));
+                              },
+                              error: function(e) {
+                                  alert('error ' + JSON.stringify(e));
+                              }
+                            });
+                        },
+                        error: function() { 
+                            alert('error');
+                        }
+                      });
+                  },
+                  error: function(e) {
+                      alert('error ' + JSON.stringify(e));
+                  }
+            });
+        });*/
+        </script>
+	</body>
+</html>
