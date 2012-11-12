@@ -1,0 +1,304 @@
+@import url('normalize.css');
+
+@font-face {
+    font-family: 'source-sans';
+    src: url('topcoat/font/SourceSansPro-ExtraLight.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'source-code';
+    src: url('topcoat/font/SourceCodePro-ExtraLight.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    overflow: hidden;
+}
+
+body {
+    font-family: source-sans, sans-serif;
+    min-height: 740px;
+    
+    background: #476ca6;
+    background: -webkit-radial-gradient(#333, #000);
+    background:    -moz-radial-gradient(#476ca6, #597db7);
+    background:     -ms-radial-gradient(#476ca6, #597db7);
+    background:      -o-radial-gradient(#476ca6, #597db7);    
+    color: #fff;  
+    text-shadow: 1px 1px 1px #1b396c;
+
+}
+
+.impress-enabled {
+    -webkit-transition: color 300ms, background 500ms;
+    -moz-transition:    color 300ms, background 500ms;
+    -ms-transition:     color 300ms, background 500ms;
+    -o-transition:      color 300ms, background 500ms;
+}
+
+a {
+    font-family: source-sans, sans-serif;
+    /*color: #0083e8;*/
+    color: #6bc3fa;
+    text-decoration: none;
+    -webkit-touch-callout: none;
+    text-shadow: 1px 1px 1px #000;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+code {
+    font-family:'source-code';
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+pre {
+    background:#000;
+    padding:50px 0 0 0;
+    border-radius:25px;
+}
+
+h1.wtfjs {
+    color:red;
+}
+
+.fallback-message {
+    font-family: sans-serif;
+    line-height: 1.3;
+    
+    width: 780px;
+    padding: 10px 10px 0;
+    margin: 20px auto;
+
+    border: 1px solid #E4C652;
+    border-radius: 10px;
+    background: #EEDC94;
+}
+
+.fallback-message p {
+    margin-bottom: 10px;
+}
+
+.impress-supported .fallback-message {
+    display: none;
+}
+
+.step {
+    position: relative;
+    width: 900px;
+    padding: 40px;
+    margin: 20px auto;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    -ms-box-sizing:     border-box;
+    -o-box-sizing:      border-box;
+    box-sizing:         border-box;
+
+    font-family: source-sans, sans-serif;
+    font-size: 36px;
+    line-height: 1.5;    
+}
+
+.past {
+    opacity: 0;
+}
+
+.active, .future {
+    display: block;
+}
+
+.future {
+    z-index: -1;
+}
+/*
+    ... and we enhance the styles for impress.js.
+    
+    Basically we remove the margin and make inactive steps a little bit transparent.
+*/
+.impress-enabled .step {
+    margin: 0;
+    opacity: 0;
+    -webkit-transition: opacity 900ms;
+    -moz-transition:    opacity 900ms;
+    -ms-transition:     opacity 900ms;
+    -o-transition:      opacity 900ms;
+    transition:         opacity 900ms;
+}
+
+.impress-enabled .step.active { opacity: 1; z-index: 100; }
+
+/*
+    And now we start to style each step separately.
+    
+    I agree that this may be not the most efficient, object-oriented and
+    scalable way of styling, but most of steps have quite a custom look
+    and typography tricks here and there, so they had to be styles separately.
+
+    First is the title step with a big <h1> (no room for padding) and some
+    3D positioning along Z axis.
+*/
+
+h1 {
+    font-weight: normal;
+    font-family: source-sans, sans-serif;
+    margin: 0;
+    line-height: 1;
+    color: #fff;
+}
+
+h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+
+#title {
+    padding: 0;
+}
+
+#title .try {
+    font-size: 64px;
+    position: absolute;
+    top: -0.5em;
+    left: 1.5em;
+    
+    -webkit-transform: translateZ(20px);
+    -moz-transform:    translateZ(20px);
+    -ms-transform:     translateZ(20px);
+    -o-transform:      translateZ(20px);
+    transform:         translateZ(20px);
+}
+
+#title h1 {
+    font-size: 80px;
+}
+
+#title h2 {
+    font-size: 32px;
+}
+
+.footnote {
+    font-size: 0.9rem;
+}
+
+.hint {
+    /*
+        We hide the hint until presentation is started and from browsers not supporting
+        impress.js, as they will have a linear scrollable view ...
+    */
+    display: none;
+    
+    /*
+        ... and give it some fixed position and nice styles.
+    */
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 200px;
+    
+    background: rgba(0,0,0,0.5);
+    color: #EEE;
+    text-align: center;
+    
+    font-size: 50px;
+    padding: 20px;
+    
+    z-index: 100;
+    
+    /*
+        By default we don't want the hint to be visible, so we make it transparent ...
+    */
+    opacity: 0;
+    
+    /*
+        ... and position it below the bottom of the screen (relative to it's fixed position)
+    */
+    -webkit-transform: translateY(400px);
+    -moz-transform:    translateY(400px);
+    -ms-transform:     translateY(400px);
+    -o-transform:      translateY(400px);
+    transform:         translateY(400px);
+
+    /*
+        Now let's imagine that the hint is visible and we want to fade it out and move out
+        of the screen.
+        
+        So we define the transition on the opacity property with 1s duration and another
+        transition on transform property delayed by 1s so it will happen after the fade out
+        on opacity finished.
+        
+        This way user will not see the hint moving down.
+    */
+    -webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
+    -moz-transition:    opacity 1s,    -moz-transform 0.5s 1s;
+    -ms-transition:     opacity 1s,     -ms-transform 0.5s 1s;
+    -o-transition:      opacity 1s,      -o-transform 0.5s 1s;
+    transition:         opacity 1s,         transform 0.5s 1s;
+}
+
+/*
+    Now we 'enable' the hint when presentation is initialized ...
+*/
+.impress-enabled .hint { display: block }
+
+/*
+    ... and we will show it when the first step (with id 'bored') is active.
+*/
+.impress-on-bored .hint {
+    /*
+        We remove the transparency and position the hint in its default fixed
+        position.
+    */
+    opacity: 1;
+    
+    -webkit-transform: translateY(0px);
+    -moz-transform:    translateY(0px);
+    -ms-transform:     translateY(0px);
+    -o-transform:      translateY(0px);
+    transform:         translateY(0px);
+    
+    /*
+        Now for fade in transition we have the oposite situation from the one
+        above.
+        
+        First after 4.5s delay we animate the transform property to move the hint
+        into its correct position and after that we fade it in with opacity 
+        transition.
+    */
+    -webkit-transition: opacity 1s 5s, -webkit-transform 0.5s 4.5s;
+    -moz-transition:    opacity 1s 5s,    -moz-transform 0.5s 4.5s;
+    -ms-transition:     opacity 1s 5s,     -ms-transform 0.5s 4.5s;
+    -o-transition:      opacity 1s 5s,      -o-transform 0.5s 4.5s;
+    transition:         opacity 1s 5s,         transform 0.5s 4.5s;
+}
+
+/*
+    And as the last thing there is a workaround for quite strange bug.
+    It happens a lot in Chrome. I don't remember if I've seen it in Firefox.
+    
+    Sometimes the element positioned in 3D (especially when it's moved back
+    along Z axis) is not clickable, because it falls 'behind' the <body>
+    element.
+    
+    To prevent this, I decided to make <body> non clickable by setting 
+    pointer-events property to `none` value.
+    Value if this property is inherited, so to make everything else clickable
+    I bring it back on the #impress element.
+    
+    If you want to know more about `pointer-events` here are some docs:
+    https://developer.mozilla.org/en/CSS/pointer-events
+    
+    There is one very important thing to notice about this workaround - it makes
+    everything 'unclickable' except what's in #impress element.
+    
+    So use it wisely ... or don't use at all.
+*/
+.impress-enabled          { pointer-events: none }
+.impress-enabled #impress { pointer-events: auto }
+
