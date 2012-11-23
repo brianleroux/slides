@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content=width=1024>
+    <meta name=apple-mobile-web-app-capable content=yes>
+    <title>All Your Base 2012: Mobile Web Persistence Strategies for Offline Clients</title>
+    <meta name=description content="Mobile Web Persistence Strategies for Offline Clients">
+    <meta name=author content=brianleroux>
+
+    <link href=css/app.css rel=stylesheet>
+    <link href=css/prism.css rel=stylesheet>
+    <link rel="shortcut icon" href=favicon.png>
+</head>
+<body class=impress-not-supported>
+<div class=fallback-message>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+<div id=impress>
+
+    <div class="step slide" data-x="-1000" data-y="-1500">
+        <h1>All Your Base 2012</h1>
+        <img src=img/AllYourBaseAnimated.gif width=100%><br>
+        <a href=http://twitter.com/brianleroux>@brianleroux</a>
+    </div>
+
+    <div class="step slide" data-x="0" data-y="-1500" style=text-align:center>
+        <img src=img/lawnchair.jpg>
+        <h1 style=margin:10px;font-size:larger;color:#000>lawnchair</h1>
+        simple json storage
+        <p style=font-size:smaller>(Img credit <a href=http://drawbuck.com>Drawbuck</a>.)</p>
+    </div>
+
+    <div class="step slide" data-x="1000" data-y="-1500" style=text-align:center>
+        <img src=img/phonegap.png style=margin-top:50px;>
+    </div>
+
+    <div class="step slide" data-x=2000 data-y=-1500 style=text-align:center>
+        <h2>Build native mobile apps using html, css, and javascript.</h2>
+        <img src=img/splash.png style=margin-top:150px;>
+    </div>
+
+    <div id=title class=step data-x=0 data-y=0 data-scale=4>
+        <h3><b>Packaged apps</b> are naturally persistent. The files live on the device. </h3>
+        <p style=font-size:20px>(Sometimes these are called 'installable web apps'.)</p>
+    </div>
+    
+    <div id=its class=step data-x="850" data-y=3000 data-rotate=90 data-scale=5>
+        <p>Installed apps might not be online
+        and this <strong>is the first thing Apple tests</strong> in the app store review proccess.</p>
+    </div>
+
+    <div class="step" data-x=-4500 data-y=3000 data-rotate=180 data-scale=11>
+        <p>We quickly realized we needed <b>network introspection and persistence apis</b>.</p>
+    </div>
+
+    <div class=step data-x=2825 data-y=3325 data-z=-3000>
+        <pre style="width:800px; font-size:20px;">
+<code class=language-javascript>
+var states = {}
+
+states[navigator.connection.UNKNOWN] = 'Unknown connection'
+states[navigator.connection.ETHERNET] = 'Ethernet connection'
+states[navigator.connection.WIFI] = 'WiFi connection'
+states[navigator.connection.CELL_2G] = 'Cell 2G connection'
+states[navigator.connection.CELL_3G] = 'Cell 3G connection'
+states[navigator.connection.CELL_4G] = 'Cell 4G connection'
+states[navigator.connection.NONE] = 'No network connection'
+
+console.log(states[navigator.connection.type])
+        </code>
+        </pre> 
+        <div style=color:red;text-align:center>Warning! This is deprecated.</div>
+    </div>
+    
+    <div class=step data-x=2825 data-y=4325 data-z=-3000>
+        <pre style="width:800px; font-size:20px;">
+<code class=language-javascript>
+navigator.connection.addEventListener('change', function() {
+  console.log(navigator.connection.bandwidth);
+}, false)
+</code>
+        </pre> 
+        <a href=http://dvcs.w3.org/hg/dap/raw-file/tip/network-api/Overview.html>Lets check the spec!</a>
+    </div>
+    
+    <div class=step data-x=2825 data-y=5325 data-z=-3000>
+        <pre style="width:800px; font-size:20px;">
+        <code class=language-javascript>
+// ever played with Infinity?
+        </code>
+        </pre> 
+    </div>
+    
+    <div class=step data-x=2825 data-y=6325 data-z=-3000>
+        <pre style="width:800px; font-size:20px;">
+        <code class=language-javascript>
+// one last wtf
+console.log(navigator.onLine)
+        </code>
+        </pre> 
+        <a href=http://www.whatwg.org/specs/web-apps/current-work/#offline>the whatwg spec</a>
+    </div>
+    
+    <div class=step data-x=2825 data-y=7325 data-z=-3000>
+        So, that is the current state of <b>network introspection</b> APIs today. Lets look at actual persistence.
+    </div>
+    
+    <div class=step data-x=2825 data-y=2325 data-rotate=45 data-scale=3>
+        <ul>
+            <li>Cookies</li>
+            <li>Web SQL</li>
+            <li>Web Storage</li>
+            <li>App Cache</li>
+            <li>IndexedDB</li>
+        </ul>
+    </div>
+    
+    <div class=step data-x=4825 data-y=3325 data-z=-3000>
+        Cookies. <a href=http://www.quirksmode.org/js/cookies.html>Just use the PPK script if you must.</a> Keith Clark came up with a <a href=http://blog.keithclark.co.uk/responsive-images-using-cookies/>clever hack</a> using cookies as the transport to get viewport detection back to the server when user agent fails. Don't judge. You may need this!
+    </div>
+    
+    <div class=step data-x=4825 data-y=4325 data-z=-3000>
+        SQL in the browser. SQLite specifically. Probably, anyhow.
+    </div>
+
+    <div class=step data-x=4825 data-y=5325 data-z=-3000 style=background:#fff;border-radius:20px;text-align:center>
+        <img src=img/gears.jpg>
+    </div>
+    
+    <div class=step data-x=4825 data-y=6325 data-z=-3000>
+        <h1>Gears SQLite API</h1>
+<pre style="width:1024px; font-size:20px;">
+<code class=language-javascript>
+db.open('database-test');
+db.execute('create table if not exists Test (Phrase text, Timestamp int)');
+db.execute('insert into Test values (?, ?)', ['Monkey!', new Date().getTime()]);
+var rs = db.execute('select * from Test order by Timestamp desc');
+while (rs.isValidRow()) {
+    alert(rs.field(0) + '@' + rs.field(1));
+    rs.next();
+}
+rs.close();
+</code>
+</pre>
+</div>
+
+    <div style=text-align:center; class=step data-x=4825 data-y=7325 data-z=-3000>
+        <img src=img/bb.jpg>
+        <p style=font-size:20px;>(On 5.0 Browser. We no longer support.)</p>
+    </div>
+    
+    <div style=text-align:center; class=step data-x=4825 data-y=7325 data-z=-3000>
+        <img src=img/bb.jpg>
+        <p style=font-size:20px;>(On 5.0 Browser. We no longer support.)</p>
+    </div>
+    
+    <div style=text-align:center; class=step data-x=4825 data-y=8325 data-z=-3000>
+        <img src=img/this-guy.jpg>
+    </div>
+
+    <div class=step data-x=4825 data-y=9325 data-z=-3000>
+<pre style="width:1024px; font-size:20px;">
+<code class=language-javascript>
+var db = openDatabase('mydb', '1.0', 'my first database', 2 * 1024 * 1024)
+
+db.transaction(function (tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS foo (id unique, text)')
+    tx.executeSql('INSERT INTO foo (id, text) VALUES (1, "whatevs")')
+    tx.executeSql('SELECT * FROM foo', [], printer)
+})
+
+function printer (tx, results) {
+    for (var i = 0, l = results.rows.length; i < l; i++) {
+        console.log(results.rows.item(i).text);
+    }
+}
+</code>
+</pre>
+</div>
+
+    <div class=step data-x=4825 data-y=10325 data-z=-3000>
+        This is an improvement on gears. Its async. Fairly terse. <a href=http://caniuse.com/sql-storage>Lets check support.</a>
+    </div>
+
+    <div style=text-align:center; class=step data-x=4825 data-y=11325 data-z=-3000>
+        Bugger. (There is a <a href=https://addons.mozilla.org/en-US/firefox/addon/html5-websql-for-firefox/>Firefox plugin</a> but that is a crap solution. Ppl don't like plugins. Trust me: I work for Adobe!
+    </div>
+
+    <div class=step data-x=4825 data-y=12325 data-z=-3000>
+       SQLite is an implementation not a standard.     
+    </div>
+    
+    <div class=step data-x=4825 data-y=13325 data-z=-3000>
+<pre style="width:1024px; font-size:20px;" data-line=7>
+<code class=language-javascript>
+var db = openDatabase('mydb', '1.0', 'my first database', 2 * 1024 * 1024)
+
+db.transaction(function (tx) {
+    tx.executeSql('CREATE TABLE IF NOT EXISTS foo (id unique, text)')
+    tx.executeSql('INSERT INTO foo (id, text) VALUES (1, "whatevs")')
+    tx.executeSql('SELECT * FROM fo', [], printer)
+})
+
+function printer (tx, results) {
+    for (var i = 0, l = results.rows.length; i < l; i++) {
+        console.log(results.rows.item(i).text);
+    }
+}
+</code>
+</pre>
+    </div>
+    
+    <div class=step data-x=4825 data-y=14325 data-z=-3000>
+    Relational data on the client is questionable. It is likely you've denormalized already for presentation. Consider versioning rigid schemas across occasionally connected clients. Yikes!
+</div>
+
+    <div class=step data-x=6825 data-y=3325 data-z=-3000>
+        Web storage, lets hack you. 
+    </div>
+    
+    <div class=step data-x=6825 data-y=4325 data-z=-3000>
+        I really love this API however it is <b>synchronous</b> therefore blocks on IO. Also: no complex types, not very robust querying mechanisms.
+    </div>
+    
+    <div class=step data-x=6825 data-y=5325 data-z=-3000>
+        Keep in mind that <a href=http://caniuse.com/namevalue-storage>supported basically everywhere</a> is not the same as supported everywhere. Opera Mini has significant marketshare.
+    </div>
+    
+    <div class=step data-x=6825 data-y=6325 data-z=-3000 style=background:#fff;border-radius:25px;>
+        <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" width="734" height="400"><defs><clipPath id="highcharts-19"><rect rx="0" ry="0" fill="none" x="0" y="0" width="9999" height="400" stroke-width="0.000001"></rect></clipPath></defs><g class="highcharts-series-group" ></g><path fill="none" d="M 278.80132919770335 33.37393076517844 C 283.80132919770335 33.37393076517844 287.23335478843376 40.60035452417374 291.95238997568805 50.53668719279227 L 296.67142516294234 60.473019861410805" stroke-width="1" stroke="#ec292d" visibility="visible"  transform="translate(10,10)"></path><path fill="none" d="M 200.45272222852017 109.101573835606 C 205.45272222852017 109.101573835606 212.55823561853825 112.7773974799439 222.32831652981315 117.83165499090849 L 232.09839744108805 122.88591250187308" stroke-width="1" stroke="#ff7800" visibility="visible"  transform="translate(10,10)"></path><path fill="none" d="M 185.25233704303753 223.66776912378262 C 190.25233704303753 223.66776912378262 198.0705424857083 221.97199093775907 208.8205749693806 219.64029593197677 L 219.5706074530529 217.30860092619446" stroke-width="1" stroke="#d7d23e" visibility="visible"  transform="translate(10,10)"></path><path fill="none" d="M 304.4036417853767 351.3519981864892 C 309.4036417853767 351.3519981864892 311.63526590679487 343.6695601762802 314.703749073745 333.1062079122428 L 317.7722322406951 322.5428556482054" stroke-width="1" stroke="#2ba2e4" visibility="visible"  transform="translate(10,10)"></path><path fill="none" d="M 475.631507592276 60.217750226881535 C 470.631507592276 60.217750226881535 465.3037299469239 66.1855626704563 457.9780356845647 74.39130478037164 L 450.6523414222055 82.59704689028698" stroke-width="1" stroke="#c954d4" visibility="visible"  transform="translate(10,10)"></path><path fill="none" d="M 505.1871866005241 280.2918111603965 C 500.1871866005241 280.2918111603965 493.4736481811589 275.9411328349273 484.2425328545317 269.95895013740727 L 475.0114175279045 263.9767674398872" stroke-width="1" stroke="#a7b320" visibility="visible"  transform="translate(10,10)"></path><g class="highcharts-shadow"  transform="translate(10,10)"><path fill="none" d="M 356.97135845573035 47.37500291675758 A 140.625 140.625 0 0 1 496.72811877969383 172.14303158583655 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-linejoin="round"  stroke-opacity="0.05" transform="translate(1,1)"></path><path fill="none" d="M 356.97135845573035 47.37500291675758 A 140.625 140.625 0 0 1 496.72811877969383 172.14303158583655 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="3" stroke-linejoin="round"  stroke-opacity="0.1" transform="translate(1,1)"></path><path fill="none" d="M 356.97135845573035 47.37500291675758 A 140.625 140.625 0 0 1 496.72811877969383 172.14303158583655 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="1" stroke-linejoin="round"  stroke-opacity="0.15000000000000002" transform="translate(1,1)"></path></g><g class="highcharts-shadow"  transform="translate(10,10)"><path fill="none" d="M 496.72813463659236 172.14317131396328 A 140.625 140.625 0 0 1 399.6037807218124 322.01607550293255 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-linejoin="round"  stroke-opacity="0.05" transform="translate(1,1)"></path><path fill="none" d="M 496.72813463659236 172.14317131396328 A 140.625 140.625 0 0 1 399.6037807218124 322.01607550293255 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="3" stroke-linejoin="round"  stroke-opacity="0.1" transform="translate(1,1)"></path><path fill="none" d="M 496.72813463659236 172.14317131396328 A 140.625 140.625 0 0 1 399.6037807218124 322.01607550293255 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="1" stroke-linejoin="round"  stroke-opacity="0.15000000000000002" transform="translate(1,1)"></path></g><g class="highcharts-shadow"  transform="translate(10,10)"><path fill="none" d="M 399.6036467057157 322.0161181066463 A 140.625 140.625 0 0 1 249.2263806143378 278.3340333955836 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-linejoin="round"  stroke-opacity="0.05" transform="translate(1,1)"></path><path fill="none" d="M 399.6036467057157 322.0161181066463 A 140.625 140.625 0 0 1 249.2263806143378 278.3340333955836 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="3" stroke-linejoin="round"  stroke-opacity="0.1" transform="translate(1,1)"></path><path fill="none" d="M 399.6036467057157 322.0161181066463 A 140.625 140.625 0 0 1 249.2263806143378 278.3340333955836 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="1" stroke-linejoin="round"  stroke-opacity="0.15000000000000002" transform="translate(1,1)"></path></g><g class="highcharts-shadow"  transform="translate(10,10)"><path fill="none" d="M 249.22629028035828 278.33392562191904 A 140.625 140.625 0 0 1 221.4849705788327 150.43582257016448 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-linejoin="round"  stroke-opacity="0.05" transform="translate(1,1)"></path><path fill="none" d="M 249.22629028035828 278.33392562191904 A 140.625 140.625 0 0 1 221.4849705788327 150.43582257016448 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="3" stroke-linejoin="round"  stroke-opacity="0.1" transform="translate(1,1)"></path><path fill="none" d="M 249.22629028035828 278.33392562191904 A 140.625 140.625 0 0 1 221.4849705788327 150.43582257016448 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="1" stroke-linejoin="round"  stroke-opacity="0.15000000000000002" transform="translate(1,1)"></path></g><g class="highcharts-shadow"  transform="translate(10,10)"><path fill="none" d="M 221.4850081430779 150.43568705515383 A 140.625 140.625 0 0 1 248.04452354828743 99.09502389528295 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-linejoin="round"  stroke-opacity="0.05" transform="translate(1,1)"></path><path fill="none" d="M 221.4850081430779 150.43568705515383 A 140.625 140.625 0 0 1 248.04452354828743 99.09502389528295 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="3" stroke-linejoin="round"  stroke-opacity="0.1" transform="translate(1,1)"></path><path fill="none" d="M 221.4850081430779 150.43568705515383 A 140.625 140.625 0 0 1 248.04452354828743 99.09502389528295 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="1" stroke-linejoin="round"  stroke-opacity="0.15000000000000002" transform="translate(1,1)"></path></g><g class="highcharts-shadow"  transform="translate(10,10)"><path fill="none" d="M 248.04461245331805 99.09491493985094 A 140.625 140.625 0 0 1 356.94515900979303 47.37501069345538 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="5" stroke-linejoin="round"  stroke-opacity="0.05" transform="translate(1,1)"></path><path fill="none" d="M 248.04461245331805 99.09491493985094 A 140.625 140.625 0 0 1 356.94515900979303 47.37501069345538 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="3" stroke-linejoin="round"  stroke-opacity="0.1" transform="translate(1,1)"></path><path fill="none" d="M 248.04461245331805 99.09491493985094 A 140.625 140.625 0 0 1 356.94515900979303 47.37501069345538 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="rgb(0, 0, 0)" stroke-width="1" stroke-linejoin="round"  stroke-opacity="0.15000000000000002" transform="translate(1,1)"></path></g><g class="highcharts-point"  transform="translate(10,10)"><path fill="#c954d4" d="M 356.97135845573035 47.37500291675758 A 140.625 140.625 0 0 1 496.72811877969383 172.14303158583655 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"></path><path fill="rgb(192,192,192)" d="M 356.97135845573035 47.37500291675758 A 140.625 140.625 0 0 1 496.72811877969383 172.14303158583655 L 357 188 A 0 0 0 0 0 357 188 Z"  fill-opacity="0.000001" visibility="visible" style=""></path></g><g class="highcharts-point"  transform="translate(10,10)"><path fill="#a7b320" d="M 496.72813463659236 172.14317131396328 A 140.625 140.625 0 0 1 399.6037807218124 322.01607550293255 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"></path><path fill="rgb(192,192,192)" d="M 496.72813463659236 172.14317131396328 A 140.625 140.625 0 0 1 399.6037807218124 322.01607550293255 L 357 188 A 0 0 0 0 0 357 188 Z"  fill-opacity="0.000001" visibility="visible" style=""></path></g><g class="highcharts-point"  transform="translate(10,10)"><path fill="#2ba2e4" d="M 399.6036467057157 322.0161181066463 A 140.625 140.625 0 0 1 249.2263806143378 278.3340333955836 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"></path><path fill="rgb(192,192,192)" d="M 399.6036467057157 322.0161181066463 A 140.625 140.625 0 0 1 249.2263806143378 278.3340333955836 L 357 188 A 0 0 0 0 0 357 188 Z"  fill-opacity="0.000001" visibility="visible" style=""></path></g><g class="highcharts-point"  transform="translate(10,10)"><path fill="#d7d23e" d="M 249.22629028035828 278.33392562191904 A 140.625 140.625 0 0 1 221.4849705788327 150.43582257016448 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"></path><path fill="rgb(192,192,192)" d="M 249.22629028035828 278.33392562191904 A 140.625 140.625 0 0 1 221.4849705788327 150.43582257016448 L 357 188 A 0 0 0 0 0 357 188 Z"  fill-opacity="0.000001" visibility="visible" style=""></path></g><g class="highcharts-point"  transform="translate(10,10)"><path fill="#ff7800" d="M 221.4850081430779 150.43568705515383 A 140.625 140.625 0 0 1 248.04452354828743 99.09502389528295 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"></path><path fill="rgb(192,192,192)" d="M 221.4850081430779 150.43568705515383 A 140.625 140.625 0 0 1 248.04452354828743 99.09502389528295 L 357 188 A 0 0 0 0 0 357 188 Z"  fill-opacity="0.000001" visibility="visible" style=""></path></g><g class="highcharts-point"  transform="translate(10,10)"><path fill="#ec292d" d="M 248.04461245331805 99.09491493985094 A 140.625 140.625 0 0 1 356.94515900979303 47.37501069345538 L 357 188 A 0 0 0 0 0 357 188 Z" stroke="#FFFFFF" stroke-width="1" stroke-linejoin="round"></path><path fill="rgb(192,192,192)" d="M 248.04461245331805 99.09491493985094 A 140.625 140.625 0 0 1 356.94515900979303 47.37501069345538 L 357 188 A 0 0 0 0 0 357 188 Z"  fill-opacity="0.000001" visibility="visible" style=""></path></g><g class="highcharts-data-labels" visibility="visible"  transform="translate(10,10)"><g  style="font:normal 13px verdana, sans-serif;" transform="translate(478,70.21775022688153)" visibility="visible"><rect rx="0" ry="0" fill="none" x="-3" y="-15" width="139" height="20" stroke-width="0.000001"></rect><text x="0" y="0" style="font-family:'lucida grande', 'lucida sans unicode', verdana, arial, helvetica, sans-serif;font-size:11px;color:#222;line-height:14px;fill:#222;" ><tspan style="font-weight:bold" x="0">Android Webkit</tspan><tspan dx="3">: 23.2 %</tspan></text></g><g  style="font:normal 13px verdana, sans-serif;" transform="translate(507,290.2918111603965)" visibility="visible"><rect rx="0" ry="0" fill="none" x="-3" y="-15" width="126" height="20" stroke-width="0.000001"></rect><text x="0" y="0" style="font-family:'lucida grande', 'lucida sans unicode', verdana, arial, helvetica, sans-serif;font-size:11px;color:#222;line-height:14px;fill:#222;" ><tspan style="font-weight:bold" x="0">Mobile Safari</tspan><tspan dx="3">: 21.9 %</tspan></text></g><g  style="font:normal 13px verdana, sans-serif;" transform="translate(151,361.3519981864892)" visibility="visible"><rect rx="0" ry="0" fill="none" x="-3" y="-15" width="148" height="20" stroke-width="0.000001"></rect><text x="0" y="0" style="font-family:'lucida grande', 'lucida sans unicode', verdana, arial, helvetica, sans-serif;font-size:11px;color:#222;line-height:14px;fill:#222;" ><tspan style="font-weight:bold" x="0">Internet Explorer</tspan><tspan dx="3">: 18.8 %</tspan></text></g><g  style="font:normal 13px verdana, sans-serif;" transform="translate(66,233.66776912378262)" visibility="visible"><rect rx="0" ry="0" fill="none" x="-3" y="-15" width="114" height="20" stroke-width="0.000001"></rect><text x="0" y="0" style="font-family:'lucida grande', 'lucida sans unicode', verdana, arial, helvetica, sans-serif;font-size:11px;color:#222;line-height:14px;fill:#222;" ><tspan style="font-weight:bold" x="0">Opera Mini</tspan><tspan dx="3">: 15.4 %</tspan></text></g><g  style="font:normal 13px verdana, sans-serif;" transform="translate(106,119.101573835606)" visibility="visible"><rect rx="0" ry="0" fill="none" x="-3" y="-15" width="89" height="20" stroke-width="0.000001"></rect><text x="0" y="0" style="font-family:'lucida grande', 'lucida sans unicode', verdana, arial, helvetica, sans-serif;font-size:11px;color:#222;line-height:14px;fill:#222;" ><tspan style="font-weight:bold" x="0">Chrome</tspan><tspan dx="3">: 6.6 %</tspan></text></g><g  style="font:normal 13px verdana, sans-serif;" transform="translate(184,43.37393076517844)" visibility="visible"><rect rx="0" ry="0" fill="none" x="-3" y="-15" width="90" height="20" stroke-width="0.000001"></rect><text x="0" y="0" style="font-family:'lucida grande', 'lucida sans unicode', verdana, arial, helvetica, sans-serif;font-size:11px;color:#222;line-height:14px;fill:#222;" ><tspan style="font-weight:bold" x="0">Others</tspan><tspan dx="3">: 14.1 %</tspan></text></g></g><g class="highcharts-legend" ><g  clip-path="url(#highcharts-19)"><g></g></g></g><g class="highcharts-tooltip"  style="padding:0;white-space:nowrap;" visibility="hidden"><rect rx="5" ry="5" fill="none" x="0" y="0" width="0" height="0" stroke-width="5" fill-opacity="0.85"  stroke="rgb(0, 0, 0)" stroke-opacity="0.05" transform="translate(1,1)"></rect><rect rx="5" ry="5" fill="none" x="0" y="0" width="0" height="0" stroke-width="3" fill-opacity="0.85"  stroke="rgb(0, 0, 0)" stroke-opacity="0.1" transform="translate(1,1)"></rect><rect rx="5" ry="5" fill="none" x="0" y="0" width="0" height="0" stroke-width="1" fill-opacity="0.85"  stroke="rgb(0, 0, 0)" stroke-opacity="0.15000000000000002" transform="translate(1,1)"></rect><rect rx="5" ry="5" fill="rgb(255,255,255)" x="0" y="0" width="0" height="0" stroke-width="2" fill-opacity="0.85"></rect><text x="0" y="13" style="font-family:'lucida grande', 'lucida sans unicode', verdana, arial, helvetica, sans-serif;font-size:12px;color:#333333;fill:#333333;" ></text></g><text x="724" y="395" style="font-family:'lucida grande', 'lucida sans unicode', verdana, arial, helvetica, sans-serif;font-size:10px;cursor:pointer;color:#909090;fill:#909090;" text-anchor="end" ><tspan x="724">Source: Akamai IO (Beta)</tspan></text><g class="highcharts-tracker" ></g></svg>
+    </div>
+    
+    
+    <div class=step data-x=8825 data-y=3325 data-z=-3000 style=text-align:center>
+        Its simple! We need for <b>async</b> api that is <b>transactional</b>, can store <b>complex types</b>, and has <b>robust querying</b> capability. Lets call it <b>WebSimpleDB</b>!
+    </div>
+
+    <div class=step data-x=8825 data-y=4325 data-z=-3000 style=text-align:center>
+        <img src=img/solve.jpg>
+    </div>
+
+    <div class=step data-x=8825 data-y=5325 data-z=-3000 style=text-align:center;background:#fff;border-radius:25px>
+        <img src=img/knife.jpg>
+        <p>Thusly renamed to <b>Indexed DB</b>.</p>
+    </div>
+    
+
+    <div class=step data-x=8825 data-y=6325 data-z=-3000>
+<pre style="width:1024px; font-size:20px;" data-line=10>
+<code class=language-javascript>
+var request = indexedDB.open('all-your-base')
+
+request.onsuccess = function (e) {
+    var version = '1.0'
+    var db = e.target.result
+
+    if (version != db.version) {
+        // the only place you can create a store...deprecated for onupgradeneeded
+        var setVrequest = db.setVersion(version)
+
+        setVrequest.onsuccess = function(e) {
+            var store = db.createObjectStore('all-your-base', {keyPath: 'timeStamp'})
+            e.target.transaction.oncomplete = function() { console.log('created a store')}
+        }
+    } 
+}
+</code>
+</pre>
+</div>
+
+    <div class=step data-x=8825 data-y=7325 data-z=-3000>
+<pre style="width:1024px; font-size:20px;" data-line=4>
+<code class=language-javascript>
+var trans = db.transaction(['all-your-base'], 'readwrite')
+var store = trans.objectStore('all-your-base')
+var request = store.put({'text':'ya data store', 'timeStamp':new Date().getTime()})
+
+request.onsuccess = request.onerror = function(e) { console.log(e) }
+</code>
+</pre>
+</div>
+
+    <div class=step data-x=8825 data-y=8325 data-z=-3000>
+<pre style="width:1024px; font-size:20px;">
+<code class=language-javascript>
+var cursorRequest = store.openCursor(IDBKeyRange.lowerBound(0))
+
+cursorRequest.onsuccess = function(e) {
+    var result = e.target.result.value 
+    result.continue()
+}
+</code>
+</pre>
+</div>
+
+    <div class=step data-x=8825 data-y=9325 data-z=-3000>
+<pre style="width:1024px; font-size:20px;">
+<code class=language-javascript>
+// removing data is intuitive...
+var request = store.delete(id)
+</code>
+</pre>
+So, <a href=http://caniuse.com/indexeddb>can we use</a>?
+</div>
+
+
+    <div class=step data-x=8825 data-y=10325 data-z=-3000>
+    Of course, <a href=https://github.com/axemclion/IndexedDBShim>you could polyfill</a>.
+</div>
+    
+    <div class=step data-x=5825 data-y=2325 data-rotate=45 data-scale=3>
+        <h1>So anyhow, that is why I created Lawnchair.</h1>
+    </div>
+
+
+    <div class=step data-x=11000 data-y=3325 data-z=-3000 style=text-align:center>
+        This probably comes as no surprise but there is other weird stuff in web persistence worth mentioning.
+    </div>
+    
+    <div class=step data-x=12000 data-y=3325 data-z=-3000 style=text-align:center>
+        Flash can be used to create an <a href=http://samy.pl/evercookie/>unkillable cookie</a>.. 
+    </div>
+
+    <div class=step data-x=13000 data-y=3325 data-z=-3000 style=text-align:center>
+<pre style="width:1024px; font-size:20px;">
+<code class=language-javascript>
+// store unlimited data on all browsers, accessible from any domain, I shit you not
+window.name
+</code>
+</pre>
+    </div>
+    
+    <div class=step data-x=13000 data-y=3325 data-z=-3000 style=text-align:center>
+<pre style="width:1024px; font-size:20px;">
+<code class=language-javascript>
+// store unlimited data on all browsers, accessible from any domain, I shit you not
+window.name
+</code>
+</pre>
+    </div>
+
+
+    <div class=step data-x=15000 data-y=3325 data-z=-3000>
+        So, web sockets are great but <a href=http://developer.chrome.com/apps/app_network.html>tcp or udp sockets</a> mean we could have a web page open a database connection. (!) <a href=http://www.webrtc.org/faq-recent-topics>WebRTC</a> PeerChannel and DataConnection APIs also mental.
+    </div>
+
+
+    
+    <div class=step data-x=16000 data-y=3325 data-z=-3000>
+        There is strong indication of first class File APIs coming to browsers. Happy days! Confusingly there is split into a couple of specs. The <a href=http://www.w3.org/TR/FileAPI/>File API</a> and <a href=http://www.w3.org/TR/file-system-api/>Directories and System API</a>.
+    </div>
+
+    <div class=step data-x=17000 data-y=3325 data-z=-3000>
+    The various File APIs are verbosely async but <a href=https://github.com/ebidel/filer.js>FilerJS</a> shows a sane UNIXy wrapper is possible. Probably desirable. 
+</div>
+
+    <div class=step data-x=18000 data-y=3325 data-z=-3000>
+        Our friends at Mozilla are working out an <a href=https://wiki.mozilla.org/WebAPI/ArchiveAPI>Archive API</a> in their Firefox OS research. This could enable super-fast self-updating <b>packaged apps</b>. We do something like this in <a href=http://build.phonegap.com>PhoneGap/Build</a> we called "Hydration".
+    </div>
+
+    <div class=step data-x=18000 data-y=4325 data-z=-3000>
+        <b>Packaged web apps are happening.</b> Consider: Microsoft Windows 8, Google Chrome apps, and Firefox OS. PhoneGap is the polyfill for the places you can't package an app, yet. App Cache lets you package apps for offline in most browsers today---but its kinda fucked up.
+    </div>
+
+
+
+    
+    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">Thanks, eh.
+    </div>
+
+
+
+
+
+
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+<script src=js/impress.js></script>
+<script>impress().init();</script>
+<script src=js/prism.js></script>
+</body>
+</html>
+
