@@ -1,0 +1,206 @@
+<h1>Truthiness.</h1>
+<p>Basic boolean operation.</p>
+<pre>
+true
+!true
+!(true)
+!!(true)
+</pre>
+
+<p>Double equals is dangerous.</p>
+<pre>
+[] == false
+"" == false
+null == false
+</pre>
+
+<p>And, it turns out true can coerce to 1.</p>
+<pre>
+true + 1
+(true + true) === 2
+true === 2 
+true === 1
+</pre>
+
+<p>It gets better.</p>
+<pre>
+"0" && {} 
+0 && {}
+0 == "0"
+</pre>
+
+<p>One last beauty. It turns out undefined is mutable.</p>
+<pre>
+undefined = 42
+typeof a === 'undefined'
+</pre>
+
+
+
+<h1>String.</h1>
+
+<pre>
+"I am a string" instanceof String
+</pre>
+
+<p>String comparison is common. Its also somewhat brittle.</p>
+<pre>
+typeof "abc" == "string" 
+typeof String("abc") == "string"
+String("abc") == "abc"  
+</pre>
+
+<p>Instantiation via _new_ operator can yield interesting results!</p>
+<pre>                
+"I am a string" instanceof String
+String("abc") instanceof String
+(new String("abc")) instanceof String
+String("abc") == (new String("abc"))
+</pre>
+
+<p>One last fun one.</p>
+<pre>
+("foo" + + "bar")
+</pre>
+
+
+<h1>Number and maths.</h1>
+
+<p>Numbers are generally fucked up in computing.</p>
+<pre>
+9999999999999999
+0.1 + 0.2 === 0.3
+
+1 === 1
+Number.prototype.isOne = function () { return this === 1; }
+
+// to fix..
+Number.prototype.isOne = function () { return Number(this) === 1 }
+</pre>
+
+<p>One of my all time favorites</p>
+<pre>
+3 > 2 > 1
+
+// heres why
+(3 > 2)
+true > 1 
+</pre>
+
+<p>Coercion with String to Number is a fantastic source of code humour.</p>
+<pre>
+"2" +1
+"2" -1
+"222"- -"111"
+"222" - -1
+</pre>
+
+<p>Its hard to forget parseInt accepts a second argument.</p>
+<pre>
+parseInt('06')
+parseInt('08')
+</pre>
+
+<p>There are other ways to cast a Number. Not all behave alike.</p>
+<pre>
+Number('Infinity')
+parseFloat('Infinity' )
+parseInt('Infinity')
+</pre>
+
+<p>I assume to disambiguate, you cannot always call methods on Number literals.</p>
+<pre>
+42.toFixed(2)
+42.888.toFixed(2)
+42..toFixed(2)
+</pre>
+
+<p>This is just a nice shortcut.</p>
+<pre>
+Math.round(4.2) === ~~4.2
+</pre>
+
+<p>Infinity is an interesting concept.</p>
+<pre>
+Infinity === 1/0
+Infinity - 1
+1 - Infinity
+0 === -0 
+1/0 === 1/-0 
+</pre>
+
+<p>Its good to know there is a maximum before Infinity.</p>
+<pre>
+Number.MAX_VALUE*1.0000000000000001
+Number.MAX_VALUE*1.0000000000000002
+</pre>
+
+<p>I bet you wondered...</p>
+<pre>
+Number.MIN_VALUE > 0
+</pre>
+
+<pre>
+Math.max(0,1,2)
+Math.max() > Math.min()
+</pre>
+
+<p>Of course if we're comparing Number to things knowing if its NaN is useful.</p>
+<pre>
+typeof NaN 
+NaN instanceof Number
+isNaN(null)
+isNaN(null) == 0
++null
+NaN === NaN
+</pre>
+
+
+<h1>Date and time.</h1>
+
+<p>This is a 'clever' hack that might have you asking wtf.</p>
+<pre>
+Date.now() === +new Date
+</pre>
+
+<p>This is true wtf material.</p>
+<pre>
+d = new Date('silent failures are the best')
+d.getTime()
+</pre>
+
+
+<h1>Array and Object.</h1>
+
+<p>Initialized an array with four undefined values which coerced into empty strings which then was cast to a string by == (Array.prototype.toString calls Array.prototype.join).</p>
+<pre>
+",,," == new Array(4)
+</pre>
+
+<pre>
+[] == []
+[] == ![]
+</pre>
+
+<pre>
+2 == [2]
+2 === Number([2].valueOf().toString())
+</pre>
+
+<pre>
+[] == 0
++[] === 0  // true, wait whu?
++([] == 0)
+</pre>
+
+<pre>
+typeof null // object 
+null instanceof Object // false
+</pre>
+
+
+<h1>Function.</h1>
+<pre>
+var c = "constructor"
+c[c][c]("console.log('wtfjs!')")()
+</pre>
