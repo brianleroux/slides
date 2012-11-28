@@ -1,73 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv=content-type content=text/html;charset=utf-8>
+    <meta name=viewport content=width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1>
+
+    <title>The best of wtfjs</title>
+    <link rel=stylesheet href=prism.css type=text/css media=screen charset=utf-8>
+    <script src=prism.js></script>
+</head>
+<body>
+
+<header><h1>The best of <span class=red>wtfjs</span></h1></header>
+<p>A collection of my favorite <span class=inline-code>wtfjs</span> moments. With deepest respect, gratitude, and suspicious fear for all the <strike>contributers</strike> hackers featured on <a href=http://wtfjs.com>wtfjs.com</a> whom made this exploration possible. - <a href=http://twitter.com/brianleroux>@brianleroux</a>, Dec 2012, Paris.</p>
+    
 <h1>Truthiness.</h1>
-<p>Basic boolean operation.</p>
-<pre>
+<p>Basic boolean operation. This might seem obvious but we need to start from a common ground. Stuff gets messy later on.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 true
 !true
 !(true)
 !!(true)
+</code>
 </pre>
 
-<p>Double equals is dangerous.</p>
-<pre>
+<p>Double equals, aka the <a href=http://ecma262-5.com/ELS5_HTML.htm#Section_11.9.3><em>Abstract Equality Operator</em></a> is trecherous good fun.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 [] == false
 "" == false
 null == false
+</code>
 </pre>
 
-<p>And, it turns out true can coerce to 1.</p>
-<pre>
+<p>And, it turns out, we can coerce <span class=inline-code>true</span> to <span class=inline-code>1</span>.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
++true
 true + 1
-(true + true) === 2
-true === 2 
-true === 1
+true + true === 2
+</code>
 </pre>
 
 <p>It gets better.</p>
-<pre>
+<pre class=language-javascript>
+<code class=language-javascript>
 "0" && {} 
 0 && {}
 0 == "0"
+null == undefined
+</code>
 </pre>
 
-<p>One last beauty. It turns out undefined is mutable.</p>
-<pre>
+<p>One last beauty. It turns out <span class=inline-code>undefined</span> is mutable.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 undefined = 42
 typeof a === 'undefined'
+</code>
 </pre>
 
 
+<h1>String</h1>
 
-<h1>String.</h1>
-
-<pre>
+<pre class=language-javascript>
+<code class=language-javascript>
 "I am a string" instanceof String
+</code>
 </pre>
 
-<p>String comparison is common. Its also somewhat brittle.</p>
-<pre>
+<p>String comparison is common business.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 typeof "abc" == "string" 
 typeof String("abc") == "string"
 String("abc") == "abc"  
+</code>
 </pre>
 
-<p>Instantiation via _new_ operator can yield interesting results!</p>
-<pre>                
+<p>Instantiation via <span class=inline-code>new</span> operator can yield interesting results!</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 "I am a string" instanceof String
 String("abc") instanceof String
 (new String("abc")) instanceof String
 String("abc") == (new String("abc"))
+</code>
 </pre>
 
-<p>One last fun one.</p>
-<pre>
+<p>One last fun one. I think everyone has seen this in a template at some point.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 ("foo" + + "bar")
+</code>
 </pre>
+
+<p>Another awesome hack, find out the <span class=inline-code>[[Class]]</span> of a thing.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
+Object.prototype.toString.call([1,2,3]) // [object Array]
+{}.toString.call(new Date) // [object Date]
+</code>
+</pre>
+
+
 
 
 <h1>Number and maths.</h1>
 
-<p>Numbers are generally fucked up in computing.</p>
-<pre>
+<p>JavaScript has only one <span class=inline-code>Number</span> type, represented as <b>IEEE 754 Double Precision</b> floating point. That's a fancy way of saying <b>cannot represent decimal fractions with acurracy</b>. Ouch!</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 9999999999999999
 0.1 + 0.2 === 0.3
 
@@ -75,132 +118,197 @@ String("abc") == (new String("abc"))
 Number.prototype.isOne = function () { return this === 1; }
 
 // to fix..
-Number.prototype.isOne = function () { return Number(this) === 1 }
+Number.prototype.isOne = function () { return +this === 1 }
+</code>
 </pre>
 
 <p>One of my all time favorites</p>
-<pre>
+<pre class=language-javascript>
+<code class=language-javascript>
 3 > 2 > 1
 
 // heres why
 (3 > 2)
 true > 1 
+
+// so the "solution" is
+3 > 2 >= 1
+</code>
 </pre>
 
-<p>Coercion with String to Number is a fantastic source of code humour.</p>
-<pre>
+<p>Coercion from a <span class=inline-code>String</span> to a <span class=inline-code>Number</span> is a fantastic source of code humour.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 "2" +1
 "2" -1
 "222"- -"111"
 "222" - -1
+</code>
 </pre>
 
-<p>Its hard to forget parseInt accepts a second argument.</p>
-<pre>
+<p>Its hard to forget <span class=inline-code>parseInt</span> accepts a second argument for <span class=inline-code>radix</span>.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 parseInt('06')
 parseInt('08')
+</code>
 </pre>
 
-<p>There are other ways to cast a Number. Not all behave alike.</p>
-<pre>
+<p>There are other ways to cast a <span class=inline-code>Number</span>. Not all behave alike. (Surprise!)</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 Number('Infinity')
-parseFloat('Infinity' )
+parseFloat('Infinity')
 parseInt('Infinity')
+</code>
 </pre>
 
-<p>I assume to disambiguate, you cannot always call methods on Number literals.</p>
-<pre>
+<p>I assume to disambiguate, you cannot always call methods on whole <span class=inline-code>Number</span> literals.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 42.toFixed(2)
 42.888.toFixed(2)
+// or can you!
 42..toFixed(2)
+</code>
 </pre>
 
 <p>This is just a nice shortcut.</p>
-<pre>
+<pre class=language-javascript>
+<code class=language-javascript>
 Math.round(4.2) === ~~4.2
+</code>
 </pre>
 
-<p>Infinity is an interesting concept.</p>
-<pre>
+<p><span class=inline-code>Infinity</span> is an interesting concept.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 Infinity === 1/0
 Infinity - 1
 1 - Infinity
 0 === -0 
-1/0 === 1/-0 
+1/0 === 1/-0 // hmm.
+</code>
 </pre>
 
-<p>Its good to know there is a maximum before Infinity.</p>
-<pre>
+<p>I am comforted by a maximum before <span class=inline-code>Infinity</span>.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 Number.MAX_VALUE*1.0000000000000001
 Number.MAX_VALUE*1.0000000000000002
+</code>
 </pre>
 
 <p>I bet you wondered...</p>
-<pre>
+<pre class=language-javascript>
+<code class=language-javascript>
 Number.MIN_VALUE > 0
+</code>
 </pre>
 
-<pre>
+<p>Math also has min/max methods.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 Math.max(0,1,2)
 Math.max() > Math.min()
+</code>
 </pre>
 
-<p>Of course if we're comparing Number to things knowing if its NaN is useful.</p>
-<pre>
+<p>Math is really not sure of itself.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
+Math instanceof Math
+</code>
+</pre>
+
+<p>Of course if we're comparing <span class=inline-code>Number</span> to things knowing if it is <span class=inline-code>NaN</span> is useful.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 typeof NaN 
 NaN instanceof Number
 isNaN(null)
 isNaN(null) == 0
 +null
 NaN === NaN
+</code>
 </pre>
 
 
 <h1>Date and time.</h1>
 
 <p>This is a 'clever' hack that might have you asking wtf.</p>
-<pre>
+<pre class=language-javascript>
+<code class=language-javascript>
 Date.now() === +new Date
+</code>
 </pre>
 
 <p>This is true wtf material.</p>
-<pre>
+<pre class=language-javascript>
+<code class=language-javascript>
 d = new Date('silent failures are the best')
 d.getTime()
+</code>
 </pre>
 
 
 <h1>Array and Object.</h1>
 
 <p>Initialized an array with four undefined values which coerced into empty strings which then was cast to a string by == (Array.prototype.toString calls Array.prototype.join).</p>
-<pre>
+<pre class=language-javascript>
+<code class=language-javascript>
 ",,," == new Array(4)
+</code>
 </pre>
 
-<pre>
+<p>Abstract equality coercion on Array is fun!</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 [] == []
 [] == ![]
-</pre>
-
-<pre>
-2 == [2]
-2 === Number([2].valueOf().toString())
-</pre>
-
-<pre>
 [] == 0
 +[] === 0  // true, wait whu?
 +([] == 0)
+</code>
 </pre>
 
-<pre>
+<p>More fun?</p>
+<pre class=language-javascript>
+<code class=language-javascript>
+2 == [2]
+2 === Number([2].valueOf().toString())
+</code>
+</pre>
+
+<p>Object has an odd relationship to null.</p>
+<pre class=language-javascript>
+<code class=language-javascript>
 typeof null // object 
 null instanceof Object // false
+</code>
 </pre>
 
 
 <h1>Function.</h1>
-<pre>
+<pre class=language-javascript>
+<code class=language-javascript>
+// arguments object not array like; can be leaky
+var args = [].slice.call(arguments)
+
+0xfff.constructor
 var c = "constructor"
 c[c][c]("console.log('wtfjs!')")()
+
+// constructor by the new operator super important
+function b() {}
+b() instanceof b // false! ruh roh. `this` is the global in b.
+new b() instanceof b // true
+
+// anyhow, we can fix `this` (get it?)
+function b() {if (!(this instanceof b)) return new b }
+b() instanceof b
+</code>
 </pre>
+
+</body>
+</html>
