@@ -1,0 +1,20 @@
+.reveal aside.notes {
+	display:block;
+    font-size:small;
+    text-align:left;
+}
+
+.reveal aside.notes ul{
+    margin:0;
+    padding:0;
+}
+
+.reveal aside.notes ul li {
+    color:rgb(46, 228, 0);
+    text-shadow: 0.1em 0.1em #333;
+    margin:0;
+    padding:0;
+    height:20px;
+}
+
+

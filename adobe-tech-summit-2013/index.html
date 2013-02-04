@@ -12,7 +12,13 @@
 		<link rel=stylesheet href=lib/css/zenburn.css>
 		<script>
     	document.write('<link rel=stylesheet href=css/print/' + (window.location.search.match(/print-pdf/gi)?'pdf':'paper') + '.css type=text/css media=print>')
-		</script>
+        // presentor notes kludge for my iphone
+        window.location.search.substring(1).split('&').forEach(function(i) { 
+            if(i === 'notes=true') {
+                document.write('<link rel=stylesheet href=css/notes.css type=text/css media=screen>')
+            }
+        })
+        </script>
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
         <![endif]-->
@@ -61,13 +67,14 @@
                 <section>
                     <h2>I work on PhoneGap.</h2>
                     <aside class=notes>
-                        <h1>You probably know, with PhoneGap anyone can build apps with html, css, and javascript. but it does much more than that</h1>
                         <ul>
-                            <li>free open source software hosted at the apache software foundation 
-                            <li>future friendly: standards based    
-                            <li>powerful extensibility layer
-                            <li>free to use any web tools, and libraries to get the job done
-                            <li>large, active, and growing community of passionate developers
+                            <li>You probably know, with PhoneGap anyone can build apps with html, css, and javascript. </li>
+                            <li>but it does much more than that</li>
+                            <li>free open source software hosted at the apache software foundation </li>
+                            <li>future friendly: standards based    </li>
+                            <li>powerful extensibility layer</li>
+                            <li>free to use any web tools, and libraries to get the job done </li>
+                            <li>large, active, and growing community of passionate developers </li>
                          </ul>
                     </aside>
                 </section>
@@ -75,8 +82,8 @@
                 <section data-state=bg-brown>
                     <h2>Did the web solve cross platform?</h2>
                     <aside class=notes>
-                        <h1>Most devices, screens, and operating systems.</h1>
                         <ul>
+                            <li>Most devices, screens, and operating systems.</li>
                             <li>tell the steve jobs ios 1.0 web apps story. 
                             <li>I loved this so much, a vision where we could built to a platform but not be locked into it. 
                             <li>we could resuse our skills and code. 
@@ -88,8 +95,8 @@
                 <section data-state=alert>
                     <h2>The web did not solve everything.</h2>
                     <aside class=notes>
-                        <h1>We're going to ignore browser interop. Thats a problem but its quickly going away.</h1>
                         <ul>
+                            <li>We're going to ignore browser interop. Thats a problem but its quickly going away.</li>
                             <li>The offline story is a bit of a mess: cache manifest, websql to indexeddb, web storage, no filesystem yet
                             <li>Sandboxed from the host Operating Sytem: consequence of this feature: no device apis
                             <li>Cannot particpate in App Store revenue or discovery. untapped story. crucial channel for adoption.
@@ -99,15 +106,15 @@
                 </section>
 
                 <section data-state=bg-white>
-                <h2>Web Operating Systems</h2>
-                <img width=100 height=100 src=img/chrome-os.jpg style=border:none;box-shadow:none;margin-left:15px;>
-                <img  height=100 src=img/windows-8.jpg style=border:none;box-shadow:none;;margin-left:15px;>
-                <img  width=100 height=100 src=img/fxos.jpg style=border:none;box-shadow:none;;margin-left:15px;>
-                <img src=img/tizen.png style=border:none;box-shadow:none;;margin-left:15px;>
-                <img src=img/webos.png style=border:none;box-shadow:none;;margin-left:15px;>
+                    <h2>Web Operating Systems</h2>
+                    <img width=100 height=100 src=img/chrome-os.jpg style=border:none;box-shadow:none;margin-left:15px;>
+                    <img  height=100 src=img/windows-8.jpg style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img  width=100 height=100 src=img/fxos.jpg style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img src=img/tizen.png style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img src=img/webos.png style=border:none;box-shadow:none;;margin-left:15px;>
                     <aside class=notes>
-                        <h1>something new is happening, we have a front row seat for the dawn of web operating systems</h1>
                         <ul>
+                            <li>something new is happening, we have a front row seat for the dawn of web operating systems</li>
                             <li>Microsoft Windows 8
                             <li>Google Chrome OS
                             <li>Mozilla Firefox OS
@@ -124,8 +131,8 @@
                     <img width=100 src=img/bb.jpg style=border:none;box-shadow:none;>
                     <img width=100 src=img/marketplace.jpg style=border:none;box-shadow:none;>
                     <aside class=notes>
-                        <h1>something new is happening, we have a front row seat for the dawn of web operating systems</h1>
                         <ul>
+                            <li>something new is happening, we have a front row seat for the dawn of web operating systems</li>
                             <li>Google Play
                             <li>Apple App Store
                             <li>BlackBerry App World
@@ -137,31 +144,37 @@
                 <section data-state=alert>
                     <h3>Incompatible by design.</h3>
                     <aside class=notes>
-                        <h1>Apps that target a particular operating system won't run on another</h1>
-                        <p>I'm a developer, and I don't care if its web or java or objective c.</p>
-                        <li>I want to build apps that work offline, 
-                        <li>that have access to device apis, 
+                        <li>Apps that target a particular operating system won't run on another</li>
+                        <li>I'm a developer, and I don't care if its web or java or objective c.</li>
+                        <li>I want to build apps that work offline
+                        <li>that have access to device apis
                     </aside>
                 </section>
 
                 <section data-state=soothe>
-                <h3><b>Adobe PhoneGap</b> works everywhere browsers do not.</h3>
-                <!-- you probably knew we supported ios, android, blackberry, windows phone, but we also have fledgling support for desktop and ..-->
+                    <h3><b>Adobe PhoneGap</b> works everywhere browsers do not.</h3>
+                    <aside class=notes>
+                        <li>you probably knew we supported ios, android, blackberry, windows phone, 
+                        <li>but we also have fledgling support for desktop
+                    </aside>
                 </section>
                 
                 <section data-state=blues>
                     <h2>Pls forgive me if you've heard this one before!<h2>
                     <aside class=notes>
-                        <h1>Adobe is very familiar with packaging applications for deployement across platforms.
+                        <ul>
+                        <li>Adobe is very familiar with packaging applications for deployement across platforms.
                         <li>Macromedia Central
                         <li>Adobe AIR
+                        </ul>
                     </aside>
                 </section>
 
                 <section>
                     <h2>Everything old is new <em>again</em>.</h2>
                     <aside class=notes>
-                        <h1>a common runtime across platforms is not a new concept! these things are cyclical, but we learn more from each iteration</h1>
+                        <li>a common runtime across platforms is not a new concept! 
+                        <li>these things are cyclical, but we learn more from each iteration
                         <li>installable web apps, lately packaged applications, thicker client 
                         <li>the big news is that everyone is running a mostly compatable system now
                         <li>but maybe the even bigger news is there is strong push for standardizing, its a new browser war
@@ -177,8 +190,7 @@
                     <li>huge open developer community 
                     <li>incredible resources, open source tools and libraries that let me compose my development stack any way I see fit
                     <li>a community that not only understands the value of the web conceptually but demands rapid standardization
-                    <br>
-                    let me tell you some characteristics to better understand
+                    <li>lets talk about pkgd app characteristics to better understand
                     </aside>
                 </section>
 
@@ -198,7 +210,7 @@
                 <section>
                     <h2>Runtime context.</h2>
                     <aside class=notes>
-                        <h1>In the case of phonegap we run on the file:// protocol which means cross domain not an issue.</h1>
+                        <li>In the case of phonegap we run on the file:// protocol which means cross domain not an issue.</li>
                         <li>windowing, specifically window.open works differently
                         <li>nofications and alerts
                         <li>filesystem locations
@@ -208,8 +220,8 @@
                 <section>
                     <h2>Excution lifecycle events.</h2>
                     <aside class=notes>
-                        <h1>Apps live a weird life compared to regular browser context.</h1>
                         <ul>
+                            <li>Apps live a weird life compared to regular browser context.</li>
                             <li>launch and initialization
                             <li>online, offline, variable bandwidth changes
                             <li>pause and resume
@@ -250,18 +262,26 @@
                 <section data-state=alert>
                     <h2>The web needs our help.</h2>
                     <p>No company is more qualified.</p>
-                    <aside class=notes>Adobe has done this before, but the game has changed, we need to use our experience to build a better web. PhoneGap is a vehical for this but I am disinterested in our solution, but postively obsesses with this problem, we need to engage our partners on standards, we need to build the tools for creative and developers need to publish to the web, enable collaboration,
-                   
-                    we have huge potential to impact the entire creative proces
-                   
-                    we the opportunity, and indeed I beleive we already are, disrupting the very internet itself
-                   
+                    <aside class=notes>
+                        <ul>
+                            <li>Adobe has done this before... but the world has changed. The browser wars are different.</li>
+                            <li>We need to use that experience to continue building a better web.</li>
+                            <li>PhoneGap is most certainly a vehicle for this.</li>
+                            <li>Never be satisfied w/ a particular solution. I am not.</li>
+                            <li>But continue to be postively obsesses with this problem.</li>
+                            <li>We have a social as well as economic responsibility to work w/ the web community on standards.</li>
+                            <li>We need to build the tools for creatives need to publish not just beautiful looking apps.</li>
+                            <li>We need to make it dead simple to create semantic, FAST, performant, buttery smooth experiences.</li>
+                            <li>Web technology can be the fulcrum for collaboration between the design and dev community.</li>
+                            <li>We have huge potential to disrupt not just the web but the entire creative process.</li>
+                        </ul>
                     </aside>
                 </section>
 
                 <section>
                     <h2>Thank you!!</h2>
                     <h4>@brianleroux</h4>
+                    <p>(View with <a href=http://brian.io/slides/adobe-tech-summit-2013?notes=true>presenter notes on</a>.)</p>
                 </section>
 
 
