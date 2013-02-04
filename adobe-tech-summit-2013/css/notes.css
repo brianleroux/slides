@@ -10,7 +10,8 @@
 }
 
 .reveal aside.notes ul li {
-    color:rgb(46, 228, 0);
+    color:#b8fe5d;
+    font-size:larger;
     text-shadow: 0.1em 0.1em #333;
     margin:0 0 10px 0;
     padding:5px;
