@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang=en>
+	<head>
+		<meta charset=utf-8>
+		<title>Adobe Tech Summit 2013: Beyond HTML5</title>
+		<meta name=description content="Discover the web beyond HTML5, and the browser.">
+		<meta name=author content=@brianleroux>
+		<meta name=apple-mobile-web-app-capable content=yes>
+		<meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+		<link rel=stylesheet href=css/reveal.min.css>
+		<link rel=stylesheet href=css/theme/adobe/adobe.css id=theme>
+		<link rel=stylesheet href=lib/css/zenburn.css>
+		<script>
+    	document.write('<link rel=stylesheet href=css/print/' + (window.location.search.match(/print-pdf/gi)?'pdf':'paper') + '.css type=text/css media=print>')
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <style>
+        @font-face { font-family: "source"; src: url('font/SourceSansPro-ExtraLight.otf'); }
+        @font-face { font-family: "source-code"; src: url('font/SourceCodePro-Regular.otf'); }
+        /* yah I did - brianleroux */
+        .reveal h1, .reveal h2, .reveal h3,  .reveal h4, .reveal  {
+            line-height:100px;           
+            font-family:source;
+        }
+        .reveal a:not(.image)  {
+            color:rgb(46, 228, 0);
+        }
+        .reveal .progress span {
+            background:rgb(46, 228, 0);
+        }
+        .bg-white .reveal .state-background {
+            background:#fff;
+        }
+        .blues .reveal .state-background {
+            background:#00a4e4;
+        }
+        </style>
+	</head>
+	<body>
+		<div id=banner>
+			<object id=banner-adobe data=css/theme/adobe/banner-adobe.svg type=image/svg+xml></object>
+			<object id=banner-large data=css/theme/adobe/banner-tech-summit-large.svg type=image/svg+xml></object>
+			<object id=banner-small data=css/theme/adobe/banner-tech-summit-small.svg type=image/svg+xml></object>
+		</div>
+		<div class=reveal>
+			<div class="slides">
+
+
+
+
+
+
+
+				<section data-state="bg-red banner-large">
+                    <h1 style=margin-bottom:105px;>Beyond HTML5</h1>
+                    <a href=http://brian.io/slides/adobe-tech-summit-2013>brian.io/slides/adobe-tech-summit-2013</a> 
+                </section>
+                
+                <section>
+                    <h2>I work on PhoneGap.</h2>
+                    <aside class=notes>
+                        <h1>You probably know, with PhoneGap anyone can build apps with html, css, and javascript. but it does much more than that</h1>
+                        <ul>
+                            <li>free open source software hosted at the apache software foundation 
+                            <li>future friendly: standards based    
+                            <li>powerful extensibility layer
+                            <li>free to use any web tools, and libraries to get the job done
+                            <li>large, active, and growing community of passionate developers
+                         </ul>
+                    </aside>
+                </section>
+
+                <section data-state=bg-brown>
+                    <h2>Did the web solve cross platform?</h2>
+                    <aside class=notes>
+                        <h1>Most devices, screens, and operating systems.</h1>
+                        <ul>
+                            <li>tell the steve jobs ios 1.0 web apps story. 
+                            <li>I loved this so much, a vision where we could built to a platform but not be locked into it. 
+                            <li>we could resuse our skills and code. 
+                            <li>we asked ourselves, why not the web?
+                        </ul>
+                    </aside>
+                </section>
+
+                <section data-state=alert>
+                    <h2>The web did not solve everything.</h2>
+                    <aside class=notes>
+                        <h1>We're going to ignore browser interop. Thats a problem but its quickly going away.</h1>
+                        <ul>
+                            <li>The offline story is a bit of a mess: cache manifest, websql to indexeddb, web storage, no filesystem yet
+                            <li>Sandboxed from the host Operating Sytem: consequence of this feature: no device apis
+                            <li>Cannot particpate in App Store revenue or discovery. untapped story. crucial channel for adoption.
+                            <li>Tooling story is primative and naive. this is the opportunity for Web Platform
+                        </ul>
+                    </aside>
+                </section>
+
+                <section data-state=bg-white>
+                <h2>Web Operating Systems</h2>
+                <img width=100 height=100 src=img/chrome-os.jpg style=border:none;box-shadow:none;margin-left:15px;>
+                <img  height=100 src=img/windows-8.jpg style=border:none;box-shadow:none;;margin-left:15px;>
+                <img  width=100 height=100 src=img/fxos.jpg style=border:none;box-shadow:none;;margin-left:15px;>
+                <img src=img/tizen.png style=border:none;box-shadow:none;;margin-left:15px;>
+                <img src=img/webos.png style=border:none;box-shadow:none;;margin-left:15px;>
+                    <aside class=notes>
+                        <h1>something new is happening, we have a front row seat for the dawn of web operating systems</h1>
+                        <ul>
+                            <li>Microsoft Windows 8
+                            <li>Google Chrome OS
+                            <li>Mozilla Firefox OS
+                            <li>Tizen (Samsung and Intel sponsored)
+                            <li>HP Open webOS
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section data-state=bg-white>
+                    <h2>All Operating Systems, and specifically mobile first</h2>
+                    <img width=100 src=img/app-store.png style=border:none;box-shadow:none;>
+                    <img width=100 src=img/play.jpeg style=border:none;box-shadow:none;>
+                    <img width=100 src=img/bb.jpg style=border:none;box-shadow:none;>
+                    <img width=100 src=img/marketplace.jpg style=border:none;box-shadow:none;>
+                    <aside class=notes>
+                        <h1>something new is happening, we have a front row seat for the dawn of web operating systems</h1>
+                        <ul>
+                            <li>Google Play
+                            <li>Apple App Store
+                            <li>BlackBerry App World
+                            <li>Windows Marketplace
+                        </ul>
+                    </aside>
+                </section>
+
+                <section data-state=alert>
+                    <h3>Incompatible by design.</h3>
+                    <aside class=notes>
+                        <h1>Apps that target a particular operating system won't run on another</h1>
+                        <p>I'm a developer, and I don't care if its web or java or objective c.</p>
+                        <li>I want to build apps that work offline, 
+                        <li>that have access to device apis, 
+                    </aside>
+                </section>
+
+                <section data-state=soothe>
+                <h3><b>Adobe PhoneGap</b> works everywhere browsers do not.</h3>
+                <!-- you probably knew we supported ios, android, blackberry, windows phone, but we also have fledgling support for desktop and ..-->
+                </section>
+                
+                <section data-state=blues>
+                    <h2>Pls forgive me if you've heard this one before!<h2>
+                    <aside class=notes>
+                        <h1>Adobe is very familiar with packaging applications for deployement across platforms.
+                        <li>Macromedia Central
+                        <li>Adobe AIR
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Everything old is new <em>again</em>.</h2>
+                    <aside class=notes>
+                        <h1>a common runtime across platforms is not a new concept! these things are cyclical, but we learn more from each iteration</h1>
+                        <li>installable web apps, lately packaged applications, thicker client 
+                        <li>the big news is that everyone is running a mostly compatable system now
+                        <li>but maybe the even bigger news is there is strong push for standardizing, its a new browser war
+                    </aside>
+                </section>
+                
+                <section>
+                    <h2>Packaged 
+                        <b><i>web</b></i><!-- deliberate incorrect element nesting still renders correctly: props to cwilso for this wtfhtml--> applications.</h2>
+                    <aside class=notes>
+                    <li>packaged applications are not exciting to me. 
+                    <li>I'm excited about packaged web applications. apps with portability, and interopability built in. 
+                    <li>huge open developer community 
+                    <li>incredible resources, open source tools and libraries that let me compose my development stack any way I see fit
+                    <li>a community that not only understands the value of the web conceptually but demands rapid standardization
+                    <br>
+                    let me tell you some characteristics to better understand
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Application manifest.</h2>
+                    <aside class=notes>
+                    <ul>
+                        <li>Sundry details: author, license, springboard title, version, description
+                        <li>Configuration and preferences junk: webview bounce, status bar, spashscreens, and icons
+                        <li>Origin (delivery, install, updates, uninstall)
+                        <li>Whitelist
+                        <li>Permissions
+                    </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Runtime context.</h2>
+                    <aside class=notes>
+                        <h1>In the case of phonegap we run on the file:// protocol which means cross domain not an issue.</h1>
+                        <li>windowing, specifically window.open works differently
+                        <li>nofications and alerts
+                        <li>filesystem locations
+                    </aside>
+                </section>
+                
+                <section>
+                    <h2>Excution lifecycle events.</h2>
+                    <aside class=notes>
+                        <h1>Apps live a weird life compared to regular browser context.</h1>
+                        <ul>
+                            <li>launch and initialization
+                            <li>online, offline, variable bandwidth changes
+                            <li>pause and resume
+                            <li>resume
+                            <li>protected resource/service requests
+                            <li>system nofications such as battery events: tell the battery story
+                            <li>remote nofications
+                            <li>background workers
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Runtime security beyond a sandbox.</h2>
+                    <aside class=notes>
+                        <ul>
+                            <li>Application Trust Model
+                            <li>Browsing Context Trust Model and Navigation inside the runtime, in an InAppBrowser
+                            <li>Network privacy
+                            <li>API Security aka Permissions
+                            <li>Data isolation or Private Storage
+                            <li>App interop by things like web intents or activties 
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Device APIs today.</h2>
+                    <aside class=notes>
+                    <ul>
+                        <li>camera, geo, accelerometer
+                        <li>filesystem, media, contacts
+                        <li>websockets got nothing on raw sockets 
+                    </ul> 
+                    </aside>
+                </section>
+
+                <section data-state=alert>
+                    <h2>The web needs our help.</h2>
+                    <p>No company is more qualified.</p>
+                    <aside class=notes>Adobe has done this before, but the game has changed, we need to use our experience to build a better web. PhoneGap is a vehical for this but I am disinterested in our solution, but postively obsesses with this problem, we need to engage our partners on standards, we need to build the tools for creative and developers need to publish to the web, enable collaboration,
+                   
+                    we have huge potential to impact the entire creative proces
+                   
+                    we the opportunity, and indeed I beleive we already are, disrupting the very internet itself
+                   
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Thank you!!</h2>
+                    <h4>@brianleroux</h4>
+                </section>
+
+
+
+<!--
+<section data-state="blackout">
+<section>
+<h2>"soothe"</h2>
+</section>
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) ) {
+        node.className += ' roll';
+      }
+    };
+  }
+}
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+
+					<section>
+						<h2>Fragmented Views</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<ol>
+							<li class="fragment"><code>any type</code></li>
+							<li class="fragment"><em>of view</em></li>
+							<li class="fragment"><strong>fragments</strong></li>
+						</ol>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's a few styles of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment roll-in">roll-in</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-green">highlight-green</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+					</section>
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			})
+		</script>
+	</body>
+</html>
