@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang=en>
+	<head>
+		<meta charset=utf-8>
+		<title>PhoneGap Introduction and Overview</title>
+		<meta name=description content="Sys Apps!">
+		<meta name=author content=@brianleroux>
+		<meta name=apple-mobile-web-app-capable content=yes>
+		<meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+		<link rel=stylesheet href=css/reveal.min.css>
+		<link rel=stylesheet href=css/theme/adobe/adobe.css id=theme>
+		<link rel=stylesheet href=lib/css/zenburn.css>
+		<script>
+    	document.write('<link rel=stylesheet href=css/print/' + (window.location.search.match(/print-pdf/gi)?'pdf':'paper') + '.css type=text/css media=print>')
+        // presentor notes kludge for my iphone
+        window.location.search.substring(1).split('&').forEach(function(i) { 
+            if(i === 'notes=true') {
+                document.write('<link rel=stylesheet href=css/notes.css type=text/css media=screen>')
+            }
+        })
+        </script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <style>
+        @font-face { font-family: "source"; src: url('font/SourceSansPro-ExtraLight.otf'); }
+        @font-face { font-family: "source-code"; src: url('font/SourceCodePro-Regular.otf'); }
+        /* yah I did - brianleroux */
+        .reveal h1, .reveal h2, .reveal h3,  .reveal h4, .reveal  {
+            line-height:100px;           
+            font-family:source;
+        }
+        .reveal a:not(.image)  {
+            color:rgb(46, 228, 0);
+        }
+        .reveal .progress span {
+            background:rgb(46, 228, 0);
+        }
+        .bg-white .reveal .state-background {
+            background:#fff;
+        }
+        .blues .reveal .state-background {
+            background:#00a4e4;
+        }
+        body:after {
+            content: url(logo.svg);
+            width: 74px;
+            height: 126px;
+            position: fixed;
+            top: 0px;
+            right: 2em;
+        }
+
+        </style>
+	</head>
+	<body>
+		<div id=banner>
+		</div>
+		<div class=reveal>
+			<div class="slides">
+
+
+
+
+
+
+				<section data-state=bg-black>
+                    <h2 style=margin-bottom:105px;>PhoneGap</h2>
+                    <a href=http://brian.io/slides/phonegap-standard-deck>brian.io/slides/phonegap-standard-deck</a> 
+                </section>
+                
+                <section>
+                    <h2>I work on PhoneGap.</h2>
+                    <aside class=notes>
+                        <ul>
+                            <li>You probably know, with PhoneGap anyone can build apps with html, css, and javascript. </li>
+                            <li>Also a powerful extensibility w/ plugins: access ANY native API from a browser..</li>
+                         </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>PhoneGap lets you build apps using HTML, CSS, and JavaScript.</h2>
+                    <aside class=notes>
+                        <ul>
+                         </ul>
+                    </aside>
+                </section>
+                
+                <section>
+                    <h2>We target all mobile operating systems.</h2>
+                    <aside class=notes>
+                        <ul>
+                         </ul>
+                    </aside>
+                </section>
+                
+                <section>
+                    <h2>PhoneGap APIs are based on emmerging web standards.</h2>
+                    <aside class=notes>
+                        <ul>
+                         </ul>
+                    </aside>
+                </section>
+                
+                <section>
+                    <h2>PhoneGap is a distribution of the open source Apache Cordova project.</h2>
+                    <aside class=notes>
+                        <ul>
+                         </ul>
+                    </aside>
+                </section>
+                
+                <section>
+                    <h2>PhoneGap is a huge, and growing, community of developers.</h2>
+                    <aside class=notes>
+                        <ul>
+                         </ul>
+                    </aside>
+                </section>
+                
+                <section data-state=bg-white>
+                    <h2 style=color:#333;>These companies sponsor fulltime developers.</h2>
+                    <img width=100 src=img/adobe.jpg style=border:none;box-shadow:none;>
+                    <img width=80 src=img/bblogo.jpg style=border:none;box-shadow:none;>
+                    <img width=180 src=img/google.jpg style=border:none;box-shadow:none;>
+                    <img width=250 src=img/msft.jpg style=border:none;box-shadow:none;>
+                    <img width=140 src=img/ibm.jpg style=border:none;box-shadow:none;>
+                    <img width=100 src=img/intel.jpg style=border:none;box-shadow:none;>
+                </section>
+                
+                <section>
+                    <h2>Release Cadence</h2>
+                    <table>
+                        <tr><td>2.5</td><td>Feb</td></tr>
+                        <tr><td>2.6</td><td>March</td></tr>
+                        <tr><td>2.7</td><td>April</td></tr>
+                        <tr><td>2.8</td><td>May</td></tr>
+                        <tr><td>2.9</td><td>June</td></tr>
+                        <tr><td>3.0</td><td>July</td></tr>
+                    </table>
+                </section>
+                
+                <section data-state=bg-brown>
+                    <h2>Did the web solve cross platform?</h2>
+                    <aside class=notes>
+                        <ul>
+                            <li>Most devices, screens, and operating systems.</li>
+                            <li>Tell the iPhone 1.x apps would be web apps story. </li>
+                            <li>I loved this so much, a vision where we could built to a platform but not be locked into it. </li>
+                            <li>We could resuse our skills, infra, and code. </li>
+                            <li>We asked ourselves, why not the web?</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section data-state=alert>
+                    <h2>The web did not solve everything.</h2>
+                    <aside class=notes>
+                        <ul>
+                            <li>We're going to ignore browser interop. Thats a problem but its quickly going away.</li>
+                            <li>The offline story is a bit of a mess: cache manifest, websql to indexeddb, web storage, no fs.</li>
+                            <li>Sandboxed from the host Operating Sytem: consequence of this feature: no device apis.</li>
+                            <li>Cannot particpate in App Store revenue or discovery. untapped story. crucial channel for adoption.</li>
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section data-state=soothe>
+                    <h3>Proprietary platforms with curated distribution isn't right either.</h3>
+                    <aside class=notes>
+                        <ul>
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section data-state=soothe>
+                    <h3>Our goal is to <strong>cease to exist</strong>.</h3>
+                    <aside class=notes>
+                        <ul>
+                            <li>System apps</li>
+                            <li>DAP</li>
+                            <li>Widget spec</li>
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section data-state=soothe>
+                    <h3>We demonstrate the web can be <strong>first class development platform</strong>.</h3>
+                    <aside class=notes>
+                        <ul>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section data-state=bg-white>
+                    <h2 style=color:#333>Web Operating Systems</h2>
+                    <img width=100 height=100 src=img/chrome-os.jpg style=border:none;box-shadow:none;margin-left:15px;>
+                    <img  height=100 src=img/windows-8.jpg style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img  width=100 height=100 src=img/fxos.jpg style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img src=img/tizen.png style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img src=img/webos.png style=border:none;box-shadow:none;;margin-left:15px;>
+                    <aside class=notes>
+                        <ul>
+                            <li>Did you notice? You have a front row seat for the dawn of web operating systems.</li>
+                            <li>Microsoft Windows 8</li>
+                            <li>Google Chrome OS</li>
+                            <li>Mozilla Firefox OS</li>
+                            <li>Tizen (Samsung and Intel sponsored)</li>
+                            <li>HP Open webOS</li>
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section data-state=bg-white>
+                    <h2 style=color:#333>PhoneGap can target all Operating Systems, and specifically mobile first.</h2>
+                    <img width=100 src=img/app-store.png style=border:none;box-shadow:none;>
+                    <img width=100 src=img/play.jpeg style=border:none;box-shadow:none;>
+                    <img width=100 src=img/bb.jpg style=border:none;box-shadow:none;>
+                    <img width=100 src=img/marketplace.jpg style=border:none;box-shadow:none;>
+                    <aside class=notes>
+                        <ul>
+                            <li>Interestingly, most app stores are all hybrid apps themselves.</li>
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section data-state=blues>
+                    <h2>Pls forgive me if you've heard this one before!</h2>
+                    <aside class=notes>
+                        <ul>
+                            <li>&rarr; Macromedia Central
+                            <li>&rarr; Adobe AIR
+                            <li>&rarr; Vodophone Widgets
+                            <li>&rarr; Dashcode
+                        </ul>
+                    </aside>
+                </section>
+
+                <section data-state=alert>
+                    <h3>Apps are incompatible by design.</h3>
+                    <aside class=notes>
+                        <ul>
+                            <li>Apps that target a particular operating system won't run on another.</li>
+                            <li>I'm a developer, and I don't care if its web or java or objective c.</li>
+                            <li>I want to build apps that work offline.</li>
+                            <li>That have access to device apis.</li>
+                            <li>And I don't want to completely rewrite for new devices!</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                
+                <section>
+                    <h2>Packaged 
+                        <b><i>web</b></i><!-- deliberate incorrect element nesting still renders correctly: props to cwilso for this wtfhtml--> applications.</h2>
+                    <aside class=notes>
+                    <ul>
+                        <li>I'm excited about packaged web apps. Truly portable. Interop built in. 
+                        <li>A community that understands the value of the web and demands standardization.
+                        <li>Lets talk about specific pkgd app characteristics to better understand...
+                    </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Application manifest.</h2>
+                    <aside class=notes>
+                    <ul>
+                        <li>Sundry details: author, license, springboard title, version, description.
+                        <li>Config and prefs junk: webview bounce, status bar, spashscreens, and icons.
+                        <li>Origin (delivery, install, updates, uninstall).
+                        <li>Whitelisting the network.
+                        <li>Permissions for features.
+                    </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Runtime context.</h2>
+                    <aside class=notes>
+                        <ul>
+                            <li>In the case of phonegap we run on the file:// protocol which x-domain issues.</li>
+                            <li>Windowing, specifically window.open works differently.
+                            <li>System nofications vs network notifications.
+                            <li>Filesystem locations.
+                            <li>Background workers.
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section>
+                    <h2>Excution lifecycle events.</h2>
+                    <aside class=notes>
+                        <ul>
+                            <li>Apps live a weird life compared to regular browser context.</li>
+                            <li>Launch vs initialization.
+                            <li>Online, offline, and bandwidth changes.
+                            <li>Pause and resume.
+                            <li>System nofications such as battery events: tell the battery story.
+                            <li>Protected resource/service requests.
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Runtime security beyond a sandbox.</h2>
+                    <aside class=notes>
+                        <ul>
+                            <li>Apps employ different trust models. Explicit vs reviewed.
+                            <li>Browsing context / navigation inside the runtime, in an InAppBrowser.
+                            <li>Network privacy.
+                            <li>API Security aka Permissions.
+                            <li>Data isolation and/or encrypted key store.
+                            <li>App interop by things like web intents or activties.
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Device APIs today.</h2>
+                    <aside class=notes>
+                    <ul>
+                        <li>Camera, geo, accelerometer.
+                        <li>Filesystem, media, contacts.
+                    </ul> 
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Sure, this stuff is cool.</h2>
+                    <img src=img/cool-guy.gif>
+                    <h3>But we need to proceed with caution.</h3>
+                    <aside class=notes>
+                    <ul>
+                        <li>Camera, geo, accelerometer.
+                        <li>Filesystem, media, contacts.
+                    </ul> 
+                    </aside>
+                </section>
+                
+                <!-- quick overview of ppl using phonegap -->                
+                <section>Who is using PhoneGap anyhow?</section>
+                <section data-state=bg-white><img src="img/untappd.jpg"></section>
+                <section data-state=bg-white><img src="img/gather.jpg"></section>
+                <section data-state=bg-white><img src="img/wikipedia.jpg"></section>
+                <section data-state=bg-white><img src="img/extra.jpg"></section>
+                <section data-state=bg-white><img src="img/world-heritage.jpg"></section>
+                <section data-state=bg-white><img src="img/health-tap.jpg"></section>
+                
+                <!-- high level how it works -->
+                <section><h2>How does it work?!</h2></section>
+                <section><h2>We create a big web browser that fills the entire screen.</h2></section>
+                <section><h2>We then bridge the browser to the operating system.</h2></section>
+                <section><h3>Lastly we load www/index.html and leave the rest is  up to you!</h3></section>
+                
+                <!-- dev philosophy -->
+                <section><h2>Lets talk about how to build an app.</h2></section>
+                <section>PhoneGap works with anything that works on the mobile web. We leave library and tooling choice up to you.</section>
+                <section>Sometimes ppl like full stack like Enyo or Sencha. Most build their own with Backbone and Zepto.</section>
+                <section>We try our best to not require any IDEs or proprietary junk but you still need to install SDKs.</section>
+                <section>PhoneGap is rather large collection of projects and you can use as little or as much of our work as you want.</section>
+                <section>Hybrid development combining the strengths of the web with native environments.</section>
+                <section>We do not hide or abstract the native platforms internals or tooling.</section>
+                
+                <!-- tools -->
+                <section>CLI tooling.</section>
+                <section>Weinre.</section>
+                <section>Ripple.</section>
+                <section><a href=http://ci.cordova.io>Continuous integration</a> with <a href=http://github.com/filmaj/medic>Medic</a>.</section>
+            
+                <!-- advanced dev concerns -->
+                <section>Advanced dev with PhoneGap.</section>
+                <section>Embedding with CordovaView into a native app.</section>
+                <section>Extending the browser with native plugins.</section>
+                
+                <!-- gotchas -->
+                <section>Gotcha!</section>
+                <section>Mobile browsers are not all alike.</section>
+                <section>SDK installation and maintenance is difficult. That's why we built <a href=http://build.phonegap.com>PhoneGap/Build</a>.</section>
+                
+                
+                <!-- sneaks! -->
+                <section><h2>Near term roadmap and new hotness.</h2></section>
+                <section>PhoneGap distribution will automatically work with PhoneGap/Build. Possibly as soon as 2.6 next month!</section>
+                <section>Work underway to get Chromium as the default webview for Android 2.3 and up.</section>
+                <section>We are working with the best of the best at Adobe to create a super fast, lightweight, CSS lib for mobile apps.</section>
+                
+                
+                <section><h2>We need your help.</h2></section>
+                <section data-state=soothe>
+                    <img src=img/cordova_256.png style=border:none;background:none;box-shadow:none;>
+                    <h3><a href=http://cordova.io>Apache Cordova</a></h3>
+                    <aside class=notes>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Thank you!!</h2>
+                    <img src=img/yay.gif>
+                    <h4><a href=http://twitter.com/brianleroux>@brianleroux</a>.</h4>
+                </section>
+
+
+
+<!--
+<section data-state="blackout">
+<section>
+<h2>"soothe"</h2>
+</section>
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) ) {
+        node.className += ' roll';
+      }
+    };
+  }
+}
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+
+					<section>
+						<h2>Fragmented Views</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<ol>
+							<li class="fragment"><code>any type</code></li>
+							<li class="fragment"><em>of view</em></li>
+							<li class="fragment"><strong>fragments</strong></li>
+						</ol>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's a few styles of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment roll-in">roll-in</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-green">highlight-green</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+					</section>
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			})
+		</script>
+	</body>
+</html>
