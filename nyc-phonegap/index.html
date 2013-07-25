@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang=en>
+	<head>
+		<meta charset=utf-8>
+		<title>PhoneGap NYC</title>
+		<meta name=description content="Sys Apps!">
+		<meta name=author content=@brianleroux>
+		<meta name=apple-mobile-web-app-capable content=yes>
+		<meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+		<link rel=stylesheet href=css/reveal.min.css>
+		<link rel=stylesheet href=css/theme/adobe/adobe.css id=theme>
+		<link rel=stylesheet href=lib/css/zenburn.css>
+		<script>
+    	document.write('<link rel=stylesheet href=css/print/' + (window.location.search.match(/print-pdf/gi)?'pdf':'paper') + '.css type=text/css media=print>')
+        // presentor notes kludge for my iphone
+        window.location.search.substring(1).split('&').forEach(function(i) { 
+            if(i === 'notes=true') {
+                document.write('<link rel=stylesheet href=css/notes.css type=text/css media=screen>')
+            }
+        })
+        </script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <style>
+        @font-face { font-family: "source"; src: url('font/SourceSansPro-ExtraLight.otf'); }
+        @font-face { font-family: "source-code"; src: url('font/SourceCodePro-Regular.otf'); }
+        /* yah I did - brianleroux */
+        .reveal h1, .reveal h2, .reveal h3,  .reveal h4, .reveal  {
+            line-height:100px;           
+            font-family:source;
+        }
+        .reveal a:not(.image)  {
+            color:rgb(46, 228, 0);
+        }
+        .reveal .progress span {
+            background:rgb(46, 228, 0);
+        }
+        .bg-white .reveal .state-background {
+            background:#fff;
+        }
+        .blues .reveal .state-background {
+            background:#00a4e4;
+        }
+        body:after {
+            content: url(logo.svg);
+            width: 74px;
+            height: 126px;
+            position: fixed;
+            top: 0px;
+            right: 2em;
+        }
+
+        </style>
+	</head>
+	<body>
+		<div id=banner>
+		</div>
+		<div class=reveal>
+			<div class="slides">
+
+
+
+
+
+
+				<section data-state=bg-white>
+                    <h2 style=margin-bottom:105px;color:#333;>PhoneGap NYC</h2>
+                    <h4 style=color:#ccc;>2.x reflection and 3.x series speculations.</h4>
+                </section>
+
+				<section>
+                    <h2>Current Status</h2>
+                </section>
+
+				<section data-state=bg-white>
+                    <h2 style=margin-bottom:105px;color:#333;>PhoneGap 3.0</h2>
+                    <h4 style=color:#ccc;>"Easy as shit."</h4>
+                </section>
+
+				<section>
+                    <h2>Slender core.</h2>
+                </section>
+                
+                <section>
+                <h2>Installing > Downloading</h2>
+                </section>
+
+				<section>
+                    <h2>CLI tools and unified project structure.</h2>
+                    <aside class=notes>a single way to share assets between platforms, eventually we want to make platforms a build artifact</aside>
+                </section>
+
+				<section>
+                    <h2>PhoneGap CLI is the Cordova CLI with remote build capability.</h2>
+                    <aside class=notes>huge effort from the platform teams and the amazing API design by mwbrooks</aside>
+                </section>
+
+				<section>
+                    <h2>Plugman</h2>
+                    <h4>Discovery, installation, and removal of plugins.</h4>
+                    <aside class=notes>
+                    <li>started by andrew lunny, championed by anis kadri and all platform devs
+                    <li>plugin breakout/release (PBR) steve, herm, tim
+                    </aside>
+                </section>
+
+
+
+				<section data-state=bg-white>
+                    <h2 style=margin-bottom:105px;color:#333;>By the Numbers</h2>
+                </section>
+
+				<section>
+                    <h2>2,328,207 downloads to date!</h2>
+                    <h4>(That we know of!)</h4>
+                </section>
+
+				<section>
+                    <h2>In 2010 we had 94,363 downloads.</h2>
+                </section>
+
+				<section>
+                    <h2>Roughly a million visitors to the website each month from around the globe.</h2>
+                </section>
+
+				<section>
+                    <ol>
+                        <li>United States</li>
+                        <li>India</li>
+                        <li>United Kingdom</li>
+                        <li>China</li>
+                        <li>Germany</li>
+                        <li>France</li>
+                        <li>Spain</li>
+                        <li>Brazil</li>
+                        <li>Italy</li>
+                        <li>Canada</li>
+                    </ol>
+                    (2013)
+                </section>
+                
+                <section>
+                    <ol>
+                        <li>United States</li>
+                        <li>United Kingdom</li>
+                        <li>Germany</li>
+                        <li>India</li>
+                        <li>Canada</li>
+                        <li>France</li>
+                        <li>Italy</li>
+                        <li>China</li>
+                        <li>Spain</li>
+                        <li>South Korea</li>
+                    </ol>
+                    (2011)
+                </section>
+
+                <section>
+                    <ol>
+                        <li>Canada</li>
+                    </ol>
+                    (2008)
+                </section>
+
+                <section>
+                    <h2>Release Cadence</h2>
+                    <h4>Shipping for 3 years on a predictable schedule.</h4>
+                </section>
+
+                <section>
+                    <h4>Closing Clubs and Crushing Bugs</h4>
+                    <img src=https://pbs.twimg.com/media/BPecpZBCUAA1ynj.png style=border:none;>
+                </section>
+                
+                <section data-state=bg-white>
+                    <h3>Last 30 days</h3>
+                    <img src=img/issues.jpg style=border:none;>
+                </section>
+                
+				<section data-state=bg-white>
+                    <h2 style=margin-bottom:105px;color:#333;>Apache Cordova</h2>
+                </section>
+                
+
+
+
+                <section>
+                    <ul>
+                    <li>Accessability
+                    <li>Plugin discovery
+                    <li>API Audit
+                    <li>New platforms: FxOS, Ubuntu, and Tizen
+                    <li>App Harness thingo
+                    <li>Medic
+                </section>
+
+                <section data-state=bg-white>
+                    <img width=100 src=img/adobe.jpg style=border:none;box-shadow:none;>
+                    <img width=80 src=img/bblogo.jpg style=border:none;box-shadow:none;>
+                    <img width=180 src=img/google.jpg style=border:none;box-shadow:none;>
+                    <img width=250 src=img/msft.jpg style=border:none;box-shadow:none;>
+                    <img width=140 src=img/ibm.jpg style=border:none;box-shadow:none;>
+                    <img width=100 src=img/intel.jpg style=border:none;box-shadow:none;>
+                 </section>
+                 
+                <section>
+                    <h2>Thank you amazing community!!!</h2>
+                    <img src=img/yay.gif>
+                    <h4><a href=http://twitter.com/brianleroux>@brianleroux</a>.</h4>
+                </section>
+                
+
+
+
+<!--
+<section data-state="blackout">
+<section>
+<h2>"soothe"</h2>
+</section>
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) ) {
+        node.className += ' roll';
+      }
+    };
+  }
+}
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+
+					<section>
+						<h2>Fragmented Views</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<ol>
+							<li class="fragment"><code>any type</code></li>
+							<li class="fragment"><em>of view</em></li>
+							<li class="fragment"><strong>fragments</strong></li>
+						</ol>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's a few styles of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment roll-in">roll-in</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-green">highlight-green</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+					</section>
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'linear', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			})
+		</script>
+	</body>
+</html>

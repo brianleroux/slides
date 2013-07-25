@@ -1,0 +1,21 @@
+.reveal aside.notes {
+	display:block;
+    text-align:left;
+}
+
+.reveal aside.notes ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+.reveal aside.notes ul li {
+    color:#b8fe5d;
+    font-size:1.7em;
+    text-shadow: 0.1em 0.1em #333;
+    margin:0 0 10px 0;
+    padding:15px;
+    background:#000;
+}
+
+
