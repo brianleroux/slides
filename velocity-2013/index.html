@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang=en>
+	<head>
+		<meta charset=utf-8>
+		<title>Velocity NYC 2013</title>
+		<meta name=author content=@brianleroux>
+		<meta name=apple-mobile-web-app-capable content=yes>
+		<meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+		<link rel=stylesheet href=css/reveal.min.css>
+		<link rel=stylesheet href=css/theme/adobe/adobe.css id=theme>
+		<link rel=stylesheet href=lib/css/zenburn.css>
+		<script>
+    	document.write('<link rel=stylesheet href=css/print/' + (window.location.search.match(/print-pdf/gi)?'pdf':'paper') + '.css type=text/css media=print>')
+        // presentor notes kludge for my iphone
+        window.location.search.substring(1).split('&').forEach(function(i) { 
+            if(i === 'notes=true') {
+                document.write('<link rel=stylesheet href=css/notes.css type=text/css media=screen>')
+            }
+        })
+        </script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+        <style>
+        @font-face { font-family: "source"; src: url('font/SourceSansPro-ExtraLight.otf'); }
+        @font-face { font-family: "source-code"; src: url('font/SourceCodePro-Regular.otf'); }
+        /* yah I did - brianleroux */
+        .reveal h1, .reveal h2, .reveal h3,  .reveal h4, .reveal  {
+            line-height:100px;           
+            font-family:source;
+        }
+        .reveal a:not(.image)  {
+            color:rgb(46, 228, 0);
+        }
+        .reveal .progress span {
+            background:rgb(46, 228, 0);
+        }
+        .bg-white .reveal .state-background {
+            background:#fff;
+        }
+        .blues .reveal .state-background {
+            background:#00a4e4;
+        }
+        body:after {
+            content: url(logo.svg);
+            width: 74px;
+            height: 126px;
+            position: fixed;
+            top: 0px;
+            right: 2em;
+        }
+
+        </style>
+	</head>
+	<body>
+		<div id=banner>
+		</div>
+		<div class=reveal>
+			<div class="slides">
+
+
+
+
+
+
+				<section data-state=bg-white>
+                    <h2 style=margin-bottom:105px;color:#333;>Topcoat &rarr; PhoneGap</h2>
+                    <h4 style=color:#ccc;>Velocity NYC 2013</h4>
+                </section>
+				<section data-state=bg-red>
+                    <h2 style=margin-bottom:105px>SPOILER ALERT</h2>
+                </section>
+				<section>
+                    <h2>Performance Considerations</h2>
+                    <aside class=notes>Performance is a complex topic. Essentially I'm talking web performance.</aside>
+                </section>
+                <section>
+                    <h2>Network</h2>
+                    <aside class=notes>Latency is a killer. Overall chatter on the network is an issue. The web is not so great at this.</aside>
+                </section>
+                <section>
+                    <h2>Execution</h2>
+                    <aside class=notes>I'm talking about speed here. Raw executation speed. The time an operation takes. JS has made amazing strides here. Async.</aside>
+                </section>
+                <section>
+                    <h2>Layout</h2>
+                    <aside class=notes>Latency is a killer. Overall chatter on the network is an issue. The web is not so great at this.</aside>
+                </section>
+                <section>
+                    <h2>The End… =.[</h2>
+                    <ul style=list-style:none>
+                        <li>Network is slow</li>
+                        <li>Execution can be slow</li>
+                        <li>Layout way super slow</li>
+                    </ul>
+                    <aside class=notes>I'm talking about speed here. Raw executation speed. The time an operation takes. JS has made amazing strides here. </aside>
+                </section>
+                <section>
+                    <h2>Mobile First!</h2>
+                </section>
+                <section>
+                    <h2><strike>Mobile</strike> First!</h2>
+                </section>
+                <section>
+                    <h2>Peformance First!</h2>
+                </section>
+                <section>
+                    <h2><strike>Peformance</strike> First!</h2>
+                </section>
+                <section>
+                    <h2>People First!</h2>
+                </section>
+                <section>
+                    <h2>Mobile Peformance People First!</h2>
+                </section>
+                <section>
+                    <h2>Productivity</h2>
+                    <aside class=notes>Computers are productivity machines. Not just for machines tho. Modularity and and reuse. Web is good for these things.</aside>
+                </section>
+                <section>
+                    <h2><a style=color:white;text-decoration:none href=http://alistapart.com/column/do-as-little-as-possible>"Do as little as possible."</a>
+                    <br> says Lyza</h2>
+                </section>
+				<section>
+                    <h2>No code is the fastest code.</h2>
+                    <aside class=notes>The fastest code is no code. Easier to maintain. Less stuff to debug and test. Ultimate productivy is removing code.</aside>
+                </section>
+				<section>
+                    <h2>Measure absolutely everything.</h2>
+                    <aside class=notes>Benching. Testing. If you do not have a way to measure something then you have a first step.</aside>
+                </section>
+
+
+
+
+				<section data-state=bg-white>
+                    <h2 style=margin-bottom:105px;color:#333;>Lets write some code, eh.</h2>
+                    <aside class=notes>
+                    <ul>
+                        <li>phonegap create an app, add topcoat, add a header, list/buttons</li>
+                        <li>show the same app running in the browser</li>
+                        <li>show an app running on iOS simular</li>
+                        <li>show the same app running on my nexus tablet</li>
+                    </ul>
+                    </aside>
+                </section>
+
+
+
+
+
+
+				<section data-state=bg-white>
+                    <h2 style=margin-bottom:105px;color:#333;>Topcoat</h2>
+                    <h4 style=color:#ccc;>CSS for building clean and fast web apps.</h4>
+                </section>
+                
+                <section>
+                    <h2>Problems we hear, and have.</h2>
+                    <ul style=align:left;list-style:none;float:left;margin:0>
+                    <li> &rarr; Performance.
+                    <li> &rarr; Maintenance, and extending.
+                    <li> &rarr; Upgrading and new platforms.
+                    </ul>
+                    <aside class=notes>
+                        <ul>
+                         </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Further motivations.</h2>
+                    <ul style=align:left;list-style:none;float:left;margin:0>
+                    <li> &rarr; Building complex applications is difficult, time consuming, and hard to maintain.
+                    <li> &rarr; Internal teams at Adobe should work from a common, and consistent, foundation.
+                    <li> &rarr; PhoneGap developers get a quickstart designed with their problem space in mind.
+                    </ul>
+                    <aside class=notes>
+                        <ul>
+                         </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Performance first!</h2>
+                    <aside class=notes>
+                        <ul>
+                         </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <img src=img/topcoat-screen.png style=border:none;box-shadow:none;background:none;>
+                    <aside class=notes>
+                        <ul>
+                         </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>Design goals and principles.</h2>
+                    <aside class=notes><ul></ul></aside>
+                </section>
+                
+                <section>
+                    <h2>Discreet.</h2>Compose builds down to the components and platforms supported.
+                    <aside class=notes><ul></ul></aside>
+                </section>
+
+                <section>
+                <h2>Modular.</h2>Layout is seperate from reset is seperate from aesthetic.                    
+                <aside class=notes><ul></ul></aside>
+                </section>
+
+                <section>
+                <h2>Extensible.</h2>Intellegent tooling, enabling unlimited theming. Craftsmanship: encouraged.
+                <aside class=notes><ul></ul></aside>
+                </section>
+                
+                <section>
+                <h2>Friendly.</h2>No DOM library, or any client, dependency. Pure, simple, and readable, CSS.
+                <aside class=notes><ul></ul></aside>
+                </section>
+                 
+                <section>
+                <h2>Open and free.</h2>Apache 2 License, everything on Github.
+                <aside class=notes><ul></ul></aside>
+                </section>
+                
+                <section>
+                <h2>Our audience is the web development community.</h2>From Brackets and Reflow to apps built using PhoneGap.
+                <aside class=notes>
+                    <ul>
+                     </ul>
+                </aside>
+                </section>
+                
+                <section data-state=bg-white>
+                    <h2 style=color:#333>The web is the OS?</h2>
+                    <img width=100 height=100 src=img/chrome-os.jpg style=border:none;box-shadow:none;margin-left:15px;>
+                    <img  height=100 src=img/windows-8.jpg style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img  width=100 height=100 src=img/fxos.jpg style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img src=img/tizen.png style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img src=img/webos.png style=border:none;box-shadow:none;;margin-left:15px;>
+                    <aside class=notes>
+                        <ul>
+                            <li>Did you notice? You have a front row seat for the dawn of web operating systems.</li>
+                            <li>Microsoft Windows 8</li>
+                            <li>Google Chrome OS</li>
+                            <li>Mozilla Firefox OS</li>
+                            <li>Tizen (Samsung and Intel sponsored)</li>
+                            <li>HP Open webOS</li>
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section data-state=bg-white>
+                    <h2 style=color:#333>And then we can cover the rest with PhoneGap.</h2>
+                    <img width=100 src=img/app-store.png style=border:none;box-shadow:none;>
+                    <img width=100 src=img/play.jpeg style=border:none;box-shadow:none;>
+                    <img width=100 src=img/bb.jpg style=border:none;box-shadow:none;>
+                    <img width=100 src=img/marketplace.jpg style=border:none;box-shadow:none;>
+                    <aside class=notes>
+                        <ul>
+                            <li>Interestingly, most app stores are all hybrid apps themselves.</li>
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section data-state=soothe>
+                <h2>The controls.</h2>
+                Are best viewed themselves at <a href=http://topcoat.io>topcoat.io</a>!
+                <aside class=notes><ul></ul></aside>
+                </section>
+
+                <section data-state=bg-black>
+                <h2>Perceived competators.</h2>
+                <ul style=align:left;list-style:none;margin:0>
+                    <li>Zurb Foundation
+                    <li>Twitter Bootstrap
+                    <li>jQuery Mobile
+                </ul>
+                <aside class=notes><ul></ul></aside>
+                </section>
+
+
+                <section data-state=bg-black>
+                <h2>Outputs.</h2>
+                <ul style=align:left;list-style:none;margin:0>
+                    <li>&rarr; CSS packaged.
+                    <li>&rarr; Grunt based tooling. (Enabling custom builds, themes, etc.)
+                    <li>&rarr; Generated style guide and usage documenation.
+                    <li>&rarr; Sample apps and Starter apps.
+                    <li>&rarr; Maintained PSD for prototyping.
+                    <li>&rarr; Prototype space. (Experimental versions of TopCoat!)
+                </ul>
+                <aside class=notes><ul></ul></aside>
+                </section>
+                
+                <section data-state=bg-black>
+                <h2>Implementation and assets.</h2>
+                <ul style=align:left;list-style:none;margin:0>
+                    <li>Grunt.
+                    <li>Stylus.
+                    <li>SVG icons.
+                    <li><b>No JS</b> ...except when there is JS!                
+                </ul>
+                <aside class=notes><ul></ul></aside>
+                </section>
+
+                <section>
+                <h2>Methodology.</h2>
+                </section>
+
+                <section>
+                <h2>Release train.</h2>Iterative, monthly releases, following MAJOR.MINOR.PATCH for issue tracking.
+                </section>
+                
+                <section>
+                <h2>Empirical.</h2>CI driven, ensuring performance is unambiguously measured, and improving.
+                <iframe src="//player.vimeo.com/video/72665159" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/72665159">grunt-telemetry</a> from <a href="http://vimeo.com/topcoat">Topcoat</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+                </section>
+
+                <section>
+                <h2>Platform support: modern browsers.</h2>
+                </section>
+                
+                <section data-state=bg-black>
+                <h2>Usage workflow.</h2>
+                <ul style=align:left;list-style:none;margin:0>
+                    <li>All in.
+                    <li>A la carte
+                    <li>Theming.
+                    <li>Bonus: automagic style guide!            
+                </ul>
+                <aside class=notes><ul></ul></aside>
+                </section>
+
+                <section data-state=alert>
+                <h2>Potential concerns.</h2>
+                <ul style=align:left;list-style:none;>
+                <li>What about responsive design?
+                <li>Technology choice perceptions.
+                <li>Complexity tradeoffs. (Many Git repos, for example.)
+                <li>Ease of use with JS Frameworks. 
+                <aside class=notes><ul></ul></aside>
+                </section>
+
+                <section>
+                    <h2>Release cadence: project heartbeat.</h2>
+                    <table>
+                        <tr><td>0.3.0</td><td>April</td></tr>
+                        <tr><td>0.4.0</td><td>May</td></tr>
+                        <tr><td>0.5.0</td><td>June</td></tr>
+                        <tr><td>0.6.0</td><td>July</td></tr>
+                        <tr><td>0.7.0</td><td>Aug</td></tr>
+                        <tr><td>0.7.5</td><td>Sept</td></tr>
+                        <tr><td>0.8.0</td><td>Oct</td></tr>
+                    </table>
+                </section>
+        
+                
+                
+                <section data-state=soothe>
+                <h2>2013 Roadmap</h2>
+                <ul style=align:left;list-style:none;>
+                    <li>More controls
+                    <li><a hrefhttp://topcoat.io/topcoat-effeckt>Effeckt first class</a>
+                    <li>Visual inspect, build, and theme tooling
+                    <li>JS framework example integrations: Ember, and Angular
+                    <li>Demo apps
+                </ul>
+                <aside class=notes><ul></ul></aside>
+                </section>
+
+
+				<section>
+                    <h2>Slender core.</h2>
+                </section>
+                
+                <section>
+                <h2>Installing > Downloading</h2>
+                </section>
+
+				<section>
+                    <h2>CLI tools and unified project structure.</h2>
+                    <aside class=notes>a single way to share assets between platforms, eventually we want to make platforms a build artifact</aside>
+                </section>
+
+				<section>
+                    <h2>PhoneGap CLI is the Cordova CLI with remote build capability.</h2>
+                    <aside class=notes>huge effort from the platform teams and the amazing API design by mwbrooks</aside>
+                </section>
+
+				<section>
+                    <h2>Plugman</h2>
+                    <h4>Discovery, installation, and removal of plugins.</h4>
+                    <aside class=notes>
+                    <li>started by andrew lunny, championed by anis kadri and all platform devs
+                    <li>plugin breakout/release (PBR) steve, herm, tim
+                    </aside>
+                </section>
+
+
+
+				<section data-state=bg-white>
+                    <h2 style=margin-bottom:105px;color:#333;>By the Numbers</h2>
+                </section>
+
+				<section>
+                    <h2>2,328,207 downloads to date!</h2>
+                    <h4>(That we know of!)</h4>
+                </section>
+
+				<section>
+                    <h2>In 2010 we had 94,363 downloads.</h2>
+                </section>
+
+				<section>
+                    <h2>Roughly a million visitors to the website each month from around the globe.</h2>
+                </section>
+
+				<section>
+                    <ol>
+                        <li>United States</li>
+                        <li>India</li>
+                        <li>United Kingdom</li>
+                        <li>China</li>
+                        <li>Germany</li>
+                        <li>France</li>
+                        <li>Spain</li>
+                        <li>Brazil</li>
+                        <li>Italy</li>
+                        <li>Canada</li>
+                    </ol>
+                    (2013)
+                </section>
+                
+                <section>
+                    <ol>
+                        <li>United States</li>
+                        <li>United Kingdom</li>
+                        <li>Germany</li>
+                        <li>India</li>
+                        <li>Canada</li>
+                        <li>France</li>
+                        <li>Italy</li>
+                        <li>China</li>
+                        <li>Spain</li>
+                        <li>South Korea</li>
+                    </ol>
+                    (2011)
+                </section>
+
+                <section>
+                    <ol>
+                        <li>Canada</li>
+                    </ol>
+                    (2008)
+                </section>
+
+                <section>
+                    <h2>Release Cadence</h2>
+                    <h4>Shipping for 3 years on a predictable schedule.</h4>
+                </section>
+
+                <section>
+                    <h4>Closing Clubs and Crushing Bugs</h4>
+                    <img src=https://pbs.twimg.com/media/BPecpZBCUAA1ynj.png style=border:none;>
+                </section>
+                
+                <section data-state=bg-white>
+                    <h3>Last 30 days</h3>
+                    <img src=img/issues.jpg style=border:none;>
+                </section>
+                
+				<section data-state=bg-white>
+                    <h2 style=margin-bottom:105px;color:#333;>Apache Cordova</h2>
+                </section>
+                
+
+
+
+                <section>
+                    <ul>
+                    <li>Accessability
+                    <li>Plugin discovery
+                    <li>API Audit
+                    <li>New platforms: FxOS, Ubuntu, and Tizen
+                    <li>App Harness thingo
+                    <li>Medic
+                </section>
+
+                <section data-state=bg-white>
+                    <img width=100 src=img/adobe.jpg style=border:none;box-shadow:none;>
+                    <img width=80 src=img/bblogo.jpg style=border:none;box-shadow:none;>
+                    <img width=180 src=img/google.jpg style=border:none;box-shadow:none;>
+                    <img width=250 src=img/msft.jpg style=border:none;box-shadow:none;>
+                    <img width=140 src=img/ibm.jpg style=border:none;box-shadow:none;>
+                    <img width=100 src=img/intel.jpg style=border:none;box-shadow:none;>
+                 </section>
+                 
+                <section>
+                    <h2>Thank you amazing community!!!</h2>
+                    <img src=img/yay.gif>
+                    <h4><a href=http://twitter.com/brianleroux>@brianleroux</a>.</h4>
+                </section>
+                
+
+
+
+<!--
+<section data-state="blackout">
+<section>
+<h2>"soothe"</h2>
+</section>
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) ) {
+        node.className += ' roll';
+      }
+    };
+  }
+}
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+
+					<section>
+						<h2>Fragmented Views</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<ol>
+							<li class="fragment"><code>any type</code></li>
+							<li class="fragment"><em>of view</em></li>
+							<li class="fragment"><strong>fragments</strong></li>
+						</ol>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's a few styles of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment roll-in">roll-in</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-green">highlight-green</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+					</section>
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'linear', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			})
+		</script>
+	</body>
+</html>
