@@ -1,0 +1,126 @@
+/**
+ * Adobe theme for the 2013 TechSummit
+ * Copyright (C) 2013 Adobe
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
+
+// Theme colors
+$red: rgb(255, 0, 0);
+$orange: rgb(251, 176, 52);
+$yellow: rgb(255, 221, 0);
+$green: rgb(193, 216, 47);
+$blue: rgb(0, 164, 228);
+$purple: rgb(131, 72, 181);
+
+$lightGrey: rgb(218, 221, 224);
+$grey: rgb(172, 179, 185);
+$darkGrey: rgb(107, 115, 123);
+
+$lightTan: rgb(228, 223, 217);
+$tan: rgb(192, 181, 169);
+$darkTan: rgb(136, 120, 104);
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Adobe Clean', 'Source Sans Pro', sans-serif;
+$mainColor: $lightTan;
+$headingFont: 'AdobeClean-BoldSemiCn', 'Adobe Clean', 'Source Sans Pro', sans-serif;
+$headingColor: $lightTan;
+$headingLetterSpacing: 0;
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: darken($darkGrey, 30%);
+$linkColor: $blue;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: #134674;
+
+@mixin vendor-prefix( $property, $value ) {
+	-webkit-#{$property} : $value;
+	-moz-#{$property} : $value;
+	-o-#{$property}: $value;
+	-ms-#{$property}: $value;
+	#{$property}: $value;
+}
+
+// Background generator
+@mixin bodyBackground() {
+
+}
+
+.reveal code {
+	font-family: 'Source Code Pro', monospace;
+}
+
+#banner, #banner > * {
+	position: fixed;
+	top:0; left:0; bottom:0; right:0;
+	z-index: 1;
+}
+
+#banner #banner-adobe
+, #banner #banner-large
+, .banner-large #banner #banner-small {
+	@include vendor-prefix( transition, opacity 200ms linear );
+	opacity: 0;
+}
+
+.banner-large #banner #banner-adobe
+, .banner-large #banner #banner-large
+, #banner #banner-small {
+	@include vendor-prefix( transition, opacity 200ms linear 200ms );
+	opacity: 1;
+}
+
+$carpetRed: rgb(230, 63, 79);
+
+.bg-red .reveal {
+	color: $lightGrey;
+	h1, h2, h3, h4, h5, h6 { color: $lightGrey; }
+	.state-background { @include radial-gradient( darken($carpetRed, 60%), darken($carpetRed, 40%), ellipse ); }
+}
+
+.bg-brown .reveal {
+	color: $lightGrey;
+	h1, h2, h3, h4, h5, h6 { color: $lightGrey; }
+	.state-background { background-color: darken($darkTan, 30%); }
+	.highlight { color: $green; }
+}
+
+$skyBlue: darken($darkGrey, 30%); //$blue; //rgb(139, 179, 230);
+.profile .reveal {
+	.state-background {
+		background: -webkit-radial-gradient(left bottom, 100% 100%, transparent, transparent 90%, $skyBlue 90%), url('profile.jpg');
+		background-color: $skyBlue;
+		background-size: 50% 100%, 50% auto;
+		background-repeat: no-repeat;
+		background-position: left bottom;
+		@include vendor-prefix(transition, none);
+	}
+}
+
+.align-left {
+	.reveal .slides {
+		//max-width: 1200px;
+		text-align: left;
+	}
+}
+
+.align-right {
+	.reveal .slides {
+		//max-width: 1200px;
+		text-align: right;
+	}
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
