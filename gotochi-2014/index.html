@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>GotoCon Chicago 2014</title>
+<meta name=author content="@brianleroux @sintaxi">
+<meta name=apple-mobile-web-app-capable content=yes>
+<meta name=apple-mobile-web-app-status-bar-style content=black-translucent>
+<link rel=stylesheet href=css/reveal.min.css>
+<link rel=stylesheet href=css/theme/adobe/adobe.css id=theme>
+<link rel=stylesheet href=lib/css/zenburn.css>
+<script>
+document.write('<link rel=stylesheet href=css/print/' + (window.location.search.match(/print-pdf/gi)?'pdf':'paper') + '.css type=text/css media=print>')
+// presentor notes kludge for my iphone
+window.location.search.substring(1).split('&').forEach(function(i) { 
+if(i === 'notes=true') {
+document.write('<link rel=stylesheet href=css/notes.css type=text/css media=screen>')
+}
+})
+</script>
+<!--[if lt IE 9]>
+<script src="lib/js/html5shiv.js"></script>
+<![endif]-->
+<style>
+@font-face { font-family: "source"; src: url('font/SourceSansPro-ExtraLight.otf'); }
+@font-face { font-family: "source-code"; src: url('font/SourceCodePro-Regular.otf'); }
+/* yah I did - brianleroux */
+.reveal h1, .reveal h2, .reveal h3,  .reveal h4, .reveal  {
+line-height:100px;           
+font-family:source;
+}
+.reveal a:not(.image)  {
+color:rgb(46, 228, 0);
+}
+.reveal .progress span {
+background:rgb(46, 228, 0);
+}
+.bg-white .reveal .state-background {
+background:#fff;
+}
+.blues .reveal .state-background {
+background:#00a4e4;
+}
+body:after {
+content: url(logo.svg);
+width: 74px;
+height: 126px;
+position: fixed;
+top: 0px;
+right: 2em;
+}
+
+</style>
+</head>
+<body>
+<div class=reveal>
+<div class="slides">
+
+
+
+
+
+
+        <section data-state=bg-white>
+            <h2 style=margin-bottom:105px;color:#333;>App Adventure</h2>
+            <h4 style=color:#ccc;>Goto Chigaco 2014</h4>
+        </section>
+        <section>
+            <h2>Welcome!</h2>
+            <li>Brock, Chloi
+            <li>Brian, Adobe
+        </section>
+        <section>
+            <h2 style=margin-bottom:105px;color:#333;>Agenda</h2>
+            <a href=http://goo.gl/UTMNtH>Here, pls don't edit ;)</a>
+        </section>
+        <section>
+        Enough about us! Who are you?
+        </section>
+
+
+        <section data-state=bg-white>
+            <h2 style=margin-bottom:105px;color:#333;>First Principles</h2>
+        </section>
+        <section>
+            <h2>Avoiding proprietary traps w/
+            open technology.</h2>
+        </section>
+        <section>
+            <h2>Ensuring Quality</h2>
+            End firedrills.
+        </section>
+        <section>
+            <h2>Continuous Delivery</h2>
+            By automating deployment.
+        </section>
+        <section>
+            <h2>Platform Fragmentation</h2>
+            native vs web<br>
+            <pre style="border:5px solid black;border-radius:15px;background:black;text-align:center">ಠ_ರೃ vs t(-.-t)</pre>
+        </section>
+
+        <section data-state=bg-white>
+            <h2 style=margin-bottom:105px;color:#333;>Toolchain</h2>
+        </section>
+        <section>
+            <h2>Computers are Tools</h2>
+            Well suited to repetative tasks!
+        </section>
+        <section>
+            <h2>Web technology</h2>
+            Open, proven.
+        </section>
+        <section>
+            <h2>NodeJS and Nonblocking I/O</h2>
+            Growth and popularity. 
+        </section>
+        <section>
+            <H2>JS VMs</h2>
+            Fast and getting faster all the time.
+        </section>
+        <section>
+            <h2>Async!</h2>
+            Callbacks, promises, and events oh myyyy.
+        </section>
+        <section>
+            <h2>npm</h2>
+            An unsung hero and quiet achiever.
+        </section>
+        <section>
+            <h2>Streams</h2>
+            A core primative and totally composible.
+        </section>
+        <section>
+            <h2>JavaScript is kind of ghetto</h2>
+            aka <a href=http://wtfjs.com>wtfjs</a>
+        </section>
+        <section>
+            <h2>Static site generators</h2>
+            Unleash the power of transpilers and asset pipelines.
+        </section>
+        <section>
+            <h2>Hybrid Development</h2>
+            Using Apache Cordova or downstream PhoneGap
+        </section>
+
+        <section data-state=bg-white>
+            <h2 style=margin-bottom:105px;color:#333;>API First</h2>
+        </section>
+
+
+        <section>
+        <h2>Break!</h2>
+        Back in 20 to talk about Apache Cordova, and Adobe PhoneGap.
+        </section>
+        <section data-state=bg-white>
+            <h2 style=margin-bottom:105px;color:#333;>Part 1 Recap</h2>
+            <h4 style=margin-bottom:105px;color:#333;>API First! Web next.</h4>
+        </section>
+        <section data-state=bg-white>
+            <h2 style=margin-bottom:105px;color:#333;>Native Clients</h2>
+        </section>
+        <section data-state=bg-white>
+            <h3 style=margin-bottom:105px;color:#333;>Apache Cordova / Adobe PhoneGap</h3>
+            <h4 style=color:#ccc;>Build apps with HTML, CSS, and JavaScript.</h4>
+        </section>
+        <section>
+            So wait what is PhoneGap vs Cordova?
+        </section>
+        <section>
+            <h2>PhoneGap CLI is the Cordova CLI with remote build capability.</h2>
+        </section>
+        <section data-state=bg-white>
+            <h2>Who does Cordova dev?</h2>
+            <img width=100 src=img/adobe.jpg style=border:none;box-shadow:none;>
+            <img width=80 src=img/bblogo.jpg style=border:none;box-shadow:none;>
+            <img width=180 src=img/google.jpg style=border:none;box-shadow:none;>
+            <img width=250 src=img/msft.jpg style=border:none;box-shadow:none;><br>
+            <img width=140 src=img/ibm.jpg style=border:none;box-shadow:none;>
+            <img width=100 src=img/intel.jpg style=border:none;box-shadow:none;>
+            <img width=100 src=img/moz.jpeg style=border:none;box-shadow:none;>
+            <img width=100 src=img/lg.jpeg style=border:none;box-shadow:none;>
+        </section>
+        <section>
+            <h2>Cadence</h2> 
+            <a href=http://phonegap.com/2012/04/12/rolling-releases-how-apache-cordova-becomes-phonegap-and-why/>A project heartbeat.</a>
+        </section>
+        <section>
+            <h2>How to contribute?</h2>
+            <a href=http://wiki.apache.org/cordova/ContributorWorkflow>More on our wiki.</a>
+        </section>
+        <section>
+            <h2>How to become a committer</h2>
+            <a href=http://wiki.apache.org/cordova/BecomingACommitter>Also on our wiki.</a>
+        </section>
+                <section data-state=bg-white>
+                    <h2 style=color:#333>The web is the OS?</h2>
+                    <img width=100 height=100 src=img/chrome-os.jpg style=border:none;box-shadow:none;margin-left:15px;>
+                    <img  height=100 src=img/windows-8.jpg style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img  width=100 height=100 src=img/fxos.jpg style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img src=img/tizen.png style=border:none;box-shadow:none;;margin-left:15px;>
+                    <img src=img/webos.png style=border:none;box-shadow:none;;margin-left:15px;>
+                    <aside class=notes>
+                        <ul>
+                            <li>Did you notice? You have a front row seat for the dawn of web operating systems.</li>
+                            <li>Microsoft Windows 8</li>
+                            <li>Google Chrome OS</li>
+                            <li>Mozilla Firefox OS</li>
+                            <li>Tizen (Samsung and Intel sponsored)</li>
+                            <li>HP Open webOS</li>
+                        </ul>
+                    </aside>
+                </section>
+                
+                <section data-state=bg-white>
+                    <h2 style=color:#333>We can cover the rest with PhoneGap</h2>
+                    <img width=100 src=img/app-store.png style=border:none;box-shadow:none;>
+                    <img width=100 src=img/play.jpeg style=border:none;box-shadow:none;>
+                    <img width=100 src=img/bb.jpg style=border:none;box-shadow:none;>
+                    <img width=100 src=img/marketplace.jpg style=border:none;box-shadow:none;>
+                    <aside class=notes>
+                        <ul>
+                            <li>Interestingly, most app stores are all hybrid apps themselves.</li>
+                        </ul>
+                    </aside>
+                </section>
+                
+
+                <section data-state=soothe>
+                <h2>To summarize</h2>
+                <ul style=align:left;list-style:none;>
+                    <li>Web tech is a solid choice
+                    <li>Build your API first
+                    <li>Rock out clients for the web, iOS, Android and Desktop
+                    <li>Test everything, deploy often
+                </ul>
+                And most importantly…
+                <aside class=notes><ul></ul></aside>
+                </section>
+                 
+            
+
+
+                
+                
+
+
+
+                <section>
+                    <h2>Have fun and kickass! </h2>
+                    <img src=img/picard.gif>
+                    <p>
+                    thx! - <a href=http://twitter.com/brianleroux>@brianleroux</a>
+                    &amp;&amp; <a href=http://twitter.com/sintaxi>@sintaxi</a>
+                    </p>
+                </section>
+                
+
+
+
+<!--
+<section data-state="blackout">
+<section>
+<h2>"soothe"</h2>
+</section>
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) ) {
+        node.className += ' roll';
+      }
+    };
+  }
+}
+					</code></pre>
+					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+
+					<section>
+						<h2>Fragmented Views</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<ol>
+							<li class="fragment"><code>any type</code></li>
+							<li class="fragment"><em>of view</em></li>
+							<li class="fragment"><strong>fragments</strong></li>
+						</ol>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's a few styles of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment roll-in">roll-in</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment highlight-red">highlight-red</p>
+						<p class="fragment highlight-green">highlight-green</p>
+						<p class="fragment highlight-blue">highlight-blue</p>
+					</section>
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: 'linear', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			})
+		</script>
+	</body>
+</html>
